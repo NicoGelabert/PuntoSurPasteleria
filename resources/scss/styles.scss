@@ -1,0 +1,232 @@
+@use './globals' as *;
+@use './animations/animations' as *;
+body{
+    background-color: $white;
+    font-family: $primary-font;
+    font-weight: 300;
+    a{
+        @apply hover:text-[#a8eb12];
+    }
+    .logo{
+        svg{
+            @apply h-7 w-7 sm:h-10 sm:w-10 ml-6
+        }
+    }
+    h3{
+        color: $black;
+        font-weight: 500;
+        @apply text-base sm:text-lg md:text-xl lg:text-2xl
+    }
+    header, .mobile-menu{
+        background-color: $white;
+        color: $black;
+        a:hover{
+            color:$black;
+        }
+        .btn-register{
+            @apply py-2 px-4 rounded-full shadow-md w-full hover:bg-slate-200 hover:border-transparent hover:text-slate-900 active:bg-slate-400 transition-colors; 
+            border: $black 1px solid;
+            color: $black;
+        }
+        .dropdown{
+            background-color: $white;
+            width: 100%;
+        }
+        .cart-widget{
+            color:$white;
+            @apply mx-2 md:mx-0;
+        }
+        .flag-icon{
+            margin-right: 0.5rem;
+            width: 1rem;
+        }
+        ul li{
+            @apply w-fit;
+        }
+    }
+    .btn-primary{
+        @apply py-2 px-8 rounded-full shadow-md hover:bg-slate-200 hover:text-slate-900 active:bg-slate-400 transition-colors text-xs sm:text-sm text-center; 
+        background-color: $black;
+        color: $white;
+    }
+    .btn-secondary{
+        @apply py-2 sm:px-8 rounded-full shadow-md w-full hover:bg-slate-200 hover:border-transparent hover:text-slate-900 active:bg-slate-400 transition-colors text-xs sm:text-sm; 
+        border: $black 1px solid;
+        color: $black;
+        display: inline-block;
+        margin: 1.5rem auto;
+        text-align: center;
+    }
+    .anchor-btn{
+        @apply py-2 sm:px-8 hover:bg-slate-200 hover:border-transparent hover:text-slate-900 active:bg-slate-400 transition-colors text-xs sm:text-sm;
+        color: $black;
+        display: inline-block;
+        text-align: center;
+    }
+    .account{
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $gray;
+        border-radius: 0;
+    }
+    .small-text{
+        font-size: 0.75rem;
+        font-weight: 500;
+        margin: 3px 0;
+    }
+    .title{
+        align-items: center;
+        column-gap: 1rem;
+        display: flex;
+        margin-bottom: 2rem;
+        position: relative;
+    }
+    .title::after{
+        border-top: 1px solid #E5E5E5;
+        content: '';
+        flex-basis: 0;
+        flex-grow: 1;
+        height: 0;
+        max-width: 100%;
+    }
+    .font-number-label{
+        margin-bottom: 0;
+        width: 100%;
+        @apply text-xs md:text-sm;
+    }
+    .font-number{
+        font-family: 'Battambang', display;
+        font-weight: 400;
+    }
+    .card-listing{
+        display: flex;
+        flex-direction: column;
+        height: 150px;
+        justify-content: space-around;
+      }
+    .btn-cart-product{
+        margin: 0;
+        width:auto;
+        @apply p-3 md:p-3 top-6 right-6;
+        svg{
+            @apply h-5 w-5 sm:h-6 sm:w-6;
+        }
+    }
+    /* Product view */
+    .product-thumbnail{
+        border-color: $white;
+    }
+    .product-thumbnail:hover{
+        border-color: $black;
+    }
+    .product-thumbnail-active{
+        border-color: $gray;
+    }
+
+    .product-view{
+        .add-to-cart-container {
+            min-width: 150px;
+            width:fit-content;
+        }
+        .add-to-cart-container .add-to-cart-button {
+            
+            border-radius: 9999px;
+            cursor: pointer;
+            font-family: roboto, sans-serif;
+            height: 60px;
+            margin: 0;
+            padding: 1rem 18px;
+            transition: all 300ms;
+            width: 60px;
+        }
+        .add-to-cart-container .add-to-cart-button .add-to-cart-text{   
+            font-size: 0;
+            margin: 0;
+            opacity: 0;
+            padding: 0 0.5rem;
+            transition: opacity 1000ms;
+            white-space: nowrap;
+            width: 0;
+        }
+        .add-to-cart-container .add-to-cart-button:hover {
+            transition: all 400ms cubic-bezier(.62, .1, .5, 1);
+            width: 100%;
+            .add-to-cart-text{
+                font-size: 20px;
+                opacity: 1;
+                transition: opacity 700ms, width 1ms linear 270ms, font-size 1ms linear 270ms;
+                width: calc(100% - 50px);
+            }
+        }
+    }
+    // SPLIDE Home carousel
+    #image-carousel{
+        ul li{
+            .card-listing{
+                @apply h-[100px] justify-between;
+                h3{
+                    @apply text-sm sm:text-base lg:text-lg;
+                }
+                h5{
+                    @apply text-sm md:text-lg pl-0;
+                }
+            }
+        }
+        .splide__arrow--next{
+            @apply -right-[0.5rem] md:right-0;
+        }
+        .splide__arrow--prev{
+            @apply -left-[0.5rem] md:left-0;
+        }
+        .splide__pagination{
+            @apply bottom-[-2rem] mr-0;
+            .splide__pagination__page{
+                background-color: $black;
+                opacity: 0.5;
+            }
+            .splide__pagination__page.is-active{
+                opacity: 1;
+            }
+        }
+    }
+    // SPLIDE Home carousel
+    // FOOTER
+    footer{
+        @apply w-full bg-gray-900;
+        border-color: $black;
+        color: $white;
+        .footer-container{
+            @apply pt-16 pb-8 justify-between flex-wrap gap-4;
+            .logo {
+                @apply mx-8 sm:mx-0;
+                a{
+                    @apply flex items-center justify-center md:justify-start;
+                }
+                svg{
+                    @apply h-10 w-auto;
+                    fill: $white;
+                    margin-left: 0;
+                }
+            }
+            .social-icons a{
+                line-height: 0;
+                @apply my-8;
+                i:before{
+                    @apply text-2xl;
+                }
+            }
+            .footer-menu > div {
+                @apply flex-1 md:flex-auto;
+                h4{
+                    @apply text-lg font-bold;
+                }
+                ul li{
+                    @apply text-sm pb-1 md:pl-2;
+                }
+            }
+        }
+        .post-footer{
+            @apply flex flex-col-reverse sm:flex-row items-center justify-between mx-auto pt-8 pb-8 md:py-8 text-xs gap-y-4;
+        }
+    }
+}
