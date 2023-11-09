@@ -6,6 +6,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -25,6 +26,9 @@ Route::middleware(['guestOrVerified'])->group(function () {
     Route::get('/',[WelcomeController::class, 'index'])->name('welcome');
     Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
     
+    Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
+    Route::get('/{categories:slug}', [CategoriesController::class, 'view'])->name('categories.view');
+
     Route::get('/products', [ProductController::class, 'index'])->name('product.index');
     Route::get('/product/{product:slug}', [ProductController::class, 'view'])->name('product.view');
 
