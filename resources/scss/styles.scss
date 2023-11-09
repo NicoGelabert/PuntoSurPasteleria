@@ -1,24 +1,46 @@
 @use './globals' as *;
 @use './animations/animations' as *;
 body{
-    background-color: $white;
-    font-family: $primary-font;
-    font-weight: 300;
-    a{
-        @apply hover:text-[#a8eb12];
+    background-color: $gray;
+    h1, h2, h3, h4, h5, h6{
+        font-family: $primary-font;
+        letter-spacing: 0.025em;
     }
-    .logo{
-        svg{
-            @apply h-7 w-7 sm:h-10 sm:w-10 ml-6
-        }
+    h1{
+        @apply text-4xl;
+        color: $primary;
+    }
+    h2{
+        @apply text-3xl;
+        color: $primary;
     }
     h3{
         color: $black;
-        font-weight: 500;
         @apply text-base sm:text-lg md:text-xl lg:text-2xl
     }
+    p{
+        font-family: $secondary-font;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    .small{
+        font-size: 0.75rem;
+    }
+    a{
+        color:$primary;
+        :hover{
+            color: $secondary;
+        }
+    }
+    .logo{
+        svg{
+            @apply w-14 h-auto ml-3;
+            fill:$primary;
+        }
+    }
+    
     header, .mobile-menu{
-        background-color: $white;
+        background-color: $gray;
         color: $black;
         a:hover{
             color:$black;
@@ -44,18 +66,54 @@ body{
             @apply w-fit;
         }
     }
+    //buttons
     .btn-primary{
-        @apply py-2 px-8 rounded-full shadow-md hover:bg-slate-200 hover:text-slate-900 active:bg-slate-400 transition-colors text-xs sm:text-sm text-center; 
-        background-color: $black;
-        color: $white;
+        @apply py-2 px-6 rounded-full shadow-md transition-colors uppercase tracking-wide text-sm text-center; 
+        background-color: $primary;
+        color: $secondary;
     }
+    .btn-primary:hover{
+        background-color: $primary-darker;
+        color: $secondary-darker;
+    }
+    .btn-primary:active{
+        background-color: $primary-lighter;
+        color: $primary-darker;
+    }
+
     .btn-secondary{
-        @apply py-2 sm:px-8 rounded-full shadow-md w-full hover:bg-slate-200 hover:border-transparent hover:text-slate-900 active:bg-slate-400 transition-colors text-xs sm:text-sm; 
-        border: $black 1px solid;
-        color: $black;
-        display: inline-block;
-        margin: 1.5rem auto;
-        text-align: center;
+        @apply py-2 px-6 rounded-full shadow-md transition-colors uppercase tracking-wide text-sm text-center; 
+        background-color: $secondary;
+        color: $primary;
+    }
+    .btn-secondary:hover{
+        background-color: $secondary-lighter;
+        color: $primary;
+    }
+    .btn-secondary:active{
+        background-color: $secondary-darkest;
+        color: $primary-darker;
+    }
+    #categorybuttons{
+        @apply w-full md:w-1/2 lg:w-2/5 flex flex-wrap p-2 justify-evenly gap-5;
+    }
+    #categorybuttons a{
+        @apply w-2/5 rounded-lg flex flex-wrap flex-col p-0 lg:gap-5 justify-around aspect-square;
+    }
+    #categorybuttons a img{
+        @apply w-auto max-h-[50%] lg:max-h-[75%] pt-5;
+    }
+    #categorybuttons a h5{
+        @apply normal-case;
+    }
+    //buttons
+    //promo-welcome
+    .promo-welcome{
+        background-color: $secondary;
+        // background-image: url("/storage/app/public/img/gota.png");
+        // background-repeat: no-repeat;
+        // background-size: contain;
+        @apply px-8 sm:px-16;
     }
     .anchor-btn{
         @apply py-2 sm:px-8 hover:bg-slate-200 hover:border-transparent hover:text-slate-900 active:bg-slate-400 transition-colors text-xs sm:text-sm;
@@ -101,13 +159,11 @@ body{
     .card-listing{
         display: flex;
         flex-direction: column;
-        height: 150px;
         justify-content: space-around;
       }
     .btn-cart-product{
         margin: 0;
         width:auto;
-        @apply p-3 md:p-3 top-6 right-6;
         svg{
             @apply h-5 w-5 sm:h-6 sm:w-6;
         }
@@ -163,20 +219,25 @@ body{
     #image-carousel{
         ul li{
             .card-listing{
-                @apply h-[100px] justify-between;
+                @apply justify-between gap-y-4 text-center;
+                img{
+                    @apply max-w-[1.5rem] md:max-w-[2rem] lg:max-w-[2.5rem];
+                }
                 h3{
                     @apply text-sm sm:text-base lg:text-lg;
                 }
                 h5{
                     @apply text-sm md:text-lg pl-0;
                 }
+                p{
+                    -webkit-box-orient: vertical;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    line-height: 1.3rem;
+                    max-height: 2.6rem;
+                    overflow:hidden; 
+                }
             }
-        }
-        .splide__arrow--next{
-            @apply -right-[0.5rem] md:right-0;
-        }
-        .splide__arrow--prev{
-            @apply -left-[0.5rem] md:left-0;
         }
         .splide__pagination{
             @apply bottom-[-2rem] mr-0;
@@ -192,28 +253,25 @@ body{
     // SPLIDE Home carousel
     // FOOTER
     footer{
-        @apply w-full bg-gray-900;
-        border-color: $black;
-        color: $white;
+        @apply w-full;
+        background-color: $primary;
+        color: $secondary;
         .footer-container{
-            @apply pt-16 pb-8 justify-between flex-wrap gap-4;
+            @apply pt-16 pb-8 justify-between flex-wrap;
             .logo {
                 @apply mx-8 sm:mx-0;
-                a{
-                    @apply flex items-center justify-center md:justify-start;
-                }
-                svg{
-                    @apply h-10 w-auto;
-                    fill: $white;
-                    margin-left: 0;
-                }
             }
-            .social-icons a{
-                line-height: 0;
-                @apply my-8;
-                i:before{
-                    @apply text-2xl;
-                }
+            a{
+                @apply flex items-center justify-center;
+                color: $secondary;
+            }
+            a:hover{
+                color: $secondary-lighter;
+            }
+            svg{
+                @apply h-28 w-auto;
+                fill: $secondary;
+                margin-left: 0;
             }
             .footer-menu > div {
                 @apply flex-1 md:flex-auto;
@@ -222,11 +280,20 @@ body{
                 }
                 ul li{
                     @apply text-sm pb-1 md:pl-2;
+                    a{
+                        @apply md:justify-start;
+                    }
                 }
             }
         }
         .post-footer{
             @apply flex flex-col-reverse sm:flex-row items-center justify-between mx-auto pt-8 pb-8 md:py-8 text-xs gap-y-4;
+            a{
+                color: $secondary;
+            }
+            a:hover{
+                color: $secondary-lighter;
+            }
         }
     }
 }

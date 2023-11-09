@@ -17,7 +17,7 @@
     <body>
     @include('layouts.navigation')
 
-    <main class="px-5">
+    <main class="w-full mx-auto">
         {{ $slot }}
     </main>
 
