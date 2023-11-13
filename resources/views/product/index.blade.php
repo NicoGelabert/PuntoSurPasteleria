@@ -22,7 +22,7 @@
                         'addToCartUrl' => route('cart.add', $product)
                     ]) }})"
                     class="border-transparent relative overflow-hidden rounded-lg bg-white flex">
-                    <a href="{{ route('product.view', $product->slug) }}"
+                    <a href="{{ route('product.view', [$product->category?->slug, $product->slug]) }}"
                        class="aspect-w-3 aspect-h-2 block overflow-hidden">
                         <img
                             src="{{ $product->image }}"

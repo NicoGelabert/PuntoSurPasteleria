@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Categories;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,7 +15,7 @@ class Product extends Model
     use HasSlug;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'description', 'price', 'image', 'published', 'image_mime', 'image_size', 'created_by', 'updated_by'];
+    protected $fillable = ['title', 'description', 'price', 'image', 'published', 'image_mime', 'image_size', 'created_by', 'updated_by', 'categories_id'];
 
     public function getSlugOptions() : SlugOptions
     {
@@ -26,5 +27,9 @@ class Product extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+    public function category()
+    {
+    return $this->belongsTo(Categories::class, 'categories_id');
     }
 }

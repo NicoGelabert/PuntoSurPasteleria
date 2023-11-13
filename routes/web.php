@@ -26,12 +26,12 @@ Route::middleware(['guestOrVerified'])->group(function () {
     Route::get('/',[WelcomeController::class, 'index'])->name('welcome');
     Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
     
-    Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
-    Route::get('/{categories:slug}', [CategoriesController::class, 'view'])->name('categories.view');
-
-    Route::get('/products', [ProductController::class, 'index'])->name('product.index');
-    Route::get('/product/{product:slug}', [ProductController::class, 'view'])->name('product.view');
-
+    // Route::get('/todo-lo-rico', [ProductController::class, 'index'])->name('product.index');
+    Route::get('/menu', [CategoriesController::class, 'index'])->name('categories.index');
+    Route::get('/menu/{categories:slug}', [CategoriesController::class, 'view'])->name('categories.view');
+    Route::get('/menu/{categories:slug}/{product:slug}', [ProductController::class, 'view'])->name('product.view');
+    
+    
     Route::prefix('/cart')->name('cart.')->group(function () {
         Route::get('/', [CartController::class, 'index'])->name('index');
         Route::post('/add/{product:slug}', [CartController::class, 'add'])->name('add');

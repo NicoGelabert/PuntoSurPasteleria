@@ -1,6 +1,4 @@
-<?php
-    /** @var \Illuminate\Database\Eloquent\Collection $products */
-    ?>
+
     <x-app-layout>
         <div class="mx-auto px-5 pt-32 max-w-screen-xl flex flex-col md:flex-row items-center justify-center relative md:h-screen">
             <div class="w-full md:w-3/5 relative isolate px-6 md:pt-0 md:pb-0 lg:px-8 slide-in-left">
@@ -8,8 +6,8 @@
                     <h1>Happiness is a piece of cake</h1>
                     <p class="mt-2 text-lg leading-8 text-gray-600">{{__('E-commerce site developed with Laravel, Vue JS and Tailwind.')}}</p>
                     <div class="flex gap-3 my-6 md:justify-start">
-                        <a href="{{ route('product.index') }}" class="btn-primary">
-                        {{__('See all')}}
+                        <a href="{{ route('categories.index') }}" class="btn-primary">
+                        {{__('See menu')}}
                         </a>
                     </div>
                 </div>
@@ -19,7 +17,19 @@
             </div>
         </div>
 
-        <x-category-buttons />
+        <div class="px-5 max-w-screen-xl mx-auto flex justify-evenly items-center my-20">
+            <div id="categoryimagesection" class="hidden sm:inline-block mix-blend-multiply max-w-[350px] lg:w-3/5">
+                <img src="{{ asset('storage/img/muffins.png') }}" alt="">
+            </div>
+            <div id="categorybuttons">
+                @foreach ($categories as $category)
+                    <a href="{{ route('categories.view', $category->slug) }}" class="" alt="">
+                        <img src="{{ $category -> icon }}" class="" alt="tartas" />
+                        <h5>{{$category -> name}}</h5>
+                    </a>
+                @endforeach
+            </div>
+        </div>
 
         <x-promo-welcome />
 
@@ -38,7 +48,7 @@
                         'price' => $product->price,
                         'addToCartUrl' => route('cart.add', $product)
                     ]) }})" class="splide__slide border-transparent overflow-hidden rounded-lg bg-white">
-                        <a href="{{ route('product.view', $product->slug) }}"
+                        <a href="{{ route('product.view', [$product->category?->slug, $product->slug ]) }}"
                         class="aspect-w-3 aspect-h-2 block">
                             <img src="{{ $product->image }}" alt="{{$product->title}}"
                             class="card-image object-cover hover:scale-105 hover:rotate-1 transition-transform">
@@ -50,6 +60,7 @@
                                     <img src="{{ asset('storage/iconos/egg.jpg') }}" alt="">
                                 </div>
                                 <div class="flex justify-center">
+                                    <h5>{{$product->category?->name}}</h5>
                                     <h3 class="underline-hover w-fit">
                                         {{$product->title}}
                                     </h3>
@@ -93,3 +104,12 @@
         <x-newsletter />
         
     </x-app-layout>
+
+<script>
+    const buttonsContainer = document.getElementById("categorybuttons");
+    const childrenButtons = buttonsContainer.querySelectorAll("a")
+    childrenButtons.forEach((item,index) =>{
+        ((index > 0 && index < 3) || (index > 4 && index < 7)) ? item.classList.add('btn-primary') : item.classList.add('btn-secondary');
+    })
+
+</script>

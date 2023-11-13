@@ -1,4 +1,7 @@
-<x-app-layout>
+<?php
+    /** @var \Illuminate\Database\Eloquent\Collection $categories */
+    ?>
+    <x-app-layout>
     <div  x-data="productItem({{ json_encode([
                     'id' => $product->id,
                     'slug' => $product->slug,
@@ -93,6 +96,9 @@
                 </div>
             </div>
             <div class="w-full md:w-1/2 product-view" id="texto">
+                <h5>
+                    <a href="{{ route('categories.view', $product->category?->slug) }}">{{$product->category?->name}}</a>
+                </h5>
                 <h1 class="text-3xl font-semibold">
                     {{$product->title}}
                 </h1>
@@ -149,6 +155,13 @@
                         </button>
                     </div>
                     <!-- Add to cart button -->
+                </div>
+                <div>
+                    <ul>
+                        @foreach ($categories as $category)
+                            <li><a href="{{ route('categories.view', $category->slug) }}">{{$category->name}}</a></li>
+                        @endforeach
+                    </ul>
                 </div>
                 <div class="mb-6" x-data="{expanded: false}">
                     <div

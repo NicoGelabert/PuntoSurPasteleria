@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Categories;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,7 @@ class CategoriesController extends Controller
 
     public function view(Categories $categories)
     {
-        return view('categories.view', ['categories' => $categories]);
+        return view(
+            'categories.view', ['categories' => $categories]);
     }
 }
