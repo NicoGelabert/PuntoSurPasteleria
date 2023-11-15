@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->foreignId('categories_id')->references('id')->on('categories');
+            $table->foreignId('categories_id')->references('id')->on('categories')->onDelete('set null');
         });
     }
 

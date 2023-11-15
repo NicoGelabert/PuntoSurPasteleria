@@ -23,7 +23,7 @@ use Inertia\Inertia;
 */
 
 Route::middleware(['guestOrVerified'])->group(function () {
-    Route::get('/',[WelcomeController::class, 'index'])->name('welcome');
+    Route::get('/welcome',[WelcomeController::class, 'index'])->name('welcome');
     Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
     
     // Route::get('/todo-lo-rico', [ProductController::class, 'index'])->name('product.index');
