@@ -2,6 +2,12 @@
     /** @var \Illuminate\Database\Eloquent\Collection $categories */
     ?>
     <x-app-layout>
+    <div class="flex flex-wrap justify-center gap-8 pt-28">
+        @foreach ($categories as $category)
+        <a href="{{ route('categories.view', $category->slug) }}" class="underline-hover"><p class="small">{{$category->name}}</p></a>
+        @endforeach
+    </div>
+    <hr class="my-8 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
     <div  x-data="productItem({{ json_encode([
                     'id' => $product->id,
                     'slug' => $product->slug,
@@ -9,7 +15,7 @@
                     'title' => $product->title,
                     'price' => $product->price,
                     'addToCartUrl' => route('cart.add', $product)
-                ]) }})" class=" lg:p-8 mx-auto pt-24 lg:pt-32">
+                ]) }})" class="mx-auto px-5 max-w-screen-xl flex flex-col md:flex-row items-center justify-center lg:pb-8">
         <div class="flex flex-col md:flex-row gap-12">
             <div class="w-full md:w-1/2">
                 <div
@@ -96,89 +102,121 @@
                 </div>
             </div>
             <div class="w-full md:w-1/2 product-view" id="texto">
-                <h5>
-                    <a href="{{ route('categories.view', $product->category?->slug) }}">{{$product->category?->name}}</a>
-                </h5>
-                <h1 class="text-3xl font-semibold">
+                <a href="{{ route('categories.view', $product->category?->slug) }}">
+                    <p class="small category_subtitle">{{$product->category?->name}}</p>
+                </a>
+                <h1>
                     {{$product->title}}
                 </h1>
+                <div class="flex w-full gap-4 mt-4">
+                    <img src="{{ asset('storage/iconos/gluten.svg') }}" data-tooltip-target="tooltip-gluten" alt="" class="h-6 w-auto">
+                    <div id="tooltip-gluten" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
+                        <p class="small">Contains Gluten</p>
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    <img src="{{ asset('storage/iconos/lactose.svg') }}" data-tooltip-target="tooltip-lactose" alt="" class="h-6 w-auto">
+                    <div id="tooltip-lactose" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
+                        <p class="small">Contains Lactose</p>
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    <img src="{{ asset('storage/iconos/sugar.svg') }}" data-tooltip-target="tooltip-sugar" alt="" class="h-6 w-auto">
+                    <div id="tooltip-sugar" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
+                        <p class="small">Contains Sugar</p>
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                    <img src="{{ asset('storage/iconos/egg.svg') }}" data-tooltip-target="tooltip-egg" alt="" class="h-6 w-auto">
+                    <div id="tooltip-egg" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
+                        <p class="small">Contains Egg</p>
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+                </div>
                 <!-- <label for="quantity" class="block font-bold mr-4">
                     Quantity
                 </label> -->
                 <div class="flex flex-wrap justify-between align-center gap-y-4 my-8">
-                    <div x-data="{value: 1}" class="font-number md:my-6 text-2xl lg:text-3xl">${{$product->price}}</div>
-                    <div class="flex items-center content-center quantity">
-                        <button id="down" class="btn btn-default" onclick=" down('0')">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="current" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </button>
-                        <input
-                            type="number"
-                            name="quantity"
-                            x-ref="quantityEl"
-                            value="1"
-                            min="1"
-                            class="w-32 qty"
-                            id="myNumber"
-                        />
-                        <button id="up" class="btn btn-default" onclick="up('10')">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="current" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </button>
+                    <div x-data="{value: 1}" class="price">$    {{$product->price}}
                     </div>
-                    <!-- Add to cart button -->
-                    <div class="add-to-cart-container flex-[1_0_100%]">
-                        <button
-                            @click="addToCart($refs.quantityEl.value)"
-                            class="add-to-cart-button flex items-center btn-primary"
-                        >
-                        <span>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-6 w-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                id="icon-chat"
+                    <div class="w-full flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-16">
+                        <div class="flex items-center content-center quantity">
+                            <button id="down" class="btn btn-default" onclick=" down('0')">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="current" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </button>
+                            <input
+                                type="number"
+                                name="quantity"
+                                x-ref="quantityEl"
+                                value="1"
+                                min="1"
+                                class="w-32 qty"
+                                id="myNumber"
+                            />
+                            <button id="up" class="btn btn-default" onclick="up('10')">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="current" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <!-- Add to cart button -->
+                        <div class="add-to-cart-container flex items-center gap-6">
+                            <button
+                                @click="addToCart($refs.quantityEl.value)"
+                                class="add-to-cart-button"
                             >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                                />
-                            </svg>
-                        </span>
-                        <span class="add-to-cart-text">Add to cart</span>
-                        </button>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    id="icon-chat"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                                    />
+                                </svg>
+                            </button>
+                            <div
+                                x-data="toast"
+                                x-show="visible"
+                                x-transition
+                                x-cloak
+                                @notify.window="show($event.detail.message)"
+                                class="flex flex-col gap-2"
+                            >
+                                <div class="product-toast small font-semibold" x-text="message"></div>
+                                <!-- Progress -->
+                                <div class="relative">
+                                    <div
+                                        class="absolute left-0 bottom-0 right-0 h-[3px] toast-progress"
+                                        :style="{'width': `${percent}%`}"
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add to cart button -->
                     </div>
-                    <!-- Add to cart button -->
-                </div>
-                <div>
-                    <ul>
-                        @foreach ($categories as $category)
-                            <li><a href="{{ route('categories.view', $category->slug) }}">{{$category->name}}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="mb-6" x-data="{expanded: false}">
-                    <div
-                        x-show="expanded"
-                        x-collapse.min.120px
-                        class="text-gray-500 wysiwyg-content"
-                    >
-                        {{ $product->description }}
+                    <div class="mb-6" x-data="{expanded: false}">
+                        <div
+                            x-show="expanded"
+                            x-collapse.min.120px
+                            class="text-gray-500 wysiwyg-content"
+                        >
+                            {{ $product->description }}
+                        </div>
+                        <p class="text-right">
+                            <a
+                                @click="expanded = !expanded"
+                                href="javascript:void(0)"
+                                class="text-purple-500 hover:text-purple-700"
+                                x-text="expanded ? 'Read Less' : 'Read More'"
+                            ></a>
+                        </p>
                     </div>
-                    <p class="text-right">
-                        <a
-                            @click="expanded = !expanded"
-                            href="javascript:void(0)"
-                            class="text-purple-500 hover:text-purple-700"
-                            x-text="expanded ? 'Read Less' : 'Read More'"
-                        ></a>
-                    </p>
                 </div>
             </div>
         </div>
@@ -201,13 +239,6 @@
 
 </script>
 <style>
-    .quantity {
-        display: -ms-inline-flexbox;
-        display: inline-flex;
-        align-items: stretch;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    }
     .quantity .qty {
         width: 50px;
         height: 40px;

@@ -99,21 +99,25 @@ new Splide( '.splide', {
   perPage: 5,
   perMove: 1,
   gap    : '0.5rem',
-  autoplay: true,
+  autoplay: false,
   pagination: true,
   omitEnd  : true,
   autoWidth: false,
   breakpoints: {
-    800: {
-      perPage: 4,
-      gap    : '.7rem',
+    1280: {
+      perPage:4,
+      gap: '1rem',
     },
-    640: {
+    800: {
       perPage: 3,
       gap    : '.7rem',
     },
-    480: {
+    640: {
       perPage: 2,
+      gap    : '.7rem',
+    },
+    480: {
+      perPage: 1,
       gap    : '.5rem',
     },
   },

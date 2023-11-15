@@ -24,8 +24,10 @@
             <div id="categorybuttons">
                 @foreach ($categories as $category)
                     <a href="{{ route('categories.view', $category->slug) }}" class="" alt="">
-                        <img src="{{ $category -> icon }}" class="" alt="tartas" />
-                        <h5>{{$category -> name}}</h5>
+                        <div class="h-full flex flex-wrap flex-col justify-evenly px-2 lg:px-4">
+                            <img src="{{$category -> icon}}" alt="{{$category -> name}}">
+                            <h5>{{$category -> name}}</h5>
+                        </div>
                     </a>
                 @endforeach
             </div>
@@ -47,28 +49,26 @@
                         'title' => $product->title,
                         'price' => $product->price,
                         'addToCartUrl' => route('cart.add', $product)
-                    ]) }})" class="splide__slide border-transparent overflow-hidden rounded-lg bg-white">
-                        <a href="{{ route('product.view', [$product->category?->slug, $product->slug ]) }}"
-                        class="aspect-w-3 aspect-h-2 block">
-                            <img src="{{ $product->image }}" alt="{{$product->title}}"
-                            class="card-image object-cover hover:scale-105 hover:rotate-1 transition-transform">
+                        ]) }})" class="splide__slide border-transparent overflow-hidden rounded-lg bg-white underline-hover">
+                        <a href="{{ route('product.view', [$product->category?->slug, $product->slug ]) }}" class="aspect-w-3 aspect-h-2 block">
+                            <img src="{{ $product->image }}" alt="{{$product->title}}" class="card-image object-cover hover:scale-105 hover:rotate-1 transition-transform" />
                             <div class="p-4 card-listing">
-                                <div class="flex justify-center w-full">
-                                    <img src="{{ asset('storage/iconos/gluten.jpg') }}" alt="">
-                                    <img src="{{ asset('storage/iconos/lactose.jpg') }}" alt="">
-                                    <img src="{{ asset('storage/iconos/sugar.jpg') }}" alt="">
-                                    <img src="{{ asset('storage/iconos/egg.jpg') }}" alt="">
+                                <div class="flex justify-center w-full gap-4">
+                                    <img src="{{ asset('storage/iconos/gluten.svg') }}" alt="">
+                                    <img src="{{ asset('storage/iconos/lactose.svg') }}" alt="">
+                                    <img src="{{ asset('storage/iconos/sugar.svg') }}" alt="">
+                                    <img src="{{ asset('storage/iconos/egg.svg') }}" alt="">
                                 </div>
-                                <div class="flex justify-center">
-                                    <h5>{{$product->category?->name}}</h5>
-                                    <h3 class="underline-hover w-fit">
+                                <div class="flex flex-col items-center justify-center">
+                                    <p class="small category_subtitle">{{$product->category?->name}}</p>
+                                    <h4 class="w-fit">
                                         {{$product->title}}
-                                    </h3>
+                                    </h4>
                                 </div>
-                                <div class="price-container relative flex justify-center">
-                                    <h5 class="font-number pl-4 text-lg md:text-xl lg:text-2xl">${{$product->price}}</h5>
+                                <div class="relative flex justify-center">
+                                    <span class="price">${{$product->price}}</span>
                                 </div>
-                                <div class="price-container relative flex">
+                                <div class="relative flex">
                                     <p class="small">{{$product->description}}</p>
                                 </div>
                             </div>
@@ -91,7 +91,6 @@
                                     />
                                 </svg>
                             </button>
-
                         </div>
                     </li>
                     @endforeach
@@ -107,9 +106,8 @@
 
 <script>
     const buttonsContainer = document.getElementById("categorybuttons");
-    const childrenButtons = buttonsContainer.querySelectorAll("a")
+    const childrenButtons = buttonsContainer.querySelectorAll("a");
     childrenButtons.forEach((item,index) =>{
         ((index > 0 && index < 3) || (index > 4 && index < 7)) ? item.classList.add('btn-primary') : item.classList.add('btn-secondary');
     })
-
 </script>
