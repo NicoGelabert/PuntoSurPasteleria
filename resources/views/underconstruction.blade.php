@@ -16,11 +16,11 @@
     </head>
     <body>
 
-    <main class="w-full mx-auto flex flex-col justify-evenly items-center h-screen">
+    <main class="w-full mx-auto flex flex-col justify-evenly items-center h-screen px-10">
         <div class="enconstruccion">
             <x-application-logo class="block fill-current" />
         </div>
-        <div class="w-full grid grid-cols-1 gap-x-8 gap-y-8 text-center">
+        <div class="w-full grid grid-cols-1 mx-16 gap-y-8 text-center">
             <h2 class="text-3xl font-bold sm:text-4xl">Página en construcción</h2>
             <hr class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
             <p class="text-lg leading-8 text-gray-400">Encontranos en el local de Av. Ramón y Cajal 10, Fuengirola, Málaga</p>
@@ -42,7 +42,7 @@
 <style>
     .enconstruccion svg{
         height: auto;
-        width: 7rem;
+        width: 10rem;
         fill: #6c4852;
     }
 </style>
