@@ -42,7 +42,7 @@
 <style>
     .enconstruccion svg{
         height: auto;
-        width: 10rem;
+        width: 16rem;
         fill: #6c4852;
     }
 </style>
