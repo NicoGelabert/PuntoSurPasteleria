@@ -16,7 +16,6 @@
     </head>
     <body>
     @include('layouts.navigation')
-    @include('cookie-consent::index')
 
     <main class="w-full mx-auto">
         {{ $slot }}
