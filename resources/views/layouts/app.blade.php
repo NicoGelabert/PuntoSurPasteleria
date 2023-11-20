@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title inertia>{{ config('app.name', 'Demo Nicolás Gelabert') }}</title>
+        <title inertia>{{ config('app.name', 'Punto Sur Pastelería') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -16,11 +16,12 @@
     </head>
     <body>
     @include('layouts.navigation')
+    @include('cookie-consent::index')
 
     <main class="w-full mx-auto">
         {{ $slot }}
     </main>
-
+    
     @include('layouts.footer')
     <!-- Toast -->
     <div
