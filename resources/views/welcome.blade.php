@@ -37,7 +37,7 @@
 
         <section id="image-carousel" class="px-5 max-w-screen-xl splide my-16 mx-auto" aria-label="Latest products">
             <div class="mb-8 text-center">
-                <h2 class="text-2xl font-bold text-3xl">{{__('Latest products')}}
+                <h2 class="text-2xl text-3xl">{{__('Latest products')}}
             </div>
             <div class="splide__track mx-8">
                 <ul class="splide__list">

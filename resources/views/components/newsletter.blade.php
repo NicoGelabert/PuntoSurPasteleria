@@ -10,7 +10,7 @@
                 <img src="{{ asset('storage/img/local.jpeg') }}" alt="">
             </div>
             <div class="w-full md:w-1/2 grid grid-cols-1 gap-x-8 gap-y-6 lg:pt-2">
-                <h2 class="text-3xl font-bold sm:text-4xl">{{__('¿Dónde estamos?')}}</h2>
+                <h2 class="text-3xl sm:text-4xl">{{__('¿Dónde estamos?')}}</h2>
                 <p class="mt-4 text-lg leading-8 text-gray-400">Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt dolore.</p>
                 <div class="flex gap-6 social-icons">
                     <a href="https://wa.me/34622406965" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
