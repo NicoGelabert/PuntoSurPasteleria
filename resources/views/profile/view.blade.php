@@ -8,7 +8,7 @@
             }
         }" class="container mx-auto lg:w-3/3 lg:p-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-            <div class="p-3 md:col-span-2">
+            <div class="p-3 md:col-span-2 backprofile">
                 <form x-data="{
                     countries: {{ json_encode($countries) }},
                     billingAddress: {{ json_encode([
@@ -170,7 +170,7 @@
                         <label for="sameAsBillingAddress" class="text-gray-700 flex items-center">
                             <input @change="$event.target.checked ? shippingAddress = {...billingAddress} : ''"
                                    id="sameAsBillingAddress" type="checkbox"
-                                   class="text-purple-600 focus:ring-purple-600 mr-2"> 
+                                   class="mr-3 rounded border-gray-300 focus:ring-transparent formselect"> 
                                    <span class="small-text">{{ __('Same as Billing') }}</span>
                         </label>
                     </div>
@@ -255,7 +255,7 @@
                     </div>
                 </form>
             </div>
-            <div class="p-3">
+            <div class="backprofile p-3">
                 <form action="{{route('profile_password.update')}}" method="post">
                     @csrf
                     <div class="title mb-4">

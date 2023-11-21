@@ -2216,7 +2216,7 @@
     "src": "public/fonts/MountHills.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-b9bda309.css",
+    "file": "assets/app-b865f611.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -2224,5 +2224,9 @@
     "file": "assets/app-ccf006d9.js",
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "storage/app/public/iconos/background.svg": {
+    "file": "assets/background-b81fd401.svg",
+    "src": "storage/app/public/iconos/background.svg"
   }
 }

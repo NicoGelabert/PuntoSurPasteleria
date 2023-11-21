@@ -31,6 +31,9 @@
     "Repeat password" : "Repetir contraseña",
     "Sign up" : "Regístrate",
 
+    "Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another." : "Gracias por Registrarte! Antes de empezar, podrías verificar tu dirección de correo haciendo click en el enlace que te hemos enviado? Si no lo has recibido, con gusto te enviaremos otro.",
+    "Resend Email" : "Reenviar Email",
+
     "Profile Details" : "Datos de perfil",
     "First Name" : "Nombre",
     "Last Name" : "Apellido",
