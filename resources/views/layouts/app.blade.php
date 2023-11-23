@@ -7,7 +7,7 @@
 
         <title inertia>{{ config('app.name', 'Punto Sur Pastelería') }}</title>
 
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/img/favicon.ico') }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/img/puntosur.ico') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
