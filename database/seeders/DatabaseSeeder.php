@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             // CountrySeeder::class,
             // CategoriesSeeder::class,
             // ProductSeeder::class,
-            // AlergensSeeder::class,
+            AlergensSeeder::class,
             ProductsAlergensSeeder::class,
         ]);
     }
