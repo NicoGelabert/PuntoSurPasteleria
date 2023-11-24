@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Categories;
+use App\Models\Alergens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -31,5 +32,9 @@ class Product extends Model
     public function category()
     {
     return $this->belongsTo(Categories::class, 'categories_id');
+    }
+    public function alergens()
+    {
+        return $this->belongsToMany(Alergens::class, 'products_alergens', 'products_id', 'alergens_id');
     }
 }

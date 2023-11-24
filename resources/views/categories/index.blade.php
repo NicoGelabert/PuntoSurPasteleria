@@ -20,10 +20,9 @@
                     <img src="{{ $product->image }}" alt="{{$product->title}}" class="card-image object-cover hover:scale-105 hover:rotate-1 transition-transform" />
                     <div class="p-4 card-listing">
                         <div class="flex justify-center w-full gap-4">
-                            <img src="{{ asset('storage/iconos/gluten.svg') }}" alt="">
-                            <img src="{{ asset('storage/iconos/lactose.svg') }}" alt="">
-                            <img src="{{ asset('storage/iconos/sugar.svg') }}" alt="">
-                            <img src="{{ asset('storage/iconos/egg.svg') }}" alt="">
+                            @foreach ($product->alergens as $alergen)
+                                <img src="{{ url($alergen?->icon) }}" alt="{{ $alergen?->name }}">
+                            @endforeach
                         </div>
                         <div class="flex flex-col items-center justify-center">
                             <p class="small category_subtitle">{{$product->category?->name}}</p>

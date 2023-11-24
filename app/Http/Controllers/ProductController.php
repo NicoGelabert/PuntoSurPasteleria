@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Product;
+use App\Models\Alergens;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -22,6 +23,7 @@ class ProductController extends Controller
     public function view(Categories $categories, Product $product)
     {
         $categories = Categories::all();
-        return view('product.view', ['categories' => $categories, 'product' => $product]);
+        $alergens = Alergens::all();
+        return view('product.view', ['categories' => $categories, 'product' => $product, 'alergens' => $alergens]);
     }
 }

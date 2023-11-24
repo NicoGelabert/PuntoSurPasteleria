@@ -109,26 +109,13 @@
                     {{$product->title}}
                 </h1>
                 <div class="flex w-full gap-4 mt-4">
-                    <img src="{{ asset('storage/iconos/gluten.svg') }}" data-tooltip-target="tooltip-gluten" alt="" class="h-6 w-auto">
-                    <div id="tooltip-gluten" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
-                        <p class="small">Contains Gluten</p>
+                    @foreach ($product->alergens as $alergen)
+                    <img src="{{ url($alergen?->icon) }}" data-tooltip-target="tooltip-{{ $alergen?->name }}" alt="" class="h-6 w-auto">
+                    <div id="tooltip-{{ $alergen?->name }}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
+                        <p class="small">Contains {{ $alergen?->name }}</p>
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
-                    <img src="{{ asset('storage/iconos/lactose.svg') }}" data-tooltip-target="tooltip-lactose" alt="" class="h-6 w-auto">
-                    <div id="tooltip-lactose" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
-                        <p class="small">Contains Lactose</p>
-                        <div class="tooltip-arrow" data-popper-arrow></div>
-                    </div>
-                    <img src="{{ asset('storage/iconos/sugar.svg') }}" data-tooltip-target="tooltip-sugar" alt="" class="h-6 w-auto">
-                    <div id="tooltip-sugar" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
-                        <p class="small">Contains Sugar</p>
-                        <div class="tooltip-arrow" data-popper-arrow></div>
-                    </div>
-                    <img src="{{ asset('storage/iconos/egg.svg') }}" data-tooltip-target="tooltip-egg" alt="" class="h-6 w-auto">
-                    <div id="tooltip-egg" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
-                        <p class="small">Contains Egg</p>
-                        <div class="tooltip-arrow" data-popper-arrow></div>
-                    </div>
+                    @endforeach
                 </div>
                 <!-- <label for="quantity" class="block font-bold mr-4">
                     Quantity
