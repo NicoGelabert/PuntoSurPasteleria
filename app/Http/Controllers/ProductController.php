@@ -23,7 +23,6 @@ class ProductController extends Controller
     public function view(Categories $categories, Product $product)
     {
         $categories = Categories::all();
-        $alergens = Alergens::all();
-        return view('product.view', ['categories' => $categories, 'product' => $product, 'alergens' => $alergens]);
+        return view('product.view', ['categories' => $categories, 'product' => $product]);
     }
 }
