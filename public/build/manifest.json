@@ -2216,17 +2216,29 @@
     "src": "public/fonts/MountHills.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-660732a3.css",
+    "file": "assets/app-c9c8ccd8.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-ccf006d9.js",
+    "file": "assets/app-de928158.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "storage/app/public/iconos/background.svg": {
     "file": "assets/background-b81fd401.svg",
     "src": "storage/app/public/iconos/background.svg"
+  },
+  "storage/app/public/img/carrotcake_ingredients.webp": {
+    "file": "assets/carrotcake_ingredients-0da7a747.webp",
+    "src": "storage/app/public/img/carrotcake_ingredients.webp"
+  },
+  "storage/app/public/img/chessecake_ingredients.webp": {
+    "file": "assets/chessecake_ingredients-5f847e26.webp",
+    "src": "storage/app/public/img/chessecake_ingredients.webp"
+  },
+  "storage/app/public/img/white-paper-texture.webp": {
+    "file": "assets/white-paper-texture-8cf70690.webp",
+    "src": "storage/app/public/img/white-paper-texture.webp"
   }
 }

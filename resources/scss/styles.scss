@@ -46,14 +46,21 @@ body{
     }
     .logo{
         svg{
-            @apply w-14 h-auto ml-3;
+            @apply w-12 md:w-24 h-auto;
             fill:$primary;
         }
     }
-    
-    header, .mobile-menu{
+    header{
+        @apply h-auto fixed top-0 w-full block shadow-none;
+        background:transparent;
+        color:$primary-darker;
+        transition: top 0.3s, background-color 0.3s ease;
+    }
+    .mobile-menu{
         background-color: $gray;
         color: $black;
+    }
+    header, .mobile-menu{
         a:hover{
             color:$black;
         }
@@ -77,6 +84,11 @@ body{
         ul li{
             @apply w-fit;
         }
+    }
+    .scrolled-bottom{
+        @apply shadow-md;
+        background: $white;
+        color: $black;
     }
     //buttons
     .btn-primary{
@@ -125,6 +137,79 @@ body{
         }
     }
     //buttons
+    // Hero Banner
+    #hero_banner{
+        background: url('/storage/app/public/img/white-paper-texture.webp');
+        background-position: center;
+        background-size: contain;
+        // .splide__pagination{
+        //     @apply justify-evenly;
+        //     li{
+        //         @apply flex flex-col items-center gap-2;
+        //     }
+        //     .splide__pagination__page{
+        //         background-color: $secondary;
+        //     }
+        //     .splide__pagination__page.is-active{
+        //         background-color: $primary;
+        //     }
+        // }
+        /* Estilos para los puntos de paginación */
+/* Estilos para los puntos de paginación */
+        .splide__pagination {
+            @apply absolute flex justify-evenly bottom-[44%] sm:bottom-12 md:bottom-8 lg:bottom-24 list-none w-full sm:w-2/3 sm:mx-auto md:w-3/5 lg:w-2/5 xl:w-1/3 lg:ml-0 xl:ml-24 2xl:ml-48;
+            li {
+                @apply flex flex-col items-center gap-2;
+                span{
+                    @apply text-sm;
+                    color: $primary;
+                }
+                button {
+                    @apply rounded-full border-0 w-2 h-2 opacity-100;
+                    background-color: $secondary-darker;
+                }
+                .is-active{
+                    background-color: $primary;
+                }
+            }
+        }
+        .splide__pagination:before {
+            background: rgb(36,227,164);
+            background: linear-gradient(90deg, rgba(36,227,164,0) 0%, rgba(36,227,164,1) 10%, rgba(36,227,164,1) 50%, rgba(36,227,164,1) 90%, rgba(36,227,164,0) 100%);
+            content: "";
+            @apply h-px absolute top-[34px] w-[90%] -z-[1];
+        }
+        
+        .splide__pagination li.splide__pagination__page.is-active button {
+            background-color: #333;
+        }
+/* Estilos para los puntos de paginación */
+/* Continua #hero_banner */
+        ul{
+            .cake-1{
+                @media (min-width: 768px){
+                    background: url('/storage/app/public/img/chessecake_ingredients.webp');
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain !important;
+                }
+            }
+            .cake-2{
+                @media (min-width: 768px){
+                    background: url('/storage/app/public/img/carrotcake_ingredients.webp');
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain !important;
+                }
+            }
+            .cake-3{
+                background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+            }
+            .cake-4{
+                background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+            }
+        }
+    }
     // Global clases
     .category_subtitle{
         @apply font-semibold pb-4;

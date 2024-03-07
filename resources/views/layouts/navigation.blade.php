@@ -4,12 +4,11 @@
         cartItemsCount: {{ \App\Helpers\Cart::getCartItemsCount() }},
     }"
     @cart-change.window="cartItemsCount = $event.detail.count"
-    class="flex justify-between shadow-md z-50 fixed w-full"
+    class="flex justify-between md:justify-center z-50 w-full py-2"
+    id="navbar"
 >
-    <div class="logo flex items-center">
-        <a href="{{ route('welcome') }}" class="flex items-center gap-2 pl-2">
-            <x-application-logo class="block fill-current text-gray-800" />
-        </a>
+    <div class="logo flex items-center ml-6 md:hidden">
+        <x-application-logo/>
     </div>
 
     <!-- Responsive Menu -->
@@ -218,8 +217,8 @@
     </div>
     
     <!--/ Responsive Menu -->
-    <nav class="hidden md:block">
-        <ul class="grid grid-flow-col items-center">
+    <nav class="hidden md:flex w-full">
+        <ul class="grid grid-flow-col items-center w-2/5 justify-end">
             <li x-data="{open: false}" class="relative">
                 <a
                     @click="open = !open"
@@ -273,6 +272,11 @@
                     {{ __('Menu') }}
                 </a>
             </li>
+        </ul>
+        <div class="logo flex justify-center w-1/5">
+            <x-application-logo/>
+        </div>
+        <ul class="grid grid-flow-col items-center w-2/5 justify-start">
             <li>
                 <a
                     href="{{ route('cart.index') }}"
@@ -308,23 +312,23 @@
                         @click="open = !open"
                         class="cursor-pointer flex items-center py-navbar-item px-navbar-item pr-5 underline-hover"
                     >
-              <span class="flex items-center">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="1"
-                >
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
-                {{ __('My account') }}
-              </span>
+                        <span class="flex items-center">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5 mr-2"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                stroke-width="1"
+                            >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                            />
+                            </svg>
+                            {{ __('My account') }}
+                        </span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-5 w-5 ml-2"
@@ -440,14 +444,14 @@
                         {{ __('Login') }}
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a
                         href="{{ route('register') }}"
                         class="btn-register py-2 px-3 shadow transition-colors mx-5"
                     >
                         {{ __('Register now') }}
                     </a>
-                </li>
+                </li> -->
             @endif
         </ul>
     </nav>
@@ -497,3 +501,29 @@
         </button>
 </div>
 </header>
+<script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+    } else {
+        document.getElementById("navbar").style.top = "-110px";
+    }
+    prevScrollpos = currentScrollPos;
+    
+    if(window.scrollY > window.innerHeight){
+        document.getElementById("navbar").classList.add("scrolled-bottom");
+    }else{
+        document.getElementById("navbar").classList.remove("scrolled-bottom");
+    }
+    }
+    // function closeNav() {
+    //     const mobileMenu = document.querySelector(".mobile-menu");
+    //     const closeMenu = ()=>{
+    //         if(mobileMenu.style.left = 0){
+    //             document.querySelector(".mobile-menu").style.left = "-220px";
+    //         }
+    //     }
+    // }
+</script>

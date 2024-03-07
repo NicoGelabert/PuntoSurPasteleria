@@ -1,19 +1,25 @@
 
     <x-app-layout>
-        <div class="mx-auto px-5 pt-32 max-w-screen-xl flex flex-col md:flex-row items-center justify-center relative md:h-screen">
-            <div class="w-full md:w-3/5 relative isolate px-6 md:pt-0 md:pb-0 lg:px-8 slide-in-left">
-                <div class="text-left">
-                    <h1>Happiness is a piece of cake</h1>
-                    <p class="mt-2 text-lg leading-8 text-gray-600">{{__('E-commerce site developed with Laravel, Vue JS and Tailwind.')}}</p>
-                    <div class="flex gap-3 my-6 md:justify-start">
-                        <a href="{{ route('categories.index') }}" class="btn-primary">
-                        {{__('See menu')}}
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <img src="{{ asset('storage/img/first_cake.png') }}" alt="">
+        <div id="hero_banner" class="mx-auto max-w-screen-xl flex flex-col md:flex-row items-center justify-center relative h-auto max-h-screen splide">
+            <div class="w-full relative isolatemd:pt-0 md:pb-0 splide__track mt-24 sm:mt-0">
+                <ul class="splide__list">
+                    @foreach ($slider_images as $slider_image)
+                    <li class="splide__slide slider bg-gradient flex flex-col sm:flex-row items-center justify-center {{$slider_image -> background}} px-6 lg:px-8 mt-8">
+                        <div class="text-left slide-in-left">
+                            <h1>{{$slider_image -> headline}}</h1>
+                            <p class="mt-2 text-lg leading-8 text-gray-600 w-2/3">{{$slider_image -> description}}</p>
+                            <div class="flex gap-3 my-6 md:justify-start">
+                                <a href="{{$slider_image -> link}}" class="btn-primary">
+                                {{__('See menu')}}
+                                </a>
+                            </div>
+                        </div>            
+                        <div>
+                            <img class="image_slide max-h-[550px]" src="{{$slider_image -> image}}" alt="">
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
 
@@ -102,11 +108,34 @@
         <x-newsletter />
         
     </x-app-layout>
+<style>
+    @keyframes rotateAnimation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(180deg); }
+    }
 
+    /* Aplicar la animación de rotación */
+    .rotating {
+        animation: rotateAnimation 0.25s linear 1;
+    }
+    /* Animaciones de movimiento */
+    /* Animación para botón activo */
+    .active-animation {
+        transition: transform 0.3s ease; /* Duración y tipo de transición */
+        transform: translateX(10px); /* Desplazamiento inicial */
+    }
+
+    /* Animación para revertir */
+    .active-animation.revert {
+        transform: translateX(0); /* Desplazamiento de regreso a su posición original */
+    }
+
+</style>
 <script>
     const buttonsContainer = document.getElementById("categorybuttons");
     const childrenButtons = buttonsContainer.querySelectorAll("a");
     childrenButtons.forEach((item,index) =>{
         ((index > 0 && index < 3) || (index > 4 && index < 7)) ? item.classList.add('btn-primary') : item.classList.add('btn-secondary');
     })
+
 </script>
