@@ -138,7 +138,6 @@ document.addEventListener('DOMContentLoaded', function () {
     interval: 5000,
     speed: 1000,
     width: '100%',
-    height:'550px',
     breakpoints: {
       // 800: {
       // },
