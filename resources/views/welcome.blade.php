@@ -1,26 +1,27 @@
 
     <x-app-layout>
-        <div id="hero_banner" class="mx-auto max-w-screen-xl flex flex-col md:flex-row items-center justify-center relative h-auto max-h-screen splide">
+        <div id="hero_banner" class="mx-auto max-w-screen-xl flex flex-col md:flex-row md:flex-wrap items-center justify-around md:justify-center relative h-screen max-h-screen splide">
             <div class="w-full relative isolatemd:pt-0 md:pb-0 splide__track mt-24 sm:mt-0">
                 <ul class="splide__list">
                     @foreach ($slider_images as $slider_image)
-                    <li class="splide__slide slider bg-gradient flex flex-col sm:flex-row items-center justify-center {{$slider_image -> background}} px-6 lg:px-8 mt-8">
+                    <li class="splide__slide slider bg-gradient flex flex-col sm:flex-row items-center justify-between md:justify-center {{$slider_image -> background}} px-6 lg:px-8 mt-8">
                         <div class="text-left slide-in-left">
                             <h1>{{$slider_image -> headline}}</h1>
-                            <p class="mt-2 text-lg leading-8 text-gray-600 w-2/3">{{$slider_image -> description}}</p>
+                            <p class="mt-2 text-lg leading-8 text-gray-600 w-full md:w-2/3">{{$slider_image -> description}}</p>
                             <div class="flex gap-3 my-6 md:justify-start">
                                 <a href="{{$slider_image -> link}}" class="btn-primary">
                                 {{__('See menu')}}
                                 </a>
                             </div>
                         </div>            
-                        <div>
-                            <img class="image_slide max-h-[550px]" src="{{$slider_image -> image}}" alt="">
+                        <div class="md:pt-12">
+                            <img class="image_slide max-h-[500px] w-2/3 md:w-full mx-auto" src="{{$slider_image -> image}}" alt="">
                         </div>
                     </li>
                     @endforeach
                 </ul>
             </div>
+            <ul class="splide__pagination"></ul>
         </div>
 
         <div class="px-5 max-w-screen-xl mx-auto flex justify-evenly items-center my-20">

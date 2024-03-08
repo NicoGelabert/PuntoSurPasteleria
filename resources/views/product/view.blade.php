@@ -2,7 +2,7 @@
     /** @var \Illuminate\Database\Eloquent\Collection $categories */
     ?>
     <x-app-layout>
-    <div class="flex flex-wrap justify-center gap-8 mt-8">
+    <div class="flex flex-wrap justify-center gap-8 mt-24 md:mt-32">
         @foreach ($categories as $category)
         <a href="{{ route('categories.view', $category->slug) }}" class="underline-hover"><p class="small">{{$category->name}}</p></a>
         @endforeach

@@ -2216,12 +2216,12 @@
     "src": "public/fonts/MountHills.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-c9c8ccd8.css",
+    "file": "assets/app-f101cd71.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-de928158.js",
+    "file": "assets/app-44d6f9eb.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

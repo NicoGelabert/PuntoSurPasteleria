@@ -157,7 +157,7 @@ body{
         /* Estilos para los puntos de paginación */
 /* Estilos para los puntos de paginación */
         .splide__pagination {
-            @apply absolute flex justify-evenly bottom-[44%] sm:bottom-12 md:bottom-8 lg:bottom-24 list-none w-full sm:w-2/3 sm:mx-auto md:w-3/5 lg:w-2/5 xl:w-1/3 lg:ml-0 xl:ml-24 2xl:ml-48;
+            @apply relative flex justify-between list-none w-[90%] md:w-2/3 p-0 bottom-8 md:bottom-16;
             li {
                 @apply flex flex-col items-center gap-2;
                 span{
@@ -177,7 +177,7 @@ body{
             background: rgb(36,227,164);
             background: linear-gradient(90deg, rgba(36,227,164,0) 0%, rgba(36,227,164,1) 10%, rgba(36,227,164,1) 50%, rgba(36,227,164,1) 90%, rgba(36,227,164,0) 100%);
             content: "";
-            @apply h-px absolute top-[34px] w-[90%] -z-[1];
+            @apply h-px absolute top-[34px] w-full -z-[1];
         }
         
         .splide__pagination li.splide__pagination__page.is-active button {

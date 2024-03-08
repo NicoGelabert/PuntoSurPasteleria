@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
     autoplay: false,
     pagination: true,
     focus:'center',
-    omitEnd  : true,
+    omitEnd  : false,
     interval: 5000,
     speed: 1000,
     width: '100%',
@@ -146,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
         height:'auto',
       },
       // 480: {
+      //   perPage: 1,
       // },
     },
   }).mount();
@@ -161,38 +162,17 @@ document.addEventListener('DOMContentLoaded', function () {
             image.classList.remove("rotating");
         }
     });
-
-    const pagination = document.querySelector('.splide__pagination');
-    const activeButton = pagination.querySelector('.is-active');
-  
-    // Mover el botón activo al final o al principio según sea necesario
-    if (!activeButton.previousElementSibling) {
-      // Si el primer botón está activo, mueve el último botón al inicio
-      pagination.insertBefore(pagination.lastElementChild, pagination.firstElementChild);
-      pagination.classList.add('move-right');
-    } else if (!activeButton.nextElementSibling) {
-      // Si el último botón está activo, mueve el primer botón al final
-      pagination.appendChild(pagination.firstElementChild);
-      pagination.classList.add('move-left');
-    }
-  
-    // Aplicar clase de animación al botón activo
-    activeButton.classList.add('active-animation');
-  
-    // Quitar la clase de animación después de que termine la transición
-    setTimeout(() => {
-      pagination.classList.remove('move-right', 'move-left');
-      activeButton.classList.remove('active-animation');
-    }, 300);
   });
 
   var paginationItems = document.querySelectorAll('.splide__pagination__page');
+  var h1Elements = document.querySelectorAll('.splide__slide h1');
 
   paginationItems.forEach(function(item, index) {
-    var headlineText = document.querySelectorAll('.splide__slide h1')[index].textContent.trim();
-    var spanElement = document.createElement('span');
-    spanElement.textContent = headlineText;
-    item.parentNode.insertBefore(spanElement, item);
+      if (index < h1Elements.length) {
+          var contenidoHTML = h1Elements[index].innerHTML;
+          var spanElement = document.createElement('span');
+          spanElement.innerHTML = contenidoHTML;
+          item.parentNode.insertBefore(spanElement, item);
+      }
   });
-  
 });
