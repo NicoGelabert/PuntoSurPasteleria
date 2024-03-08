@@ -1,7 +1,7 @@
 
     <x-app-layout>
         <div id="hero_banner" class="mx-auto max-w-screen-xl flex flex-col md:flex-row md:flex-wrap items-center justify-around md:justify-center relative h-screen max-h-screen splide">
-            <div class="w-full relative isolatemd:pt-0 md:pb-0 splide__track pt-24 md:pt-0 ">
+            <div class="w-full relative isolatemd:pt-0 md:pb-0 splide__track pt-24 md:pt-8 ">
                 <ul class="splide__list max-w-[1024px] !mx-auto">
                     @foreach ($slider_images as $slider_image)
                     <li class="splide__slide slider bg-gradient flex flex-col sm:flex-row items-center justify-evenly md:justify-center {{$slider_image -> background}} px-8">
@@ -10,7 +10,7 @@
                             <p class="mt-2 text-lg leading-8 text-gray-600 w-full">{{$slider_image -> description}}</p>
                             <div class="flex gap-3 my-6 md:justify-start">
                                 <a href="{{$slider_image -> link}}" class="btn-primary">
-                                {{__('See menu')}}
+                                {{__('Ver ')}}{{$slider_image -> headline}} 
                                 </a>
                             </div>
                         </div>            

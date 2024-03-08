@@ -504,26 +504,19 @@
 <script>
     var prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-        document.getElementById("navbar").style.top = "0";
-    } else {
-        document.getElementById("navbar").style.top = "-110px";
-    }
-    prevScrollpos = currentScrollPos;
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("navbar").style.top = "0";
+        } else {
+            document.getElementById("navbar").style.top = "-110px";
+        }
+        prevScrollpos = currentScrollPos;
+
+        var distanceFromTop = Math.abs(window.scrollY);
+        if(distanceFromTop <= 5){
+            document.getElementById("navbar").classList.remove("scrolled-bottom");
+        }else{
+            document.getElementById("navbar").classList.add("scrolled-bottom");
+        }
     
-    if(window.scrollY > window.innerHeight){
-        document.getElementById("navbar").classList.add("scrolled-bottom");
-    }else{
-        document.getElementById("navbar").classList.remove("scrolled-bottom");
-    }
-    }
-    // function closeNav() {
-    //     const mobileMenu = document.querySelector(".mobile-menu");
-    //     const closeMenu = ()=>{
-    //         if(mobileMenu.style.left = 0){
-    //             document.querySelector(".mobile-menu").style.left = "-220px";
-    //         }
-    //     }
-    // }
 </script>

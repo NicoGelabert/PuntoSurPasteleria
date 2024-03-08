@@ -157,7 +157,7 @@ body{
         /* Estilos para los puntos de paginación */
 /* Estilos para los puntos de paginación */
         .splide__pagination {
-            @apply relative flex justify-between list-none w-[90%] md:w-2/3 p-0 bottom-8 md:bottom-16;
+            @apply relative flex justify-between list-none w-[90%] md:w-2/3 p-0 bottom-8;
             li {
                 @apply flex flex-col items-center gap-2;
                 span{

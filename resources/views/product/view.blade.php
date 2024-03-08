@@ -2,12 +2,12 @@
     /** @var \Illuminate\Database\Eloquent\Collection $categories */
     ?>
     <x-app-layout>
-    <div class="flex flex-wrap justify-center gap-8 mt-24 md:mt-32">
+    <div class="flex flex-wrap justify-center gap-x-8 mt-24 md:mt-32">
         @foreach ($categories as $category)
         <a href="{{ route('categories.view', $category->slug) }}" class="underline-hover"><p class="small">{{$category->name}}</p></a>
         @endforeach
     </div>
-    <hr class="my-8 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
+    <hr class="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
     <div  x-data="productItem({{ json_encode([
                     'id' => $product->id,
                     'slug' => $product->slug,
@@ -16,7 +16,7 @@
                     'price' => $product->price,
                     'addToCartUrl' => route('cart.add', $product)
                 ]) }})" class="mx-auto px-5 max-w-screen-xl flex flex-col md:flex-row items-center justify-center lg:pb-8">
-        <div class="flex flex-col md:flex-row gap-12">
+        <div class="flex flex-col md:flex-row gap-4">
             <div class="w-full md:w-1/2">
                 <div
                     x-data="{
@@ -40,7 +40,7 @@
                     }"
                     class="max-w-fit flex flex-col-reverse lg:flex-row gap-4 md:sticky top-24" id="imagen"
                 >
-                    <div class="flex">
+                    <!-- <div class="flex">
                         <template x-for="image in images">
                             <a
                                 @click.prevent="activeImage = image"
@@ -50,7 +50,7 @@
                                 <img :src="image" alt="" class=""/>
                             </a>
                         </template>
-                    </div>
+                    </div> -->
                     <div class="relative">
                         <template x-for="image in images">
                             <div
@@ -60,7 +60,7 @@
                                 <img :src="image" alt="" class="w-auto mx-auto"/>
                             </div>
                         </template>
-                        <a
+                        <!-- <a
                             @click.prevent="prev"
                             class="cursor-pointer bg-black/30 text-white absolute left-0 top-1/2 -translate-y-1/2"
                         >
@@ -97,7 +97,7 @@
                                     d="M9 5l7 7-7 7"
                                 />
                             </svg>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>
