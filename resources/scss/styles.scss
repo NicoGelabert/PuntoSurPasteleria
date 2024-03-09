@@ -187,12 +187,10 @@ body{
 /* Continua #hero_banner */
         ul{
             .cake-1{
-                // @media (min-width: 640px){
-                    background: url('/storage/app/public/img/chessecake_ingredients_small.webp');
-                    background-position: bottom;
-                    background-repeat: no-repeat;
-                    background-size: contain !important;
-                // }
+                background: url('/storage/app/public/img/chessecake_ingredients_small.webp');
+                background-position: bottom;
+                background-repeat: no-repeat;
+                background-size: contain !important;
                 @media (min-width: 640px){
                     background: url('/storage/app/public/img/chessecake_ingredients_large.webp');
                     background-position: right;
@@ -201,9 +199,13 @@ body{
                 }
             }
             .cake-2{
-                @media (min-width: 768px){
-                    background: url('/storage/app/public/img/carrotcake_ingredients.webp');
-                    background-position: center;
+                background: url('/storage/app/public/img/carrotcake_ingredients_small.webp');
+                background-position: bottom;
+                background-repeat: no-repeat;
+                background-size: contain !important;
+                @media (min-width: 640px){
+                    background: url('/storage/app/public/img/carrotcake_ingredients_large.webp');
+                    background-position: right;
                     background-repeat: no-repeat;
                     background-size: contain !important;
                 }

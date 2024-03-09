@@ -96,7 +96,7 @@ Alpine.start();
 
 new Splide( '#image-carousel', {
   type   : 'loop',
-  perPage: 5,
+  perPage: 4,
   perMove: 1,
   gap    : '0.5rem',
   autoplay: false,

@@ -518,5 +518,5 @@
         }else{
             document.getElementById("navbar").classList.add("scrolled-bottom");
         }
-    
+    }    
 </script>
