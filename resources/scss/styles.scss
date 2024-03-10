@@ -165,7 +165,7 @@ body{
                     color: $primary;
                 }
                 button {
-                    @apply rounded-full border-0 w-2 h-2 opacity-100;
+                    @apply rounded-full border-0 w-3 h-3 opacity-100;
                     background-color: $secondary-darker;
                 }
                 .is-active{
@@ -177,7 +177,7 @@ body{
             background: rgb(36,227,164);
             background: linear-gradient(90deg, rgba(36,227,164,0) 0%, rgba(36,227,164,1) 10%, rgba(36,227,164,1) 50%, rgba(36,227,164,1) 90%, rgba(36,227,164,0) 100%);
             content: "";
-            @apply h-px absolute top-[34px] w-full -z-[1];
+            @apply h-px absolute top-[36px] w-full -z-[1];
         }
         
         .splide__pagination li.splide__pagination__page.is-active button {
