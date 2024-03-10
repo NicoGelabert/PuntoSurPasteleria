@@ -5,16 +5,16 @@
                 <x-application-logo class="block fill-current" />
             </a>
             <div class="hidden md:flex justify-center gap-4 social-icons">
-            <a href="https://wa.me/34622406965" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
-                <i class="flex text-2xl leading-none fi fi-brands-whatsapp"></i>
-            </a>
-            <a href="https://www.instagram.com/puntosurfuengirola/?hl=es" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
-                <i class="flex text-2xl leading-none fi fi-brands-instagram"></i>
-            </a>
-            <a href="https://maps.app.goo.gl/22GUnZ2foJeEYud98" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
-                <i class="flex text-2xl leading-none fi fi-rs-map-marker"></i>
-            </a>
-        </div>
+                <a href="https://wa.me/34622406965" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
+                    <i class="flex text-2xl leading-none fi fi-brands-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/puntosurfuengirola/?hl=es" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
+                    <i class="flex text-2xl leading-none fi fi-brands-instagram"></i>
+                </a>
+                <a href="https://maps.app.goo.gl/22GUnZ2foJeEYud98" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
+                    <i class="flex text-2xl leading-none fi fi-rs-map-marker"></i>
+                </a>
+            </div>
         </div>
         <div class="flex flex-col text-center sm:flex-row gap-y-8 sm:flex-row sm:justify-between md:text-left md:gap-8 lg:gap-16 footer-menu">
             <div>

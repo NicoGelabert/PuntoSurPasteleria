@@ -16,6 +16,19 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
+    <style>
+    #loader-wrapper{
+        width:100%;
+        height: 100vh;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #body-content{
+        display:none;
+    }
+</style>
     <body>
         <div id="loader-wrapper">
             <x-spinner />
@@ -69,19 +82,6 @@
         </div>
     </body>
 </html>
-<style>
-    #loader-wrapper{
-        width:100%;
-        height: 100vh;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    #body-content{
-        display:none;
-    }
-</style>
 <script>
     window.onload = function () {
     //Find the element with id "loader-wrapper" and hide it

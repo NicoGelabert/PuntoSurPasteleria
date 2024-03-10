@@ -50,6 +50,12 @@ body{
             fill:$primary;
         }
     }
+    .logo-hamburguer{
+        svg{
+            @apply w-36 h-auto;
+            fill:$primary;
+        }
+    }
     header{
         @apply h-auto fixed top-0 w-full block shadow-none;
         background:transparent;
@@ -58,16 +64,19 @@ body{
     }
     .mobile-menu{
         background-color: $gray;
-        color: $black;
+        color: $primary;
     }
     header, .mobile-menu{
         a:hover{
-            color:$black;
+            color:$secondary-darker;
         }
         .btn-register{
-            @apply py-2 px-4 rounded-full shadow-md w-full hover:bg-slate-200 hover:border-transparent hover:text-slate-900 active:bg-slate-400 transition-colors; 
-            border: $black 1px solid;
-            color: $black;
+            @apply py-2 px-4 rounded-full shadow-md w-full active:bg-slate-400 transition-colors; 
+            border: $primary 1px solid;
+            color: $primary;
+        }
+        .btn-register:hover{
+            border-color: $secondary-darker;
         }
         .dropdown{
             background-color: $gray;
@@ -85,11 +94,73 @@ body{
             @apply w-fit;
         }
     }
+    // Function to show header according to scroll view
     .scrolled-bottom{
         @apply shadow-md;
         background: $white;
         color: $black;
     }
+    // Function to show header according to scroll view
+    // Hamburguer Menu
+    .openbtn {
+        border-radius: 5px;
+        cursor: pointer;
+        height: 20px;
+        position: relative;
+        width: 40px;
+        }
+    
+        .openbtn .openbtn-area{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-around;
+            position: relative;
+            transition: all .4s;
+        }
+    
+        .openbtn span {
+            background: $primary;
+            border-radius: 3px;
+            display: inline-block;
+            height: 3px;
+            left: 12px;
+            position: relative;
+            transition: all .4s;
+            width: 50%;
+            // &:nth-of-type(1) {
+            //     top: 16px;
+            // }
+            // &:nth-of-type(2) {
+            //     top: 24px;
+            // }
+            // &:nth-of-type(3) {
+            //     top: 32px;
+            // }   
+        }
+    
+        .openbtn.active .openbtn-area {
+            transform: rotateY(-360deg);
+        }
+    
+        .openbtn.active span{
+            &:nth-of-type(1) {
+                left: 14px;
+                top: 2px;
+                transform: translateY(6px) rotate(-135deg);
+                width: 45%;
+            }
+            &:nth-of-type(2) {
+                opacity: 0;
+            }
+            &:nth-of-type(3) {
+                left: 14px;
+                top: 1px;
+                transform: translateY(-6px) rotate(135deg);
+                width: 45%;
+            }
+        }
+    // Hamburguer Menu
     //buttons
     .btn-primary{
         @apply py-2 px-6 rounded-full shadow-md transition-colors uppercase tracking-wide text-sm text-center; 
@@ -385,6 +456,7 @@ body{
     // Cookie consent
     .cookie-consent{
         background-color: $secondary-lighter;
+        @apply z-10;
         p{
             color: $primary
         }
