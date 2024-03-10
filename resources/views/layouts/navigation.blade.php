@@ -508,7 +508,7 @@
     var prevScrollpos = window.pageYOffset;
     var navbar = document.getElementById("navbar");
     // navbar.style.top = "5px";
-    var scrollThreshold = 10; // Umbral de desplazamiento mínimo antes de ocultar el encabezado
+    var scrollThreshold = 15; // Umbral de desplazamiento mínimo antes de ocultar el encabezado
     window.onscroll = function() {
         var currentScrollPos = window.pageYOffset;
         var scrollDifference = Math.abs(prevScrollpos - currentScrollPos);
