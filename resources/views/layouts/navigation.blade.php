@@ -507,13 +507,17 @@
 <script>
     var prevScrollpos = window.pageYOffset;
     var navbar = document.getElementById("navbar");
-    navbar.style.top = "5px";
+    // navbar.style.top = "5px";
+    var scrollThreshold = 10; // Umbral de desplazamiento mínimo antes de ocultar el encabezado
     window.onscroll = function() {
         var currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
-            document.getElementById("navbar").style.top = "0";
-        } else {
-            document.getElementById("navbar").style.top = "-110px";
+        var scrollDifference = Math.abs(prevScrollpos - currentScrollPos);
+        if (scrollDifference >= scrollThreshold) {
+            if (prevScrollpos > currentScrollPos) {
+                navbar.style.top = "0";
+            } else {
+                navbar.style.top = "-110px";
+            }
         }
         prevScrollpos = currentScrollPos;
 
