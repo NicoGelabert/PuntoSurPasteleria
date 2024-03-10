@@ -506,6 +506,8 @@
 </style>
 <script>
     var prevScrollpos = window.pageYOffset;
+    var navbar = document.getElementById("navbar");
+    navbar.style.top = "5px";
     window.onscroll = function() {
         var currentScrollPos = window.pageYOffset;
         if (prevScrollpos > currentScrollPos) {
