@@ -46,6 +46,7 @@
                     <CustomInput class="mb-2" v-model="product.title" label="Product Title"/>
                     <CustomInput type="file" class="mb-2" label="Product Image" @change="file => product.image = file"/>
                     <CustomInput type="textarea" class="mb-2" v-model="product.description" label="Description"/>
+                    <CustomInput class="mb-2" v-model="product.categories_id" label="Category"/>
                     <CustomInput type="number" class="mb-2" v-model="product.price" label="Price" prepend="$"/>
                     <CustomInput type="checkbox" class="mb-2" v-model="product.published" label="Published"/>
                     </div>
@@ -84,6 +85,7 @@ const product = ref({
   title: props.product.title,
   image: props.product.image,
   description: props.product.description,
+  categories_id : props.product.categories_id,
   price: props.product.price,
   published: props.product.published
 })
@@ -111,6 +113,7 @@ onUpdated(() => {
     title: props.product.title,
     image: props.product.image,
     description: props.product.description,
+    categories_id: props.product.categories_id,
     price: props.product.price,
     published: props.product.published,
   }

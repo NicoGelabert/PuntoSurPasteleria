@@ -33,6 +33,10 @@
                             @click="sortProducts('title')">
             Title
             </TableHeaderCell>
+            <TableHeaderCell field="category" :sort-field="sortField" :sort-direction="sortDirection"
+                            @click="sortProducts('category')">
+            Category
+            </TableHeaderCell>
             <TableHeaderCell field="price" :sort-field="sortField" :sort-direction="sortDirection"
                             @click="sortProducts('price')">
             Price
@@ -64,6 +68,9 @@
             </td>
             <td class="border-b p-2 max-w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">
             {{ product.title }}
+            </td>
+            <td class="border-b p-2 max-w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">
+            {{ product.categories_id }}
             </td>
             <td class="border-b p-2">
             {{ $filters.currencyUSD(product.price) }}
