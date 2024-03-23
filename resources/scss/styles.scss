@@ -7,7 +7,7 @@ body{
         letter-spacing: 0.025em;
     }
     h1{
-        @apply text-4xl;
+        @apply text-3xl md:text-4xl;
         color: $primary;
     }
     h2{
@@ -291,7 +291,7 @@ body{
     }
     // Global clases
     .category_subtitle{
-        @apply font-semibold pb-4;
+        @apply font-semibold pb-4 uppercase tracking-wider;
         color: $secondary-darker;
     }
     .price{

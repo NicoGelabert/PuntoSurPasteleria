@@ -7,7 +7,7 @@
                     <li class="splide__slide slider bg-gradient flex flex-col sm:flex-row items-center justify-evenly md:justify-center {{$slider_image -> background}} px-8">
                         <div class="text-left slide-in-left">
                             <h1>{{$slider_image -> headline}}</h1>
-                            <p class="mt-2 text-lg leading-8 text-gray-600 w-full">{{$slider_image -> description}}</p>
+                            <p class="mt-2 text-md md:text-lg leading-8 text-gray-600 w-full">{{$slider_image -> description}}</p>
                             <div class="flex gap-3 my-6 md:justify-start">
                                 <a href="{{$slider_image -> link}}" class="btn-primary">
                                 {{__('Ver ')}}{{$slider_image -> headline}} 
@@ -56,9 +56,10 @@
                         'title' => $product->title,
                         'price' => $product->price,
                         'addToCartUrl' => route('cart.add', $product)
-                        ]) }})" class="splide__slide border-transparent overflow-hidden rounded-lg bg-white underline-hover">
+                        ]) }})" class="splide__slide border-transparent overflow-hidden rounded-lg underline-hover flex flex-col justify-between">
                         <a href="{{ route('product.view', [$product->category?->slug, $product->slug ]) }}" class="aspect-w-3 aspect-h-2 block">
                             <img src="{{ $product->image }}" alt="{{$product->title}}" class="card-image object-cover hover:scale-105 hover:rotate-1 transition-transform" />
+                            <hr class="mb-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
                             <div class="p-4 card-listing">
                                 <div class="flex justify-center w-full gap-4">
                                     @foreach ($product->alergens as $alergen)

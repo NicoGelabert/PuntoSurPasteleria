@@ -2,8 +2,8 @@
     <!-- text -->
     <div class="max-w-screen-lg flex flex-row relative mx-auto items-center">
         <div class="w-full sm:w-3/5 flex flex-col justify-center text-left">
-            <h2>{{__('Sed ut perspiciatis unde omnis')}}</h2>
-            <p class="mt-4 sm:mt-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>{{__('La felicidad está en un trozo de tarta')}}</h2>
+            <p class="mt-4 sm:mt-8">En nuestra pastelería, las tartas guardan secretos dulces que despiertan sonrisas mientras exploras el mágico universo de lo hecho a mano con cariño.</p>
         </div>
         <!-- text -->
         <!-- image -->
