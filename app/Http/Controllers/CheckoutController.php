@@ -21,8 +21,7 @@ class CheckoutController extends Controller
         /** @var \App\Models\User $user */
         $user = $request->user();
 
-        $stripe = new \Stripe\StripeClient(getenv('STRIPE_SECRET_KEY'));
-
+        $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET_KEY'));
         [$products, $cartItems] = Cart::getProductsAndCartItems();
         
         $orderItems = [];
@@ -95,7 +94,7 @@ class CheckoutController extends Controller
         /** @var \App\Models\User $user */
         $user = $request->user();
         $stripe = new \Stripe\StripeClient(getenv('STRIPE_SECRET_KEY'));
-
+        
         try {
             $session_id = $request->get('session_id');
             $checkout_session = $stripe->checkout->sessions->retrieve($session_id);
@@ -116,7 +115,7 @@ class CheckoutController extends Controller
             $customer = $stripe->customers->create([
                 'name' => $user->name,
             ]);
-            return view('checkout.success', compact('customer'));
+            return view('checkout.success', compact('customer', 'payment'));
         } catch (NotFoundHttpException $e) {
             throw $e;
         } catch (\Exception $e) {

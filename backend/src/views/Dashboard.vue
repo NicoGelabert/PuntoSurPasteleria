@@ -67,13 +67,14 @@
       </template>
       <Spinner v-else text="" class=""/>
     </div>
-    <div class="bg-white py-6 px-5 rounded-lg shadow flex flex-col items-center justify-center">
+    <!-- TO FIX -->
+    <!-- <div class="bg-white py-6 px-5 rounded-lg shadow flex flex-col items-center justify-center">
       <label class="text-lg font-semibold block mb-2">Orders by Country</label>
       <template v-if="!loading.ordersByCountry">
         <DoughnutChart :width="140" :height="200" :data="ordersByCountry"/>
       </template>
       <Spinner v-else text="" class=""/>
-    </div>
+    </div> -->
     <div class="bg-white py-6 px-5 rounded-lg shadow">
       <label class="text-lg font-semibold block mb-2">Latest Customers</label>
       <template v-if="!loading.latestCustomers">
@@ -112,7 +113,7 @@ const loading = ref({
   productsCount: true,
   paidOrders: true,
   totalIncome: true,
-  ordersByCountry: true,
+  // ordersByCountry: true,
   latestCustomers: true,
   latestOrders: true
 })
@@ -120,7 +121,7 @@ const customersCount = ref(0);
 const productsCount = ref(0);
 const paidOrders = ref(0);
 const totalIncome = ref(0);
-const ordersByCountry = ref([]);
+// const ordersByCountry = ref([]);
 const latestCustomers = ref([]);
 const latestOrders = ref([]);
 
@@ -131,7 +132,7 @@ function updateDashboard() {
     productsCount: true,
     paidOrders: true,
     totalIncome: true,
-    ordersByCountry: true,
+    // ordersByCountry: true,
     latestCustomers: true,
     latestOrders: true
   }
@@ -157,21 +158,21 @@ function updateDashboard() {
     loading.value.totalIncome = false;
   })
 
-  axiosClient.get(`/dashboard/orders-by-country`, {params: {d}}).then(({data: countries}) => {
-    loading.value.ordersByCountry = false;
-    const chartData = {
-      labels: [],
-      datasets: [{
-        backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-        data: []
-      }]
-    }
-    countries.forEach(c => {
-      chartData.labels.push(c.name);
-      chartData.datasets[0].data.push(c.count);
-    })
-    ordersByCountry.value = chartData
-  })
+  // axiosClient.get(`/dashboard/orders-by-country`, {params: {d}}).then(({data: countries}) => {
+  //   loading.value.ordersByCountry = false;
+  //   const chartData = {
+  //     labels: [],
+  //     datasets: [{
+  //       backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
+  //       data: []
+  //     }]
+  //   }
+  //   countries.forEach(c => {
+  //     chartData.labels.push(c.name);
+  //     chartData.datasets[0].data.push(c.count);
+  //   })
+  //   ordersByCountry.value = chartData
+  // })
   
   axiosClient.get(`/dashboard/latest-customers`, {params: {d}}).then(({data: customers}) => {
     latestCustomers.value = customers;
