@@ -7,7 +7,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
-class ProductListResource extends JsonResource
+class CategoryListResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,10 +18,8 @@ class ProductListResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
-            'category' => $this->category->name,
+            'name' => $this->name,
             'image_url' => $this->image ?: null,
-            'price' => $this->price,
             'updated_at' => (new \DateTime($this->updated_at))->format('Y-m-d H:i:s'),
         ];
     }

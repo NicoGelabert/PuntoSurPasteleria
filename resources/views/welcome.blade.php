@@ -32,7 +32,7 @@
                 @foreach ($categories as $category)
                     <a href="{{ route('categories.view', $category->slug) }}" class="" alt="">
                         <div class="h-full flex flex-wrap flex-col justify-evenly px-2 lg:px-4">
-                            <img src="{{$category -> icon}}" alt="{{$category -> name}}">
+                            <img src="{{$category -> image}}" alt="{{$category -> name}}">
                             <h5>{{$category -> name}}</h5>
                         </div>
                     </a>
