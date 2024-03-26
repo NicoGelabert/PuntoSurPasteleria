@@ -56,7 +56,60 @@ export function getOrders({commit, state}, {url = null, search = '', per_page, s
 export function getOrder({commit}, id) {
   return axiosClient.get(`/orders/${id}`)
 }
+// CATEGORIES
+export function getCategories({commit, state}, {url = null, search = '', per_page, sort_field, sort_direction} = {}) {
+  commit('setCategories', [true])
+  url = url || '/categories'
+  const params = {
+    per_page: state.categories.limit,
+  }
+  return axiosClient.get(url, {
+    params: {
+      ...params,
+      search, per_page, sort_field, sort_direction
+    }
+  })
+    .then((response) => {
+      commit('setCategories', [false, response.data])
+    })
+    .catch(() => {
+      commit('setCategories', [false])
+    })
+}
 
+export function getCategory({commit}, id) {
+  return axiosClient.get(`/categories/${id}`)
+}
+
+export function createCategory({commit}, category) {
+  if (category.image instanceof File) {
+    const form = new FormData();
+    form.append('name', category.name);
+    form.append('image', category.image);
+    category = form;
+  }
+  return axiosClient.post('/categories', category)
+}
+
+export function updateCategory({commit}, category) {
+  const id = category.id
+  if (category.image instanceof File) {
+    const form = new FormData();
+    form.append('id', category.id);
+    form.append('name', category.name);
+    form.append('image', category.image);
+    form.append('_method', 'PUT');
+    category = form;
+  } else {
+    category._method = 'PUT'
+  }
+  return axiosClient.post(`/categories/${id}`, category)
+}
+
+export function deleteCategory({commit}, id) {
+  return axiosClient.delete(`/categories/${id}`)
+}
+// PRODUCTS
 export function getProducts({commit, state}, {url = null, search = '', per_page, sort_field, sort_direction} = {}) {
   commit('setProducts', [true])
   url = url || '/products'
@@ -85,6 +138,8 @@ export function createProduct({commit}, product) {
   if (product.image instanceof File) {
     const form = new FormData();
     form.append('title', product.title);
+    form.append('category', product.category);
+    form.append('categories_id', product.categories_id);
     form.append('image', product.image);
     form.append('description', product.description || '');
     form.append('published', product.published ? 1 : 0);
@@ -168,6 +223,8 @@ export function updateProduct({commit}, product) {
     const form = new FormData();
     form.append('id', product.id);
     form.append('title', product.title);
+    form.append('category', product.category);
+    form.append('categories_id', product.categories_id);
     form.append('image', product.image);
     form.append('description', product.description || '');
     form.append('published', product.published ? 1 : 0);
@@ -179,4 +236,3 @@ export function updateProduct({commit}, product) {
   }
   return axiosClient.post(`/products/${id}`, product)
 }
-

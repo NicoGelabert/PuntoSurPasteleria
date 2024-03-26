@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Product;
-use App\Models\Alergens;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,7 +15,7 @@ class ProductController extends Controller
             ->orderBy('updated_at', 'desc')
             ->paginate(8);
         return view('product.index', [
-            'products' => $products
+            'products' => $products,
         ]);
     }
 
@@ -24,5 +23,9 @@ class ProductController extends Controller
     {
         $categories = Categories::all();
         return view('product.view', ['categories' => $categories, 'product' => $product]);
+    }
+    public function categories()
+    {
+        return Categories::all();
     }
 }
