@@ -2216,7 +2216,7 @@
     "src": "public/fonts/MountHills.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-ff21fc79.css",
+    "file": "assets/app-0f350c28.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -2224,10 +2224,6 @@
     "file": "assets/app-b392c103.js",
     "isEntry": true,
     "src": "resources/js/app.js"
-  },
-  "storage/app/public/iconos/background.svg": {
-    "file": "assets/background-b81fd401.svg",
-    "src": "storage/app/public/iconos/background.svg"
   },
   "storage/app/public/img/carrotcake_ingredients_large.webp": {
     "file": "assets/carrotcake_ingredients_large-0b2d7b4a.webp",
