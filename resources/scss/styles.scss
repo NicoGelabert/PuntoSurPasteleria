@@ -56,6 +56,14 @@ body{
             fill:$primary;
         }
     }
+    .toast{
+        background: $white;
+        color: $primary;
+        @apply flex flex-col items-center justify-between;
+        .progress{
+            background: $secondary-lighter;
+        }
+    }
     header{
         @apply h-auto fixed top-0 w-full block shadow-none;
         background:transparent;
@@ -472,11 +480,14 @@ body{
         .formselect{
             color: $secondary;
         }
-        background-image: url("/storage/app/public/iconos/background.svg");
         .bg-form{
-            background-color: $gray;
+            background-color: $white;
             @apply shadow-md rounded-lg w-full max-w-[400px];
             .title h3{
+                color: $primary;
+            }
+            .auth-session-status{
+                background-color: $secondary;
                 color: $primary;
             }
         }

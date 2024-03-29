@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="h-screen flex justify-center items-center backlogin p-8">
+    <div class="flex justify-center items-center backlogin py-32">
         <div class="bg-form">
             <form
                 action="{{ route('login') }}"
@@ -35,15 +35,17 @@
                         </a>
                     @endif
                 </div>
-                <div class="grid grid-cols-5 gap-3 mb-3 items-center">
-                    <div class="col-span-3">
+                <div class="flex flex-col">
+                    <div class="">
                         <button
                             class="btn-primary w-full"
                         >
                         {{ __('Login')}}
                         </button>
                     </div>
-                    <div class="col-span-2">
+                    <hr class="my-8 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
+                    <div class="flex flex-col gap-4 items-center">
+                        <p class="small font-bold">Aún no tienes cuenta?</p>
                         <a
                                 href="{{ route('register') }}"
                                 class="btn-secondary w-full block"
