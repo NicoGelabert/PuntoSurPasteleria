@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between mb-3">
+  <div class="flex justify-between mb-3">
     <h1 class="text-3xl font-semibold">Orders</h1>
   </div>
   <OrdersTable @clickView="viewOrder"/>

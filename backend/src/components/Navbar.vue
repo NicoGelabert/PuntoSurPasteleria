@@ -1,10 +1,7 @@
 <template>
     <header class="flex justify-between items-center p-3 h-14 shadow bg-white">
-        <button id="toggleIconButton" @click="emit('toggle-sidebar', toggleChevronLeftIcon()) " class="flex items-center justify-center rounded transition-colors w-8 h-8 text-gray-700 hover:bg-black/10">
-            <div :class="[toggleIconLeft ? 'iconOpen' : 'iconClosed']" >
-                <ChevronLeftIcon class="w-6"/>
-            </div>
-        </button>
+        <Logo class="block h-12 w-auto fill-black" />
+        
         <Menu as="div" class="relative inline-block text-left">
             <MenuButton class="flex items-center" @click="toggleChevronDownIcon()">
                 <img src="https://randomuser.me/api/portraits/men/1.jpg" class="rounded-full w-8 mr-2">
@@ -74,11 +71,15 @@ import {Menu, MenuButton, MenuItems, MenuItem} from '@headlessui/vue'
 import store from "../store";
 import router from "../router";
 import {ref,computed} from "vue";
+import Logo from './commons/Logo.vue';
 
 const emit = defineEmits(['toggle-sidebar'])
 
 const currentUser = computed(() => store.state.user.data);
-
+const toggleIconDown = ref(true);
+function toggleChevronDownIcon(){
+  this.toggleIconDown = !this.toggleIconDown;
+}
 function logout() {
   store.dispatch('logout')
     .then(() => {
@@ -86,14 +87,6 @@ function logout() {
     })
 }
 
-const toggleIconLeft = ref(true);
-function toggleChevronLeftIcon(){
-  this.toggleIconLeft = !this.toggleIconLeft;
-}
-const toggleIconDown = ref(true);
-function toggleChevronDownIcon(){
-  this.toggleIconDown = !this.toggleIconDown;
-}
 
 </script>
 

@@ -1,3 +1,6 @@
+@php
+    $espStates = \App\Models\Country::where('code', 'esp')->value('states');
+@endphp
 <x-app-layout>
     <div x-data="{
             flashMessage: '{{\Illuminate\Support\Facades\Session::get('flash_message')}}',
@@ -127,41 +130,42 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <x-input type="select"
-                                    name="shipping[country_code]"
-                                    x-model="shippingAddress.country_code"
-                                    class="w-full account">
-                            <option value="">{{ __('Select Country') }}</option>
-                            <template x-for="country of countries" :key="country.code">
-                                <option :selected="country.code === shippingAddress.country_code"
-                                        :value="country.code" x-text="country.name"></option>
-                            </template>
-                        </x-input>
-                    </div>
-                    <div class="mb-12">
-                        <template x-if="shippingCountryStates">
-                            <x-input type="select"
-                                        name="shipping[state]"
-                                        x-model="shippingAddress.state"
-                                        class="w-full account">
-                                <option value="">{{ __('Select State') }}</option>
-                                <template x-for="[code, state] of Object.entries(shippingCountryStates)"
-                                            :key="code">
-                                    <option :selected="code === shippingAddress.state"
-                                            :value="code" x-text="state"></option>
-                                </template>
-                            </x-input>
-                        </template>
-                        <template x-if="!shippingCountryStates">
-                            <x-input
-                                type="text"
-                                name="shipping[state]"
-                                x-model="shippingAddress.state"
-                                placeholder="{{ __('State') }}"
-                                class="w-full account"
-                            />
-                        </template>
-                    </div>
+    <x-input type="select"
+             name="shipping[country_code]"
+             x-model="shippingAddress.country_code"
+             class="w-full account">
+        <option value="">{{ __('Select Country') }}</option>
+        <template x-for="country of countries" :key="country.code">
+            <option :selected="country.code === 'esp'"
+                    :value="country.code" x-text="country.name"></option>
+        </template>
+    </x-input>
+</div>
+<div class="mb-12">
+    <template x-if="shippingAddress.country_code === 'esp'">
+        <x-input type="select"
+                 name="shipping[state]"
+                 x-model="shippingAddress.state"
+                 x-init="shippingAddress.state = 'MA'"
+                 class="w-full account">
+            <option value="">{{ __('Select State') }}</option>
+            <template x-for="[code, state] of Object.entries(espStates)"
+                      :key="code">
+                <option :selected="code === 'MA'"
+                        :value="code" x-text="state"></option>
+            </template>
+        </x-input>
+    </template>
+    <template x-if="shippingAddress.country_code !== 'esp'">
+        <x-input
+            type="text"
+            name="shipping[state]"
+            x-model="shippingAddress.state"
+            placeholder="{{ __('State') }}"
+            class="w-full account"
+        />
+    </template>
+</div>
 
                     <div class="title mb-4">
                         <h3>{{ __('Billing Address') }}</h3>
@@ -289,3 +293,6 @@
         </div>
     </div>
 </x-app-layout>
+<script>
+    let espStates = {!! $espStates !!};
+</script>

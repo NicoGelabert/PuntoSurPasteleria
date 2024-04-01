@@ -78,13 +78,21 @@
                         <p class="text-gray-500 mb-6">
                             {{__('Shipping and taxes calculated at checkout.')}}
                         </p>
-
-                        <form action="{{route('cart.checkout')}}" method="post">
-                            @csrf
-                            <button type="submit" class="btn-primary w-auto py-3 text-lg">
-                                {{__('Proceed to Checkout')}}
-                            </button>
-                        </form>
+                        @if (!in_array($user->id, $customerIDs))
+                            <a
+                                href="{{ route('profile') }}"
+                                class="btn-secondary w-auto py-3 text-lg"
+                            >
+                                {{ __('Dirección de envío') }}
+                            </a>
+                        @else
+                            <form action="{{route('cart.checkout')}}" method="post">
+                                @csrf
+                                <button type="submit" class="btn-primary w-auto py-3 text-lg">
+                                    {{__('Proceed to Checkout')}}
+                                </button>
+                            </form>
+                        @endif
                     </div>
                 </div>
                 <!--/ Product Items -->
