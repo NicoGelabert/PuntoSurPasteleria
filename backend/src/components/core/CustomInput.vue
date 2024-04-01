@@ -39,7 +39,7 @@
                 :checked="props.modelValue"
                 :required="required"
                 @change="emit('update:modelValue', $event.target.checked)"
-                class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"/>
+                class="h-4 w-4 text-black focus:ring-black border-gray-300 rounded"/>
             <label :for="id" class="ml-2 block text-sm text-gray-900"> {{ label }} </label>
         </template>
         <template v-else>

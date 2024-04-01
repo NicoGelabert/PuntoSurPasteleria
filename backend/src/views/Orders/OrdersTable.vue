@@ -73,8 +73,8 @@
         </td>
         <td class="border-b p-2 ">
           <router-link :to="{name: 'app.orders.view', params: {id: order.id}}"
-                       class="w-8 h-8 rounded-full text-indigo-700 border border-indigo-700 flex justify-center items-center
-                        hover:text-white hover:bg-indigo-700">
+                       class="w-8 h-8 rounded-full text-black border border-black flex justify-center items-center
+                        hover:text-white hover:bg-black">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                  stroke="currentColor" class="w-4 h-4">
               <path stroke-linecap="round" stroke-linejoin="round"

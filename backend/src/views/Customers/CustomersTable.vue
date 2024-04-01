@@ -87,7 +87,7 @@
                 class="inline-flex items-center justify-center w-full justify-center rounded-full w-10 h-10 bg-black bg-opacity-0 text-sm font-medium text-white hover:bg-opacity-5 focus:bg-opacity-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
               >
                 <EllipsisVerticalIcon
-                  class="h-5 w-5 text-indigo-500"
+                  class="h-5 w-5 text-black"
                   aria-hidden="true"/>
               </MenuButton>
             </div>
@@ -108,13 +108,13 @@
                     <router-link
                       :to="{name: 'app.customers.view', params: {id: customer.id}}"
                       :class="[
-                        active ? 'bg-indigo-600 text-white' : 'text-gray-900',
+                        active ? 'bg-black text-white' : 'text-gray-900',
                         'group flex w-full items-center rounded-md px-2 py-2 text-sm',
                       ]"
                     >
                       <PencilSquareIcon
                         :active="active"
-                        class="mr-2 h-5 w-5 text-indigo-400"
+                        class="mr-2 h-5 w-5 text-gray-500"
                         aria-hidden="true"
                       />
                       Edit
@@ -123,14 +123,14 @@
                   <MenuItem v-slot="{ active }">
                     <button
                       :class="[
-                        active ? 'bg-indigo-600 text-white' : 'text-gray-900',
+                        active ? 'bg-black text-white' : 'text-gray-900',
                         'group flex w-full items-center rounded-md px-2 py-2 text-sm',
                       ]"
                       @click="deleteCustomer(customer)"
                     >
                       <TrashIcon
                         :active="active"
-                        class="mr-2 h-5 w-5 text-indigo-400"
+                        class="mr-2 h-5 w-5 text-gray-500"
                         aria-hidden="true"
                       />
                       Delete

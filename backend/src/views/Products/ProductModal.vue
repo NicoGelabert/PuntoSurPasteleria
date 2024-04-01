@@ -51,10 +51,10 @@
                     <ul class="flex justify-between" label="Categories">
                       <li v-for="(category, index) of categories.data" :key="index">
                         <button :value="category.id" :class="[
-                          'px-4 py-2 rounded-lg text-xs uppercase font-bold hover:bg-indigo-600 hover:text-white active:bg-indigo-600 active:text-white focus:bg-indigo-600 focus:text-white',
+                          'px-4 py-2 rounded-lg text-xs uppercase font-bold hover:bg-black active:bg-indigo-600 active:text-white focus:bg-black/10 focus:text-white',
                           {
-                            'bg-indigo-600 text-white': category.id === product.categories_id,
-                            'bg-indigo-200 text-indigo-600': category.id !== product.categories_id,
+                            'bg-black text-white': category.id === product.categories_id,
+                            'bg-black/10 text-black': category.id !== product.categories_id,
                           }
                         ]" @click.prevent="updateCategory(category.id)">{{category.name}}</button>
                       </li>
@@ -67,7 +67,7 @@
                   </div>
                   <footer class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                   <button type="submit"
-                          class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-indigo-800 text-base font-medium sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm text-white hover:bg-white hover:text-indigo-800">
+                          class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-black text-base font-medium sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm text-white hover:bg-black/10">
                       Submit
                   </button>
                   <button type="button"
