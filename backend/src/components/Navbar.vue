@@ -75,10 +75,12 @@ import Logo from './commons/Logo.vue';
 
 const emit = defineEmits(['toggle-sidebar'])
 
+const currentUser = computed(() => store.state.user.data);
 const toggleIconDown = ref(true);
 const toggleChevronDownIcon = () => {
   toggleIconDown.value = !toggleIconDown.value;
 }
+
 
 function logout() {
   store.dispatch('logout')
