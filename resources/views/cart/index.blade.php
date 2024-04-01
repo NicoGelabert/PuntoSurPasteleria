@@ -78,13 +78,15 @@
                         <p class="text-gray-500 mb-6">
                             {{__('Shipping and taxes calculated at checkout.')}}
                         </p>
-                        @if (!in_array($user->id, $customerIDs))
-                            <a
-                                href="{{ route('profile') }}"
-                                class="btn-secondary w-auto py-3 text-lg"
-                            >
-                                {{ __('Dirección de envío') }}
-                            </a>
+                        @if ($user && !in_array($user->id, $customerIDs))
+                            @if ($user->id)
+                                <a
+                                    href="{{ route('profile') }}"
+                                    class="btn-secondary w-auto py-3 text-lg"
+                                >
+                                    {{ __('Dirección de envío') }}
+                                </a>
+                            @endif
                         @else
                             <form action="{{route('cart.checkout')}}" method="post">
                                 @csrf
