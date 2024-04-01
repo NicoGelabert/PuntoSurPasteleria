@@ -51,10 +51,10 @@
                     <ul class="flex justify-between" label="Categories">
                       <li v-for="(category, index) of categories.data" :key="index">
                         <button :value="category.id" :class="[
-                          'px-4 py-2 rounded-lg text-xs uppercase font-bold hover:bg-black active:bg-indigo-600 active:text-white focus:bg-black/10 focus:text-white',
+                          'px-4 py-2 rounded-lg text-xs uppercase font-bold hover:bg-gray-50 hover:text-black hover:border hover:border-gray-300 active:bg-indigo-600 active:text-white focus:bg-black/10 focus:text-white',
                           {
                             'bg-black text-white': category.id === product.categories_id,
-                            'bg-black/10 text-black': category.id !== product.categories_id,
+                            'bg-white border border-gray-300 text-black': category.id !== product.categories_id,
                           }
                         ]" @click.prevent="updateCategory(category.id)">{{category.name}}</button>
                       </li>
