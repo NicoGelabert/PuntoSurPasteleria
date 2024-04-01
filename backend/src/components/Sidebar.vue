@@ -75,7 +75,7 @@
 
 <script setup>
 
-import { ChevronLeftIcon, ChevronUpIcon, BuildingStorefrontIcon, TagIcon, ArchiveBoxIcon, ClipboardDocumentListIcon, UsersIcon, UserGroupIcon, PresentationChartLineIcon } from '@heroicons/vue/24/outline'
+import { ChevronLeftIcon,  BuildingStorefrontIcon, TagIcon, ArchiveBoxIcon, ClipboardDocumentListIcon, UsersIcon, UserGroupIcon, PresentationChartLineIcon } from '@heroicons/vue/24/outline'
 import {ref} from "vue";
 
 const emit = defineEmits(['toggle-sidebar'])
@@ -84,10 +84,7 @@ const toggleIconLeft = ref(true);
 const toggleChevronLeftIcon = () => {
   toggleIconLeft.value = !toggleIconLeft.value;
 }
-const toggleIconDown = ref(true);
-function toggleChevronDownIcon(){
-  this.toggleIconDown = !this.toggleIconDown;
-}
+
 </script>
 
 <style scoped lang="scss">
