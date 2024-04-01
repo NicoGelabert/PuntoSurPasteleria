@@ -1,68 +1,72 @@
 <template>
 
-    <div class="min-w-[160px] w-[160px]  transition-all bg-indigo-700 text-white py-4 px-2" id="sideBarContainer" >
-        <Logo class="block h-16 w-auto fill-white" />
+    <div class="min-w-[160px] w-[25%]  transition-all" id="sideBarContainer" >
+        <button id="toggleIconButton" @click="emit('toggle-sidebar', toggleChevronLeftIcon()) " class="flex items-center justify-center rounded transition-colors w-8 h-8 mr-2 text-white bg-black hover:bg-black/10">
+            <div :class="[toggleIconLeft ? 'iconOpen' : 'iconClosed']" >
+                <ChevronLeftIcon class="w-6"/>
+            </div>
+        </button>
         <router-link :to="{name: 'app.dashboard'}"
-                    class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
-            <span class="mr-2 text-gray-300">
-                <BuildingStorefrontIcon class="w-5"/>
-            </span>
-            <span class="text-xs" >
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+            <span class="text-sm" >
                 Dashboard
+            </span>
+            <span class="mr-2">
+                <BuildingStorefrontIcon class="w-5"/>
             </span>
         </router-link>
         <router-link :to="{name: 'app.categories'}"
-                    class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
-            <span class="mr-2 text-gray-300">
-                <TagIcon class="w-5"/>
-            </span>
-            <span class="text-xs">
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+            <span class="text-sm">
                 Categories
+            </span>
+            <span class="mr-2">
+                <TagIcon class="w-5"/>
             </span>
         </router-link>
         <router-link :to="{name: 'app.products'}"
-                    class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
-            <span class="mr-2 text-gray-300">
-                <ArchiveBoxIcon class="w-5"/>
-            </span>
-            <span class="text-xs">
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+            <span class="text-sm">
                 Products
+            </span>
+            <span class="mr-2">
+                <ArchiveBoxIcon class="w-5"/>
             </span>
         </router-link>
         <router-link :to="{name: 'app.orders'}"
-                    class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
-            <span class="mr-2 text-gray-300">
-                <ClipboardDocumentListIcon class="w-5"/>
-            </span>
-            <span class="text-xs">
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+            <span class="text-sm">
                 Orders
+            </span>
+            <span class="mr-2">
+                <ClipboardDocumentListIcon class="w-5"/>
             </span>
         </router-link>
         <router-link :to="{name: 'app.users'}"
-                    class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
-            <span class="mr-2 text-gray-300">
-                <UsersIcon class="w-5"/>
-            </span>
-            <span class="text-xs">
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+            <span class="text-sm">
                 Users
+            </span>
+            <span class="mr-2">
+                <UsersIcon class="w-5"/>
             </span>
         </router-link>
         <router-link :to="{name: 'app.customers'}"
-                 class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
-            <span class="mr-2 text-gray-300">
-                <UserGroupIcon class="w-5"/>
-            </span>
-            <span class="text-xs">
+        class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+            <span class="text-sm">
                 Customers
+            </span>
+            <span class="mr-2">
+                <UserGroupIcon class="w-5"/>
             </span>
         </router-link>
         <router-link :to="{name: 'reports'}"
-                 class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
-            <span class="mr-2 text-gray-300">
-                <PresentationChartLineIcon class="w-5"/>
-            </span>
-            <span class="text-xs">
+                 class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+            <span class="text-sm">
                 Reports
+            </span>
+            <span class="mr-2">
+                <PresentationChartLineIcon class="w-5"/>
             </span>
         </router-link>
     </div>
@@ -71,8 +75,19 @@
 
 <script setup>
 
-import { BuildingStorefrontIcon, TagIcon, ArchiveBoxIcon, ClipboardDocumentListIcon, UsersIcon, UserGroupIcon, PresentationChartLineIcon } from '@heroicons/vue/24/outline'
-import Logo from './commons/Logo.vue';
+import { ChevronLeftIcon, ChevronUpIcon, BuildingStorefrontIcon, TagIcon, ArchiveBoxIcon, ClipboardDocumentListIcon, UsersIcon, UserGroupIcon, PresentationChartLineIcon } from '@heroicons/vue/24/outline'
+import {ref} from "vue";
+
+const emit = defineEmits(['toggle-sidebar'])
+
+const toggleIconLeft = ref(true);
+function toggleChevronLeftIcon(){
+  this.toggleIconLeft = !this.toggleIconLeft;
+}
+const toggleIconDown = ref(true);
+function toggleChevronDownIcon(){
+  this.toggleIconDown = !this.toggleIconDown;
+}
 </script>
 
 <style scoped lang="scss">
@@ -80,11 +95,19 @@ import Logo from './commons/Logo.vue';
 #sideBarContainer{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap:0.75rem;
+  align-items: flex-end;
+  gap:1rem;
+  padding: 2rem 0 0 2rem ;
   a{
     width: 100%;    
   }
 }
-
+.iconOpen{
+  transform: rotate(0);
+  transition: transform 0.25s cubic-bezier(0.79, 0.33, 0.14, 0.53);
+}
+.iconClosed{
+  transform: rotate(180deg);
+  transition: transform 0.25s cubic-bezier(0.79, 0.33, 0.14, 0.53);
+}
 </style>

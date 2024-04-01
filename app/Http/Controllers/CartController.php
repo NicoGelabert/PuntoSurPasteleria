@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Cart;
 use App\Models\CartItem;
 use App\Models\Product;
+use App\Models\CustomerAddress;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cookie;
@@ -14,15 +15,22 @@ class CartController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request,)
     {
         list($products, $cartItems) = Cart::getProductsAndCartItems();
         $total = 0;
         foreach ($products as $product) {
             $total += $product->price * $cartItems[$product->id]['quantity'];
         }
+        $addresses = CustomerAddress::all();
+        $customerIDs = [];
+        foreach ($addresses as $address) {
+            $customerIDs[] = $address->customer_id;
+        }
+        $user = $request->user();
+        // dd($address);
 
-        return view('cart.index', compact('cartItems', 'products', 'total'));
+        return view('cart.index', compact('cartItems', 'products', 'total', 'customerIDs', 'user'));
     }
 
     /**

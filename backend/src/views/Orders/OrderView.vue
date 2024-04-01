@@ -3,7 +3,7 @@
 
     <!--  Order Details-->
     <div>
-      <h2 class="flex justify-between items-center text-xl font-semibold pb-2 border-b border-gray-300">
+      <h2 class="flex justify-between text-xl font-semibold pb-2 border-b border-gray-300">
         Order Details
         <OrderStatus :order="order" />
       </h2>

@@ -1,18 +1,20 @@
 <template>
-  <div class="min-h-screen bg-gray-200 flex">
+  <div class="min-h-screen bg-gray-100 flex flex-col">
 
-      <!-- Sidebar start -->
-      <Sidebar :class="{'-ml-[160px]': !sidebarOpened}"/>
-      <!-- Sidebar end -->
-
-      <div class="flex-1">
         <!-- Navbar content start -->
-        <Navbar @toggle-sidebar="toggleSidebar"></Navbar>
+        <Navbar></Navbar>
         <!-- Navbar content end -->
 
-        <main class="p-6">
+      <div class="flex" >
+
+        <!-- Sidebar start -->
+        <Sidebar @toggle-sidebar="toggleSidebar" :class="{'-ml-[19.5%]': !sidebarOpened}"/>
+        <!-- Sidebar end -->
+
+        <main class="p-6 w-full">
             <router-view></router-view>
         </main>
+
       </div>
 
   </div>
