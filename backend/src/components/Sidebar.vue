@@ -81,8 +81,8 @@ import {ref} from "vue";
 const emit = defineEmits(['toggle-sidebar'])
 
 const toggleIconLeft = ref(true);
-function toggleChevronLeftIcon(){
-  this.toggleIconLeft = !this.toggleIconLeft;
+const toggleChevronLeftIcon = () => {
+  toggleIconLeft.value = !toggleIconLeft.value;
 }
 const toggleIconDown = ref(true);
 function toggleChevronDownIcon(){
