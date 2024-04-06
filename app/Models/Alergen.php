@@ -2,19 +2,20 @@
 
 namespace App\Models;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Product extends Model
+class Alergen extends Model
 {
     use HasFactory;
     use HasSlug;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'description', 'price', 'image', 'published', 'categories_id', 'image_mime', 'image_size', 'created_by', 'updated_by'];
+    protected $fillable = ['name', 'icon', 'image_mime', 'image_size', 'created_by', 'updated_by'];
 
     public function getSlugOptions() : SlugOptions
     {
@@ -23,19 +24,15 @@ class Product extends Model
             ->saveSlugsTo('slug');
     }
 
+    
     public function getRouteKeyName()
     {
         return 'slug';
     }
-    
-    public function category()
+
+    public function products()
     {
-        return $this->belongsTo(Categories::class, 'categories_id');
+        return $this->belongsToMany(Products::class, 'products_alergens', 'alergens_id','products_id');
     }
 
-    public function alergens()
-    {
-        return $this->belongsToMany(Alergen::class, 'products_alergens', 'products_id', 'alergens_id');
-    }
 }
-

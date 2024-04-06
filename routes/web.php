@@ -7,6 +7,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\AlergenController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -34,6 +35,9 @@ Route::middleware(['guestOrVerified'])->group(function () {
     Route::get('/menu/{categories:slug}', [CategoriesController::class, 'view'])->name('categories.view');
     Route::get('/menu/{categories:slug}/{product:slug}', [ProductController::class, 'view'])->name('product.view');
     
+    //Alergens
+    Route::get('/alergens', [AlergenController::class, 'index'])->name('alergen.index');
+    Route::get('/alergens/{alergen:slug}', [AlergenController::class, 'view'])->name('alergen.view');
     
     Route::prefix('/cart')->name('cart.')->group(function () {
         Route::get('/', [CartController::class, 'index'])->name('index');
