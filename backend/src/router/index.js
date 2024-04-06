@@ -8,6 +8,7 @@ import store from "../store";
 import NotFound from "../views/NotFound.vue";
 import Categories from "../views/Categories/Categories.vue";
 import Products from "../views/Products/Products.vue";
+import Alergens from "../views/Alergens/Alergens.vue";
 import Users from "../views/Users/Users.vue";
 import Customers from "../views/Customers/Customers.vue";
 import CustomerView from "../views/Customers/CustomerView.vue";
@@ -46,6 +47,11 @@ const routes = [
         path: 'products',
         name: 'app.products',
         component: Products
+      },
+      {
+        path: 'alergens',
+        name: 'app.alergens',
+        component: Alergens
       },
       {
         path: 'users',

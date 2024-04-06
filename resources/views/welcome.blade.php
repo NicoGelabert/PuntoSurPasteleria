@@ -63,7 +63,7 @@
                             <div class="p-4 card-listing">
                                 <div class="flex justify-center w-full gap-4">
                                     @foreach ($product->alergens as $alergen)
-                                        <img src="{{ url($alergen?->icon) }}" alt="{{ $alergen?->name }}">
+                                        <img src="{{ url($alergen?->image) }}" alt="{{ $alergen?->name }}">
                                     @endforeach
                                 </div>
                                 <div class="flex flex-col items-center justify-center">

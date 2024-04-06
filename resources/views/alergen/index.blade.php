@@ -3,7 +3,7 @@
         @foreach($alergens as $alergen)
         <div class="mb-8">
             <a href="{{ route('alergen.view', $alergen->slug) }}" class="flex items-center gap-4">
-                <img src="{{ url($alergen?->icon) }}" alt="{{$alergen->name}}" class="">
+                <img src="{{ url($alergen?->image) }}" alt="{{$alergen->name}}" class="">
                 <h4>{{$alergen->name}}</h4>
             </a>
         </div>

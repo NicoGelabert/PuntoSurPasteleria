@@ -111,3 +111,20 @@ export function hideToast(state) {
 export function setCountries(state, countries) {
   state.countries = countries.data;
 }
+
+export function setAlergens(state, [loading, data = null]) {
+ 
+  if (data) {
+    state.alergens = {
+      ...state.alergens,
+      data: data.data,
+      links: data.meta?.links,
+      page: data.meta.current_page,
+      limit: data.meta.per_page,
+      from: data.meta.from,
+      to: data.meta.to,
+      total: data.meta.total,
+    }
+  }
+  state.alergens.loading = loading;
+}

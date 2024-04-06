@@ -110,7 +110,7 @@
                 </h1>
                 <div class="flex w-full gap-4 mt-4">
                     @foreach ($product->alergens as $alergen)
-                    <img src="{{ url($alergen?->icon) }}" data-tooltip-target="tooltip-{{ $alergen?->name }}" alt="" class="h-6 w-auto">
+                    <img src="{{ url($alergen?->image) }}" data-tooltip-target="tooltip-{{ $alergen?->name }}" alt="" class="h-6 w-auto">
                     <div id="tooltip-{{ $alergen?->name }}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
                         <p class="small">Contains {{ $alergen?->name }}</p>
                         <div class="tooltip-arrow" data-popper-arrow></div>

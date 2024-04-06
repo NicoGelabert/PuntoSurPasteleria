@@ -15,12 +15,12 @@ class Alergen extends Model
     use HasSlug;
     use SoftDeletes;
 
-    protected $fillable = ['name', 'icon', 'image_mime', 'image_size', 'created_by', 'updated_by'];
+    protected $fillable = ['name', 'image', 'image_mime', 'image_size', 'created_by', 'updated_by'];
 
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('title')
+            ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
     }
 

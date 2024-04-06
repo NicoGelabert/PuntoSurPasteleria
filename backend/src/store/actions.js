@@ -234,5 +234,58 @@ export function updateProduct({commit}, product) {
   } else {
     product._method = 'PUT'
   }
-  return axiosClient.post(`/products/${id}`, product)
+  return axiosClient.post(`/products/${id}`, product);
+}
+
+//ALERGENS
+export function getAlergens({commit, state}, {url = null, search = '', per_page, sort_field, sort_direction} = {}) {
+  commit('setAlergens', [true])
+  url = url || '/alergens'
+  const params = {
+    per_page: state.alergens.limit,
+  }
+  return axiosClient.get(url, {
+    params: {
+      ...params,
+      search, per_page, sort_field, sort_direction
+    }
+  })
+    .then((response) => {
+      commit('setAlergens', [false, response.data])
+    })
+    .catch(() => {
+      commit('setAlergens', [false])
+    })
+}
+
+export function getAlergen({commit}, id) {
+  return axiosClient.get(`/alergens/${id}`)
+}
+
+export function createAlergen({commit}, alergen) {
+  if (alergen.image instanceof File) {
+    const form = new FormData();
+    form.append('name', alergen.name);
+    form.append('image', alergen.image);
+    alergen = form;
+  }
+  return axiosClient.post('/alergens', alergen)
+}
+
+export function updateAlergen({commit}, alergen) {
+  const id = alergen.id
+  if (alergen.image instanceof File) {
+    const form = new FormData();
+    form.append('name', alergen.name);
+    form.append('image', alergen.image);
+    form.append('_method', 'PUT');
+    alergen = form;
+  } else {
+    alergen._method = 'PUT'
+  }
+  return axiosClient.post(`/alergens/${id}`, alergen)
+}
+
+export function deleteAlergen({commit}, id) {
+  return axiosClient.delete(`/alergens/${id}`)
 }

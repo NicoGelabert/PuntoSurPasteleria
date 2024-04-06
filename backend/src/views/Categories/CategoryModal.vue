@@ -86,6 +86,7 @@ const category = ref({
   name: props.category.name,
   image: props.category.image
 })
+console.log(category)
 const loading = ref(false)
 const emit = defineEmits(['update:modelValue', 'close'])
 const show = computed({

@@ -11,6 +11,7 @@ use App\Models\Customer;
 use App\Models\Order;
 use App\Models\Categories;
 use App\Models\Product;
+use App\Models\Alergen;
 use App\Traits\ReportTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -42,6 +43,14 @@ class DashboardController extends Controller
     public function activeProducts()
     {
         return Product::where('published', '=', 1)->count();
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function activeAlergens()
+    {
+        return Alegen::all();
     }
 
     /**
