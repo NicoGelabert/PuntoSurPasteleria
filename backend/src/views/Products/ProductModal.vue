@@ -51,7 +51,7 @@
                     <ul class="flex justify-between" label="Categories">
                       <li v-for="(category, index) of categories.data" :key="index">
                         <button :value="category.id" :class="[
-                          'px-4 py-2 rounded-lg text-xs uppercase font-bold hover:bg-gray-50 hover:text-black hover:border hover:border-gray-300 active:bg-indigo-600 active:text-white focus:bg-black/10 focus:text-white',
+                          'active:bg-black text-base font-medium active:text-white border rounded-md border-gray-300 shadow-sm w-full inline-flex justify-center mt-3 px-4 py-2 hover:bg-black/10 hover:text-black focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-black sm:w-auto sm:mt-0 sm:ml-3 sm:text-sm',
                           {
                             'bg-black text-white': category.id === product.categories_id,
                             'bg-white border border-gray-300 text-black': category.id !== product.categories_id,
@@ -67,11 +67,11 @@
                   </div>
                   <footer class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                   <button type="submit"
-                          class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-black text-base font-medium sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm text-white hover:bg-black/10">
+                          class="bg-black text-base font-medium text-white border rounded-md border-gray-300 shadow-sm w-full inline-flex justify-center mt-3 px-4 py-2 hover:bg-black/10 hover:text-black focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-black sm:w-auto sm:mt-0 sm:ml-3 sm:text-sm">
                       Submit
                   </button>
                   <button type="button"
-                          class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                          class="bg-white text-base font-medium text-gray-700 border rounded-md border-gray-300 shadow-sm w-full inline-flex justify-center mt-3 px-4 py-2 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-gray-300 sm:w-auto sm:mt-0 sm:ml-3 sm:text-sm"
                           @click="closeModal" ref="cancelButtonRef">
                       Cancel
                   </button>

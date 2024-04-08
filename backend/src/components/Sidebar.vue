@@ -1,13 +1,13 @@
 <template>
 
     <div class="min-w-[160px] w-[25%]  transition-all" id="sideBarContainer" >
-        <button id="toggleIconButton" @click="emit('toggle-sidebar', toggleChevronLeftIcon()) " class="flex items-center justify-center rounded transition-colors w-8 h-8 mr-2 text-white bg-black hover:bg-black/10">
+        <button id="toggleIconButton" @click="emit('toggle-sidebar', toggleChevronLeftIcon()) " class="flex items-center justify-center rounded transition-colors w-8 h-8 mr-2 text-white bg-black hover:text-black hover:bg-white">
             <div :class="[toggleIconLeft ? 'iconOpen' : 'iconClosed']" >
                 <ChevronLeftIcon class="w-6"/>
             </div>
         </button>
         <router-link :to="{name: 'app.dashboard'}"
-                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
             <span class="text-sm" >
                 Dashboard
             </span>
@@ -16,7 +16,7 @@
             </span>
         </router-link>
         <router-link :to="{name: 'app.categories'}"
-                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
             <span class="text-sm">
                 Categories
             </span>
@@ -25,7 +25,7 @@
             </span>
         </router-link>
         <router-link :to="{name: 'app.products'}"
-                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
             <span class="text-sm">
                 Products
             </span>
@@ -34,7 +34,7 @@
             </span>
         </router-link>
         <router-link :to="{name: 'app.alergens'}"
-                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
             <span class="text-sm">
                 Alergens
             </span>
@@ -43,7 +43,7 @@
             </span>
         </router-link>
         <router-link :to="{name: 'app.orders'}"
-                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
             <span class="text-sm">
                 Orders
             </span>
@@ -52,7 +52,7 @@
             </span>
         </router-link>
         <router-link :to="{name: 'app.users'}"
-                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
             <span class="text-sm">
                 Users
             </span>
@@ -61,7 +61,7 @@
             </span>
         </router-link>
         <router-link :to="{name: 'app.customers'}"
-        class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+        class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
             <span class="text-sm">
                 Customers
             </span>
@@ -70,7 +70,7 @@
             </span>
         </router-link>
         <router-link :to="{name: 'reports'}"
-                 class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-black/30">
+                 class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
             <span class="text-sm">
                 Reports
             </span>
