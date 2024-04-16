@@ -3,19 +3,19 @@
         <div id="hero_banner" class="mx-auto max-w-screen-xl flex flex-col md:flex-row md:flex-wrap items-center justify-around md:justify-center relative h-auto lg:h-screen max-h-screen splide">
             <div class="w-full relative isolatemd:pt-0 md:pb-0 splide__track pt-24 md:pt-16 ">
                 <ul class="splide__list max-w-[1024px] !mx-auto">
-                    @foreach ($slider_images as $slider_image)
-                    <li class="splide__slide slider bg-gradient flex flex-col sm:flex-row items-center justify-evenly md:justify-center {{$slider_image -> background}} px-8">
+                    @foreach ($homeHeroBanners as $homeHeroBanner)
+                    <li class="splide__slide slider bg-gradient flex flex-col sm:flex-row items-center justify-evenly md:justify-center {{$homeHeroBanner -> background}} px-8">
                         <div class="text-left slide-in-left">
-                            <h1>{{$slider_image -> headline}}</h1>
-                            <p class="mt-2 text-md md:text-lg leading-8 text-gray-600 w-full">{{$slider_image -> description}}</p>
+                            <h1>{{$homeHeroBanner -> headline}}</h1>
+                            <p class="mt-2 text-md md:text-lg leading-8 text-gray-600 w-full">{{$homeHeroBanner -> description}}</p>
                             <div class="flex gap-3 my-6 md:justify-start">
-                                <a href="{{$slider_image -> link}}" class="btn-primary">
-                                {{__('Ver ')}}{{$slider_image -> headline}} 
+                                <a href="{{$homeHeroBanner -> link}}" class="btn-primary">
+                                {{__('Ver ')}}{{$homeHeroBanner -> headline}} 
                                 </a>
                             </div>
                         </div>            
                         <div class="">
-                            <img class="image_slide max-h-[450px] sm:max-h-[500px] w-full mx-auto" src="{{$slider_image -> image}}" alt="">
+                            <img class="image_slide max-h-[450px] sm:max-h-[500px] w-full mx-auto" src="{{$homeHeroBanner -> image}}" alt="">
                         </div>
                     </li>
                     @endforeach

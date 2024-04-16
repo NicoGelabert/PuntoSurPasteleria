@@ -15,6 +15,15 @@
                 <BuildingStorefrontIcon class="w-5"/>
             </span>
         </router-link>
+        <router-link :to="{name: 'app.homeherobanners'}"
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
+            <span class="text-sm">
+                Home Hero Banner
+            </span>
+            <span class="mr-2">
+                <TagIcon class="w-5"/>
+            </span>
+        </router-link>
         <router-link :to="{name: 'app.categories'}"
                     class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
             <span class="text-sm">

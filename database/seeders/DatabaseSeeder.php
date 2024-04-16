@@ -14,12 +14,13 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             // AdminUserSeeder::class,
-            CountrySeeder::class,
+            // CountrySeeder::class,
             // CategoriesSeeder::class,
             // ProductSeeder::class,
             // AlergensSeeder::class,
             // ProductsAlergensSeeder::class,
             // SliderImagesSeeder::class,
+            HomeHeroBannerSeeder::class,
         ]);
     }
 }

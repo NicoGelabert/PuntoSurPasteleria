@@ -56,6 +56,67 @@ export function getOrders({commit, state}, {url = null, search = '', per_page, s
 export function getOrder({commit}, id) {
   return axiosClient.get(`/orders/${id}`)
 }
+
+// HOMEHEROBANNERS
+export function getHomeHeroBanners({commit, state}, {url = null, search = '', per_page, sort_field, sort_direction} = {}) {
+  commit('setHomeHeroBanners', [true])
+  url = url || '/homeherobanners'
+  const params = {
+    per_page: state.homeHeroBanners.limit,
+  }
+  return axiosClient.get(url, {
+    params: {
+      ...params,
+      search, per_page, sort_field, sort_direction
+    }
+  })
+    .then((response) => {
+      commit('setHomeHeroBanners', [false, response.data])
+    })
+    .catch(() => {
+      commit('setHomeHeroBanners', [false])
+    })
+}
+
+export function getHomeHeroBanner({commit}, id) {
+  return axiosClient.get(`/homeherobanners/${id}`)
+}
+
+export function createHomeHeroBanner({commit}, homeHeroBanner) {
+  if (homeHeroBanner.image instanceof File) {
+    const form = new FormData();
+    form.append('image', homeHeroBanner.image);
+    form.append('headline', homeHeroBanner.headline);
+    form.append('description', homeHeroBanner.description);
+    form.append('link', homeHeroBanner.link);
+    form.append('background', homeHeroBanner.background);
+    homeHeroBanner = form;
+  }
+  return axiosClient.post('/homeherobanners', homeHeroBanner)
+}
+
+export function updateHomeHeroBanner({commit}, homeHeroBanner) {
+  const id = homeHeroBanner.id
+  if (homeHeroBanner.image instanceof File) {
+    const form = new FormData();
+    form.append('id', homeHeroBanner.id);
+    form.append('image', homeHeroBanner.image);
+    form.append('headline', homeHeroBanner.headline);
+    form.append('description', homeHeroBanner.description);
+    form.append('link', homeHeroBanner.link);
+    form.append('background', homeHeroBanner.background);
+    form.append('_method', 'PUT');
+    homeHeroBanner = form;
+  } else {
+    homeHeroBanner._method = 'PUT'
+  }
+  return axiosClient.post(`/homeherobanners/${id}`, homeHeroBanner)
+}
+
+export function deleteHomeHeroBanner({commit}, id) {
+  return axiosClient.delete(`/homeherobanners/${id}`)
+}
+
 // CATEGORIES
 export function getCategories({commit, state}, {url = null, search = '', per_page, sort_field, sort_direction} = {}) {
   commit('setCategories', [true])
