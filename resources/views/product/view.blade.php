@@ -121,8 +121,15 @@
                     Quantity
                 </label> -->
                 <div class="flex flex-wrap justify-between align-center gap-y-4 my-8">
-                    <div x-data="{value: 1}" class="price">$    {{$product->price}}
-                    </div>
+                    <!-- <div x-data="{value: 1}" class="price">$    {{$product->price}}
+                    </div> -->
+                    @foreach ($product->prices as $price)
+                    <label>
+                        <input x-data="{value: 1}" class="price" type="radio" name="price" value="{{ $price?->id }}">
+                        $ {{ $price?->number }} - {{ $price?->size }}
+                    </label>
+                    @endforeach
+
                     <div class="w-full flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-16">
                         <div class="flex items-center content-center quantity">
                             <button id="down" class="btn btn-default" onclick=" down('0')">

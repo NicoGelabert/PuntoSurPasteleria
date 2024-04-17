@@ -29,8 +29,13 @@
                                 {{$product->title}}
                             </h4>
                         </div>
-                        <div class="relative flex justify-center">
+                        <!-- <div class="relative flex justify-center">
                             <span class="price">${{$product->price}}</span>
+                        </div> -->
+                        <div class="flex justify-center w-full gap-4">
+                        @foreach ($product->prices as $price)
+                            <p> ${{$price->number}} - ${{$price->size}}</p>
+                        @endforeach
                         </div>
                         <div class="relative flex">
                             <p class="small">{{$product->description}}</p>

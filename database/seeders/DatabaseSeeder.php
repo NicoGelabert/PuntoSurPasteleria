@@ -20,7 +20,9 @@ class DatabaseSeeder extends Seeder
             // AlergensSeeder::class,
             // ProductsAlergensSeeder::class,
             // SliderImagesSeeder::class,
-            HomeHeroBannerSeeder::class,
+            // HomeHeroBannerSeeder::class,
+            // PriceSeeder::class,
+            ProductPriceSeeder::class,
         ]);
     }
 }

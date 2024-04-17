@@ -37,5 +37,11 @@ class Product extends Model
     {
         return $this->belongsToMany(Alergen::class, 'products_alergens', 'products_id', 'alergens_id');
     }
+
+    public function prices()
+    {
+        return $this->belongsToMany(Price::class, 'product_price', 'product_id', 'price_id');
+    }
+
 }
 

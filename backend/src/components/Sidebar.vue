@@ -42,6 +42,15 @@
                 <ArchiveBoxIcon class="w-5"/>
             </span>
         </router-link>
+        <router-link :to="{name: 'app.prices'}"
+                    class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
+            <span class="text-sm">
+                Prices
+            </span>
+            <span class="mr-2">
+                <TagIcon class="w-5"/>
+            </span>
+        </router-link>
         <router-link :to="{name: 'app.alergens'}"
                     class="flex items-center justify-between p-2 gap-8 rounded transition-colors hover:bg-white">
             <span class="text-sm">

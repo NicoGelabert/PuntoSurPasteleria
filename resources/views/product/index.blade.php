@@ -35,10 +35,16 @@
                                     {{$product->title}}
                                 </h3>
                             </div>
-                            <div class="price-container relative flex justify-between my-4">
+                            <!-- <div class="price-container relative flex justify-between my-4">
                                 <span class="title font-number-label text-right">Price</span>
                                 <h5 class="font-number pl-4 text-lg md:text-xl lg:text-2xl">${{$product->price}}</h5>
+                            </div> -->
+                            <div class="flex justify-center w-full gap-4">
+                            @foreach ($product->prices as $price)
+                                <p> ${{$price->number}} - ${{$price->size}}</p>
+                            @endforeach
                             </div>
+
                         </div>
                     </a>
                     <button class="btn-primary absolute btn-cart-product" @click="addToCart()">

@@ -214,6 +214,63 @@ export function deleteProduct({commit}, id) {
   return axiosClient.delete(`/products/${id}`)
 }
 
+// PRICES
+export function getPrices({commit, state}, {url = null, search = '', per_page, sort_field, sort_direction} = {}) {
+  commit('setPrices', [true])
+  url = url || '/prices'
+  const params = {
+    per_page: state.prices.limit,
+  }
+  return axiosClient.get(url, {
+    params: {
+      ...params,
+      search, per_page, sort_field, sort_direction
+    }
+  })
+    .then((response) => {
+      commit('setPrices', [false, response.data])
+    })
+    .catch(() => {
+      commit('setPrices', [false])
+    })
+}
+
+
+export function getPrice({commit}, id) {
+  return axiosClient.get(`/prices/${id}`)
+}
+
+export function createPrice({commit}, price) {
+  if (price.image instanceof File) {
+    const form = new FormData();
+    form.append('number', price.number);
+    form.append('size', price.size);
+    
+    price = form;
+  }
+  return axiosClient.post('/prices', price)
+}
+
+export function updatePrice({commit}, price) {
+  const id = price.id
+  if (price.image instanceof File) {
+    const form = new FormData();
+    form.append('id', price.id);
+    form.append('number', price.number);
+    form.append('size', price.size);
+    form.append('_method', 'PUT');
+    price = form;
+  } else {
+    price._method = 'PUT'
+  }
+  return axiosClient.post(`/prices/${id}`, price)
+}
+
+export function deletePrice({commit}, id) {
+  return axiosClient.delete(`/prices/${id}`)
+}
+
+// USERS
 export function getUsers({commit, state}, {url = null, search = '', per_page, sort_field, sort_direction} = {}) {
   commit('setUsers', [true])
   url = url || '/users'
