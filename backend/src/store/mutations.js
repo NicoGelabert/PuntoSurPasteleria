@@ -66,8 +66,8 @@ export function setProducts(state, [loading, data = null]) {
 export function setPrices(state, [loading, data = null]) {
 
   if (data) {
-    state.price = {
-      ...state.price,
+    state.prices = {
+      ...state.prices,
       data: data.data,
       links: data.meta?.links,
       page: data.meta.current_page,

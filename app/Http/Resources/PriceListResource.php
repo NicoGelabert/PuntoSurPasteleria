@@ -18,8 +18,10 @@ class PriceListResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'number' => $this->number ?: null,
+            'number' => $this->number,
             'size' => $this->size,
+            //Traer el producto asociado
+            'product' => $this->products->first()->title ?: null,
             'updated_at' => (new \DateTime($this->updated_at))->format('Y-m-d H:i:s'),
         ];
     }

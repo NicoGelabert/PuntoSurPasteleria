@@ -23,7 +23,9 @@ class PriceRequest extends FormRequest
     {
         return [
             'number' => ['required', 'numeric'],
-            'size' => ['nullable', 'string']
+            'size' => ['nullable', 'string'],
+            'product' => ['nullable', 'numeric'],
+            // 'product.*' => ['nullable', 'numeric', 'exists:product,id'],
         ];
     }
 }

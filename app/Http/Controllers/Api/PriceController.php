@@ -41,9 +41,6 @@ class PriceController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
-
-
     public function store(PriceRequest $request)
     {
         $data = $request->validated();
@@ -51,6 +48,10 @@ class PriceController extends Controller
         $data['updated_by'] = $request->user()->id;
         
         $price = Price::create($data);
+        
+        // Buscamos la relación con el producto y le attacheamos el id para la tabla pivot
+        $product = \App\Models\Product::findOrFail($data['product']);
+        $price->products()->attach([$product->id]);
 
         return new PriceResource($price);
     }
@@ -62,6 +63,7 @@ class PriceController extends Controller
      */
     public function show(Price $price)
     {
+        $price->load('products');
         return new PriceResource($price);
     }
 
@@ -77,6 +79,9 @@ class PriceController extends Controller
         $data['updated_by'] = $request->user()->id;
 
         $price->update($data);
+
+        $product = \App\Models\Product::findOrFail($data['product']);
+        $price->products()->sync([$product->id]);
 
         return new PriceResource($price);
     }

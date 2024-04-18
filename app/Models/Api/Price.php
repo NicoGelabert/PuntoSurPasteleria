@@ -2,7 +2,7 @@
 
 namespace App\Models\Api;
 
-class Price extends App\Models\Price
+class Price extends \App\Models\Price
 {
     public function getRouteKeyName()
     {

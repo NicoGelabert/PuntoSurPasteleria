@@ -12,6 +12,7 @@
                     :value="props.modelValue"
                     :class="inputClasses"
                     @change="onChange($event.target.value)">
+            <option disabled value="">Please select one</option>
             <option v-for="option of selectOptions" :value="option.key" :key="option">{{option.text}}</option>
             </select>
         </template>

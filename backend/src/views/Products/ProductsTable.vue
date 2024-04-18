@@ -196,7 +196,7 @@ const sortDirection = ref('desc')
 
 const product = ref({})
 const showProductModal = ref(false);
-
+console.log(products)
 const emit = defineEmits(['clickEdit'])
 
 onMounted(() => {

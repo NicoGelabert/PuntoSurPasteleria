@@ -29,9 +29,8 @@ category: '',
 categories_id:'',
 description: '',
 image: '',
-price: ''
+prices: ''
 }
-const products = computed(() => store.state.products);
 
 const productModel = ref({...DEFAULT_PRODUCT});
 const showProductModal = ref(false);

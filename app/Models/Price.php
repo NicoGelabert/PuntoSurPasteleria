@@ -11,12 +11,13 @@ class Price extends Model
 {
 
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = ['number', 'size', 'created_by', 'updated_by'];
 
     public function products()
     {
-        return $this->belongsTo(Product::class, 'product_price', 'price_id', 'product_id');
-    } 
+        return $this->belongsToMany(Product::class, 'product_price', 'price_id', 'product_id');
+    }
 
 }

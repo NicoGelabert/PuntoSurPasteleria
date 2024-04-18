@@ -21,7 +21,7 @@
                 Home Hero Banner
             </span>
             <span class="mr-2">
-                <TagIcon class="w-5"/>
+                <PhotoIcon class="w-5"/>
             </span>
         </router-link>
         <router-link :to="{name: 'app.categories'}"
@@ -48,7 +48,7 @@
                 Prices
             </span>
             <span class="mr-2">
-                <TagIcon class="w-5"/>
+                <CurrencyEuroIcon class="w-5"/>
             </span>
         </router-link>
         <router-link :to="{name: 'app.alergens'}"
@@ -102,7 +102,7 @@
 
 <script setup>
 
-import { ChevronLeftIcon,  BuildingStorefrontIcon, TagIcon, ArchiveBoxIcon, ClipboardDocumentListIcon, UsersIcon, UserGroupIcon, PresentationChartLineIcon, EyeDropperIcon } from '@heroicons/vue/24/outline'
+import { ChevronLeftIcon,  BuildingStorefrontIcon, PhotoIcon, TagIcon, ArchiveBoxIcon, CurrencyEuroIcon, ClipboardDocumentListIcon, UsersIcon, UserGroupIcon, PresentationChartLineIcon, EyeDropperIcon } from '@heroicons/vue/24/outline'
 import {ref} from "vue";
 
 const emit = defineEmits(['toggle-sidebar'])

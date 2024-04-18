@@ -245,6 +245,7 @@ export function createPrice({commit}, price) {
     const form = new FormData();
     form.append('number', price.number);
     form.append('size', price.size);
+    form.append('product', price.product);
     
     price = form;
   }
@@ -258,6 +259,7 @@ export function updatePrice({commit}, price) {
     form.append('id', price.id);
     form.append('number', price.number);
     form.append('size', price.size);
+    form.append('product_id', price.product_id);
     form.append('_method', 'PUT');
     price = form;
   } else {
