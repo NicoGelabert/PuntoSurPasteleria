@@ -61,8 +61,15 @@
                     </ul>
                   </div>
                   <CustomInput type="file" class="mb-2" label="Product Image" @change="file => product.image = file"/>
+                  <div class="my-8 flex flex-col gap-4">
+                    <DialogTitle as="h4" class="text-md leading-6 font-medium text-gray-900">
+                      Prices
+                    </DialogTitle>
+                    <div v-for="price in product.prices" :key="price.id">
+                      <p class="text-gray-400"><strong class="text-black">€ {{ price.number }}</strong> . {{ price.size }}</p>
+                    </div>
+                  </div>
                   <CustomInput type="textarea" class="mb-2" v-model="product.description" label="Description"/>
-                  <CustomInput type="number" class="mb-2" v-model="product.price" label="Price" prepend="$"/>
                   <CustomInput type="checkbox" class="mb-2" v-model="product.published" label="Published"/>
                   </div>
                   <footer class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
@@ -108,7 +115,7 @@ category:props.product.category,
 categories_id:props.product.categories_id,
 image: props.product.image,
 description: props.product.description,
-price: props.product.price,
+prices: props.product.prices,
 published: props.product.published,
 selectedCategoryId: props.product.categories_id,
 })
@@ -142,7 +149,7 @@ product.value = {
   categories_id:props.product.categories_id,
   image: props.product.image,
   description: props.product.description,
-  price: props.product.price,
+  prices: props.product.prices,
   published: props.product.published,
 }
 })

@@ -66,6 +66,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        $product -> load('prices');
         return new ProductResource($product);
     }
 
