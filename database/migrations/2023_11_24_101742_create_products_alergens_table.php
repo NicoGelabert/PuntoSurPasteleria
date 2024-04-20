@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,13 +14,23 @@ return new class extends Migration
     {
         Schema::create('products_alergens', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBiginteger('products_id')->unsigned();
-            $table->unsignedBiginteger('alergens_id')->unsigned();
+            $table->unsignedBiginteger('product_id')->unsigned();
+            $table->unsignedBiginteger('alergen_id')->unsigned();
 
-            $table->foreign('products_id')->references('id')
+            // Claves foráneas
+            $table->foreign('product_id')->references('id')
                  ->on('products')->onDelete('cascade');
-            $table->foreign('alergens_id')->references('id')
+            $table->foreign('alergen_id')->references('id')
                 ->on('alergens')->onDelete('cascade');
+
+            // User info para backend
+            $table->foreignIdFor(User::class, 'created_by')->nullable();
+            $table->foreignIdFor(User::class, 'updated_by')->nullable();
+            $table->softDeletes();
+            $table->foreignIdFor(User::class, 'deleted_by')->nullable();
+
+            //
+            $table->timestamps();
         });
     }
 

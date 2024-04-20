@@ -69,6 +69,32 @@
                       <p class="text-gray-400"><strong class="text-black">€ {{ price.number }}</strong> . {{ price.size }}</p>
                     </div>
                   </div>
+                  <div class="my-8 flex flex-col gap-4">
+                    <DialogTitle as="h4" class="text-md leading-6 font-medium text-gray-900">
+                      Alergens
+                    </DialogTitle>
+                    <div class="flex justify-evenly">
+                      <!-- <div class="flex flex-col" v-for="alergen in product.alergens" :key="alergen.id">
+                        <img :src="alergen.image" alt="" class="h-6">
+                        {{ alergen.name }}
+                        <CustomInput type="checkbox" class="mb-2" v-model="product.alergens" :value="alergen.id" />
+                      </div> -->
+                      <!-- <div class="flex flex-col" v-for="alergen in product.alergens" :key="alergen.id">
+                        <img :src="alergen.image" alt="" class="h-6">
+                        {{ alergen.name }}
+                        <CustomInput class="mb-2" v-model="alergen.id" label="Product Title"/>
+                      </div> -->
+                    </div>
+                    <div class="flex justify-evenly">
+                      <div class="flex flex-col items-center gap-4" v-for="alergen in alergens" :key="alergen.key">
+                        <input type="checkbox" :id="'alergen_' + alergen.key" :checked="isChecked(alergen.key)">
+                        <label class="flex flex-col justify-center" :for="'alergen_' + alergen.key">
+                          <img :src="alergen.image" alt="" class="h-6">
+                          {{ alergen.name }}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
                   <CustomInput type="textarea" class="mb-2" v-model="product.description" label="Description"/>
                   <CustomInput type="checkbox" class="mb-2" v-model="product.published" label="Published"/>
                   </div>
@@ -116,19 +142,35 @@ categories_id:props.product.categories_id,
 image: props.product.image,
 description: props.product.description,
 prices: props.product.prices,
+alergens: props.product.alergens, //Trae los alérgenos asociados al producto
 published: props.product.published,
-selectedCategoryId: props.product.categories_id,
 })
 
+const alergens = computed(() => store.state.alergens.data.map(p => ({
+  key: p.id,
+  name: p.name,
+  image: p.image_url
+}))); // Trae la collección de alérgenos
+
 const categories = computed(() => store.state.categories);
+
 onMounted(() => {
-getCategories();
+  getCategories();
+  getAlergens();
 })
+
 function getCategories(url = null) {
-store.dispatch("getCategories", {
-  url,
-});
+  store.dispatch("getCategories", {
+    url,
+  });
 }
+
+function getAlergens(url = null) {
+  store.dispatch("getAlergens", {
+    url,
+  });
+}
+
 const loading = ref(false)
 
 const emit = defineEmits(['update:modelValue', 'close'])
@@ -141,6 +183,7 @@ set: (value) => emit('update:modelValue', value)
 function updateCategory(categoryId) {
   product.value.categories_id = categoryId;
 }
+
 onUpdated(() => {
 product.value = {
   id: props.product.id,
@@ -150,15 +193,50 @@ product.value = {
   image: props.product.image,
   description: props.product.description,
   prices: props.product.prices,
+  alergens: props.product.alergens, //Actualiza los alérgenos asociados al producto
   published: props.product.published,
 }
 })
+
+//////////////////////////////////////////////
+
+const checkedAlergens = ref(props.product.alergens);
+ 
+const isChecked = (alergenId) => {
+  console.log("alergenId:", alergenId);
+  console.log("checkedAlergens:", checkedAlergens.value);
+  if (Array.isArray(checkedAlergens.value)) {
+    console.log("checkedAlergens.value is an array");
+    console.log("Array methods available:", Object.getOwnPropertyNames(Array.prototype));
+  } else {
+    console.log("checkedAlergens.value is not an array");
+  }
+  return checkedAlergens.value.includes(alergenId);
+};
+console.log(typeof checkedAlergens.value);
+// const compareIds = (alergenId) => {
+//   const isChecked = checkedAlergens.value.some(a => a.id === alergenId);
+//   const alergen = alergens.value.find(a => a.key === alergenId);
+//   console.log("Alergen ID:", alergenId);
+//   console.log("Is checked:", isChecked);
+//   console.log("Alergen:", alergen);
+// };
+
+// // Llamamos a la función para probarla
+// compareIds(2); // Prueba con un ID específico
+
+
+console.log(alergens);
+console.log(typeof checkedAlergens);
+console.log(checkedAlergens);
+console.log(product);
+
+//////////////////////////////////////
 
 function closeModal() {
 show.value = false
 emit('close')
 }
-
 
 function onSubmit() {
 loading.value = true
@@ -189,7 +267,3 @@ if (product.value.id) {
 }
 }
 </script>
-
-<style>
-
-</style>

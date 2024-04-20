@@ -27,7 +27,10 @@ class ProductRequest extends FormRequest
             'categories_id' => ['nullable', 'numeric'],
             'image' => ['nullable', 'image'],
             'prices' => ['nullable', 'array'],
-            'prices.*' => ['nullable', 'numeric', 'exists:prices,id'],
+            // 'prices.*' => ['nullable', 'numeric', 'exists:prices,id'],
+            'alergens' => ['nullable', 'array'],
+            'alergens.id' => ['nullable', 'numeric', 'exists:alergens,id'],
+            'alergens.name' => ['nullable', 'string', 'exists:alergens,name'],
             'description' => ['nullable', 'string'],
             'published' => ['required', 'boolean'],
         ];

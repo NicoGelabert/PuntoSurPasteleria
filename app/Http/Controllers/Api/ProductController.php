@@ -56,6 +56,9 @@ class ProductController extends Controller
 
         $product = Product::create($data);
 
+        $alergens = \App\Models\Alergen::findOrFail($data['alergens']);
+        $product->alergens()->sync([$alergen->id]);
+
         return new ProductResource($product);
     }
 
@@ -66,7 +69,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $product -> load('prices');
+        $product -> load('prices', 'alergens');
         return new ProductResource($product);
     }
 

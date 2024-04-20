@@ -14,44 +14,44 @@ class ProductsAlergensSeeder extends Seeder
     public function run(): void
     {
         DB::table('products_alergens')->insert([
-            'products_id' => '1',
-            'alergens_id' => '1'
+            'product_id' => '1',
+            'alergen_id' => '1'
         ]);
         DB::table('products_alergens')->insert([
-            'products_id' => '1',
-            'alergens_id' => '2'
+            'product_id' => '1',
+            'alergen_id' => '2'
         ]);
         DB::table('products_alergens')->insert([
-            'products_id' => '1',
-            'alergens_id' => '3'
+            'product_id' => '1',
+            'alergen_id' => '3'
         ]);
         DB::table('products_alergens')->insert([
-            'products_id' => '1',
-            'alergens_id' => '4'
+            'product_id' => '1',
+            'alergen_id' => '4'
         ]);
         DB::table('products_alergens')->insert([
-            'products_id' => '2',
-            'alergens_id' => '1'
+            'product_id' => '2',
+            'alergen_id' => '1'
         ]);
         DB::table('products_alergens')->insert([
-            'products_id' => '2',
-            'alergens_id' => '3'
+            'product_id' => '2',
+            'alergen_id' => '3'
         ]);
         DB::table('products_alergens')->insert([
-            'products_id' => '2',
-            'alergens_id' => '4'
+            'product_id' => '2',
+            'alergen_id' => '4'
         ]);
         DB::table('products_alergens')->insert([
-            'products_id' => '3',
-            'alergens_id' => '2'
+            'product_id' => '3',
+            'alergen_id' => '2'
         ]);
         DB::table('products_alergens')->insert([
-            'products_id' => '3',
-            'alergens_id' => '4'
+            'product_id' => '3',
+            'alergen_id' => '4'
         ]);
         DB::table('products_alergens')->insert([
-            'products_id' => '4',
-            'alergens_id' => '3'
+            'product_id' => '4',
+            'alergen_id' => '3'
         ]);
     }
 }

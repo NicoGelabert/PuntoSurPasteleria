@@ -204,10 +204,29 @@ export function createProduct({commit}, product) {
     form.append('image', product.image);
     form.append('description', product.description || '');
     form.append('published', product.published ? 1 : 0);
-    form.append('price', product.price);
+    // form.append('price', product.price);
     product = form;
   }
   return axiosClient.post('/products', product)
+}
+
+export function updateProduct({commit}, product) {
+  const id = product.id
+  if (product.image instanceof File) {
+    const form = new FormData();
+    form.append('id', product.id);
+    form.append('title', product.title);
+    form.append('category', product.category);
+    form.append('categories_id', product.categories_id);
+    form.append('image', product.image);
+    form.append('description', product.description || '');
+    form.append('published', product.published ? 1 : 0);
+    form.append('_method', 'PUT');
+    product = form;
+  } else {
+    product._method = 'PUT'
+  }
+  return axiosClient.post(`/products/${id}`, product);
 }
 
 export function deleteProduct({commit}, id) {
@@ -335,26 +354,6 @@ export function updateCustomer({commit}, customer) {
 
 export function deleteCustomer({commit}, customer) {
   return axiosClient.delete(`/customers/${customer.id}`)
-}
-
-export function updateProduct({commit}, product) {
-  const id = product.id
-  if (product.image instanceof File) {
-    const form = new FormData();
-    form.append('id', product.id);
-    form.append('title', product.title);
-    form.append('category', product.category);
-    form.append('categories_id', product.categories_id);
-    form.append('image', product.image);
-    form.append('description', product.description || '');
-    form.append('published', product.published ? 1 : 0);
-    form.append('price', product.price);
-    form.append('_method', 'PUT');
-    product = form;
-  } else {
-    product._method = 'PUT'
-  }
-  return axiosClient.post(`/products/${id}`, product);
 }
 
 //ALERGENS

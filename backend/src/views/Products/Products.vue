@@ -29,7 +29,8 @@ category: '',
 categories_id:'',
 description: '',
 image: '',
-prices: ''
+prices: '',
+alergens:''
 }
 
 const productModel = ref({...DEFAULT_PRODUCT});

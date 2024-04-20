@@ -18,11 +18,11 @@ class DatabaseSeeder extends Seeder
             // CategoriesSeeder::class,
             // ProductSeeder::class,
             // AlergensSeeder::class,
-            // ProductsAlergensSeeder::class,
             // SliderImagesSeeder::class,
             // HomeHeroBannerSeeder::class,
             // PriceSeeder::class,
-            ProductPriceSeeder::class,
+            // ProductPriceSeeder::class,
+            ProductsAlergensSeeder::class,
         ]);
     }
 }

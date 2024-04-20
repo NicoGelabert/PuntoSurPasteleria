@@ -33,6 +33,13 @@ class ProductResource extends JsonResource
                     'size' => $price->size,
                 ];
             }),
+            'alergens' => $this->alergens->map(function ($alergen) {
+                return [
+                    'id' => $alergen->id,
+                    'name' => $alergen->name,
+                    'image' => $alergen->image,
+                ];
+            }),
             'published' => (bool)$this->published,
             'created_at' => (new \DateTime($this->created_at))->format('Y-m-d H:i:s'),
             'updated_at' => (new \DateTime($this->updated_at))->format('Y-m-d H:i:s'),
