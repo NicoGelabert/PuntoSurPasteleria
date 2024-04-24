@@ -4,7 +4,7 @@
             <h2>{{$categories->name}}</h2>
         </div>
         <div
-            class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:mx-12 listing mb-8"
+            class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:mx-12 listing mb-8"
         >
             @foreach($categories->products as $product)
             <div x-data="productItem({{ json_encode([
@@ -14,32 +14,37 @@
                 'title' => $product->title,
                 'price' => $product->price,
                 'addToCartUrl' => route('cart.add', $product)
-                ]) }})" class="border-transparent overflow-hidden rounded-lg bg-white underline-hover product_listing">
+                ]) }})" class="overflow-hidden rounded-lg underline-hover product_listing shadow-md bg-white/50">
                 <a href="{{ route('product.view', [$product->category?->slug, $product->slug ]) }}" class="aspect-w-3 aspect-h-2 block">
                     <img src="{{ $product->image }}" alt="{{$product->title}}" class="card-image object-cover hover:scale-105 hover:rotate-1 transition-transform" />
+                    <hr class="mb-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
                     <div class="p-4 card-listing">
                         <div class="flex justify-center w-full gap-4">
                             @foreach ($product->alergens as $alergen)
-                                <img src="{{ url($alergen?->image) }}" alt="{{ $alergen?->name }}">
+                            <img src="{{ url($alergen?->image) }}" data-tooltip-target="tooltip-{{ $alergen?->name }}" alt="" class="h-6 w-auto">
+                            <div id="tooltip-{{ $alergen?->name }}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
+                                <p class="small">Contains {{ $alergen?->name }}</p>
+                                <div class="tooltip-arrow" data-popper-arrow></div>
+                            </div>
                             @endforeach
                         </div>
                         <div class="flex flex-col items-center justify-center">
-                            <p class="small category_subtitle">{{$product->category?->name}}</p>
-                            <h4 class="w-fit">
+                            <h3 class="w-fit">
                                 {{$product->title}}
-                            </h4>
+                            </h3>
                         </div>
-                        <!-- <div class="relative flex justify-center">
-                            <span class="price">${{$product->price}}</span>
-                        </div> -->
-                        <div class="flex justify-center w-full gap-4">
+                        <ul class="flex flex-col gap-4">
                         @foreach ($product->prices as $price)
-                            <p> ${{$price->number}} - ${{$price->size}}</p>
+                            <li class="flex flex-col items-center gap-1" name="price" value="{{ $price?->id }}">
+                            <div class="price flex items-center justify-center py-1 px-2 rounded-full">
+                                <h5>€ {{ $price?->number }}</h5>
+                            </div>
+                            <p class="small price-size">{{ $price?->size }}</p>
                         @endforeach
-                        </div>
-                        <div class="relative flex">
+                        </ul>
+                        <!-- <div class="relative flex">
                             <p class="small">{{$product->description}}</p>
-                        </div>
+                        </div> -->
                     </div>
                 </a>
                 <div class="flex justify-center mb-5">

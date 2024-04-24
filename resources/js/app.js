@@ -94,36 +94,35 @@ document.addEventListener("alpine:init", async () => {
 
 Alpine.start();
 
-new Splide( '#image-carousel', {
-  type   : 'loop',
-  perPage: 4,
-  perMove: 1,
-  gap    : '0.5rem',
-  autoplay: false,
-  pagination: true,
-  omitEnd  : true,
-  autoWidth: false,
-  breakpoints: {
-    1280: {
-      perPage:4,
-      gap: '1rem',
-    },
-    800: {
-      perPage: 3,
-      gap    : '.7rem',
-    },
-    640: {
-      perPage: 2,
-      gap    : '.7rem',
-    },
-    480: {
-      perPage: 1,
-      gap    : '.5rem',
-    },
-  },
-}).mount();
-
 document.addEventListener('DOMContentLoaded', function () {
+  new Splide( '#image-carousel', {
+    type   : 'loop',
+    perPage: 4,
+    perMove: 1,
+    gap    : '0.5rem',
+    autoplay: false,
+    pagination: true,
+    omitEnd  : true,
+    autoWidth: false,
+    breakpoints: {
+      1280: {
+        perPage:4,
+        gap: '1rem',
+      },
+      800: {
+        perPage: 3,
+        gap    : '.7rem',
+      },
+      640: {
+        perPage: 2,
+        gap    : '.7rem',
+      },
+      480: {
+        perPage: 1,
+        gap    : '.5rem',
+      },
+    },
+  }).mount();
   // Tu código de inicialización de Splide aquí
   const splideImages = new Splide( '#hero_banner', {
     arrows: false,
@@ -150,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
   }).mount();
   
+  
   splideImages.on('move', function () {
     var currentImage = splideImages.index;
     var images = document.querySelectorAll(".splide__slide .image_slide");
@@ -175,3 +175,34 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   });
 });
+document.addEventListener('DOMContentLoaded', function () {
+
+  new Splide( '#categories', {
+    type   : 'loop',
+    perPage: 4,
+    perMove: 1,
+    gap    : '0.5rem',
+    autoplay: false,
+    pagination: true,
+    omitEnd  : true,
+    autoWidth: false,
+    breakpoints: {
+      1280: {
+        perPage:4,
+        gap: '1rem',
+      },
+      800: {
+        perPage: 3,
+        gap    : '.7rem',
+      },
+      640: {
+        perPage: 2,
+        gap    : '.7rem',
+      },
+      480: {
+        perPage: 1,
+        gap    : '.5rem',
+      },
+    },
+  }).mount();
+})

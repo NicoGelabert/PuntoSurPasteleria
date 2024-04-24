@@ -23,7 +23,7 @@ body{
         @apply text-xl;
     }
     h5{
-        @apply text-lg;
+        @apply text-base;
     }
     p{
         font-family: $secondary-font;
@@ -221,7 +221,8 @@ body{
         background: url('/storage/app/public/img/white-paper-texture.webp');
         background-position: center;
         background-size: contain;
-        // .splide__pagination{
+        .splide__pagination li span{
+            @apply hidden sm:block;
         //     @apply justify-evenly;
         //     li{
         //         @apply flex flex-col items-center gap-2;
@@ -232,11 +233,11 @@ body{
         //     .splide__pagination__page.is-active{
         //         background-color: $primary;
         //     }
-        // }
+        }
         /* Estilos para los puntos de paginación */
 /* Estilos para los puntos de paginación */
         .splide__pagination {
-            @apply relative flex justify-between list-none w-[90%] md:w-2/3 p-0 bottom-8;
+            @apply relative flex justify-between list-none sm:w-[90%] md:w-2/3 p-0 bottom-8;
             li {
                 @apply flex flex-col items-center gap-2;
                 span{
@@ -256,7 +257,7 @@ body{
             background: rgb(36,227,164);
             background: linear-gradient(90deg, rgba(36,227,164,0) 0%, rgba(36,227,164,1) 10%, rgba(36,227,164,1) 50%, rgba(36,227,164,1) 90%, rgba(36,227,164,0) 100%);
             content: "";
-            @apply h-px absolute top-[36px] w-full -z-[1];
+            @apply hidden sm:block h-px absolute top-[36px] w-full -z-[1];
         }
         
         .splide__pagination li.splide__pagination__page.is-active button {
@@ -303,13 +304,26 @@ body{
         color: $secondary-darker;
     }
     .price{
-        @apply text-2xl;
-        color: $primary;
-        font-family: $secondary-font;
+        background-color: $secondary;
+        h5{
+            @apply text-xl font-semibold;
+            color: $primary;
+            font-family: $secondary-font;
+        }
+    }
+    .price-size{
+        @apply font-semibold;
+        color: $primary-lighter;
     }
     .tooltip_alergens{
         background-color: $secondary;
         color: $primary;
+    }
+    [type='checkbox']:focus,
+    [type='radio']:focus, 
+    [type='radio']:checked{
+        color: $secondary;
+        --tw-ring-color:transparent;
     }
     // Global clases
     //promo-welcome
@@ -356,9 +370,22 @@ body{
         font-weight: 400;
     }
     .card-listing{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        @apply flex flex-col justify-between gap-y-4 text-center;
+                h3,h4{
+                    @apply text-center;
+                    color: $primary;
+                }
+                p{
+                    -webkit-box-orient: vertical;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    line-height: 1.3rem;
+                    max-height: 2.6rem;
+                    overflow:hidden; 
+                }
+                img{
+                    @apply h-6 w-auto;
+                }
       }
     .btn-cart-product{
         margin: 0;
@@ -405,40 +432,43 @@ body{
         }
     }
     #categories{
-        .listing{
-            .product_listing{
-                .small{
-                    -webkit-box-orient: vertical;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    line-height: 1.3rem;
-                    max-height: 2.6rem;
-                    overflow: hidden;
-                }
-            }
-        }
+        // .listing{
+            
+        //     .product-listing{
+        //         gap: 2rem;
+        //         max-width: 400px;
+        //         .small{
+        //             -webkit-box-orient: vertical;
+        //             display: -webkit-box;
+        //             -webkit-line-clamp: 2;
+        //             line-height: 1.3rem;
+        //             max-height: 2.6rem;
+        //             overflow: hidden;
+        //         }
+        //     }
+        // }
     }
     // SPLIDE Home carousel
     #image-carousel{
         ul li{
-            .card-listing{
-                @apply justify-between gap-y-4 text-center;
-                h4{
-                    @apply text-center;
-                    color: $primary;
-                }
-                p{
-                    -webkit-box-orient: vertical;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    line-height: 1.3rem;
-                    max-height: 2.6rem;
-                    overflow:hidden; 
-                }
-                img{
-                    @apply h-6 w-auto;
-                }
-            }
+            // .card-listing{
+            //     @apply justify-between gap-y-4 text-center;
+            //     h3,h4{
+            //         @apply text-center;
+            //         color: $primary;
+            //     }
+            //     p{
+            //         -webkit-box-orient: vertical;
+            //         display: -webkit-box;
+            //         -webkit-line-clamp: 2;
+            //         line-height: 1.3rem;
+            //         max-height: 2.6rem;
+            //         overflow:hidden; 
+            //     }
+            //     img{
+            //         @apply h-6 w-auto;
+            //     }
+            // }
         }
         .splide__pagination{
             @apply bottom-[-2rem] mr-0;

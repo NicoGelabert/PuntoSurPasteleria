@@ -120,14 +120,17 @@
                 <!-- <label for="quantity" class="block font-bold mr-4">
                     Quantity
                 </label> -->
-                <div class="flex flex-wrap justify-between align-center gap-y-4 my-8">
+                <div class="flex flex-col justify-between align-center gap-y-4 my-8">
                     <!-- <div x-data="{value: 1}" class="price">$    {{$product->price}}
                     </div> -->
                     @foreach ($product->prices as $price)
-                    <label>
-                        <input x-data="{value: 1}" class="price" type="radio" name="price" value="{{ $price?->id }}">
-                        $ {{ $price?->number }} - {{ $price?->size }}
-                    </label>
+                    <div class="flex items-center gap-4" name="price" value="{{ $price?->id }}">
+                        <input x-data="{value: 1}" type="radio" name="price" value="{{ $price?->id }}">
+                        <div class="price flex items-center justify-center py-1 px-2 rounded-full w-auto bg-transparent">
+                            <h5>€ {{ $price?->number }}</h5>
+                        </div>
+                        <p class="small price-size">{{ $price?->size }}</p>
+                    </div>
                     @endforeach
 
                     <div class="w-full flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-16">

@@ -32,7 +32,7 @@ class Alergen extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Products::class, 'products_alergens', 'alergens_id','products_id');
+        return $this->belongsToMany(Products::class, 'products_alergens', 'alergen_id','product_id');
     }
 
 }
