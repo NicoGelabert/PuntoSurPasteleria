@@ -198,7 +198,7 @@ body{
         color: $primary-darker;
     }
     #categorybuttons{
-        @apply w-full md:w-1/2 lg:w-2/5 flex flex-wrap p-2 justify-evenly gap-5;
+        @apply w-full md:w-1/2 flex flex-wrap p-2 justify-evenly gap-5;
         a{
             div{
                 @apply rounded-lg;
@@ -208,7 +208,7 @@ body{
                 @apply w-auto max-h-[40%] lg:max-h-[60%];
             }
             h5{
-                @apply normal-case leading-6;
+                @apply text-xl normal-case leading-6;
             }
             .svgcolor{
                 fill: aquamarine;
@@ -328,11 +328,12 @@ body{
     // Global clases
     //promo-welcome
     .promo-welcome{
-        background-color: $secondary;
-        // background-image: url("/storage/app/public/img/gota.png");
+        // background-color: $secondary;
+        // background-image: url("/storage/app/public/img/caro.jpeg");
+        // background-position: right;
         // background-repeat: no-repeat;
         // background-size: contain;
-        @apply px-8 sm:px-16;
+        @apply px-8 sm:px-16 max-w-[1024px] mx-auto;
     }
     .anchor-btn{
         @apply py-2 sm:px-8 hover:bg-slate-200 hover:border-transparent hover:text-slate-900 active:bg-slate-400 transition-colors text-xs sm:text-sm;

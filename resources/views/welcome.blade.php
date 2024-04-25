@@ -24,23 +24,33 @@
             <ul class="splide__pagination"></ul>
         </div>
 
-        <div class="px-5 max-w-screen-xl mx-auto flex justify-evenly items-center my-20">
-            <div id="categoryimagesection" class="hidden sm:inline-block max-w-[350px] lg:w-3/5">
-                <img src="{{ asset('storage/img/muffins.png') }}" alt="">
+        <div class="px-5 max-w-screen-xl mx-auto flex flex-col md:flex-row gap-20 md:gap-10 justify-evenly items-center my-20">
+            <div class="btns-port-web flex justify-center items-center w-1/2">
+                <div class="rounded-full absolute w-full max-w-[200px] sm:max-w-[300px] md:max-w-[300px]">
+                    <img src="{{ asset('storage/img/piece-of-brownie-cake-filled.jpeg') }}" class="rounded-full " alt="brownie" />
+                </div>
+                <div class="text-rotate">
+                    <svg viewBox="0 0 100 100">
+                        <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle" />
+                        <text>
+                            <textPath xlink:href="#circle">
+                            {{__('Find the happiness in a piece of cake')}}
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
             </div>
             <div id="categorybuttons">
                 @foreach ($categories as $category)
                     <a href="{{ route('categories.view', $category->slug) }}" class="" alt="">
                         <div class="h-full flex flex-wrap flex-col justify-evenly px-2 lg:px-4">
                             <img src="{{$category -> image}}" alt="{{$category -> name}}">
-                            <h5>{{$category -> name}}</h5>
+                            <h5>{{__($category -> name)}}</h5>
                         </div>
                     </a>
                 @endforeach
             </div>
         </div>
-
-        <x-promo-welcome />
 
         <section id="image-carousel" class="px-5 max-w-screen-xl splide my-16 mx-auto" aria-label="Latest products">
             <div class="mb-8 text-center">
@@ -65,15 +75,15 @@
                                     @foreach ($product->alergens as $alergen)
                                     <img src="{{ url($alergen?->image) }}" data-tooltip-target="tooltip-{{ $alergen?->name }}" alt="" class="h-6 w-auto">
                                     <div id="tooltip-{{ $alergen?->name }}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
-                                        <p class="small">Contains {{ $alergen?->name }}</p>
+                                        <p class="small">{{__('Contains')}} {{ __($alergen?->name) }}</p>
                                         <div class="tooltip-arrow" data-popper-arrow></div>
                                     </div>
                                     @endforeach
                                 </div>
                                 <div class="flex flex-col items-center justify-center">
-                                    <p class="small category_subtitle">{{$product->category?->slug}}</p>
+                                    <p class="small category_subtitle">{{__($product->category?->name)}}</p>
                                     <h3 class="w-fit">
-                                        {{$product->title}}
+                                        {{__($product->title)}}
                                     </h3>
                                 </div>
                                 <ul class="flex flex-col gap-4">
@@ -82,7 +92,7 @@
                                     <div class="price flex items-center justify-center py-1 px-2 rounded-full">
                                         <h5>€ {{ $price?->number }}</h5>
                                     </div>
-                                    <p class="small price-size">{{ $price?->size }}</p>
+                                    <p class="small price-size">{{__($price?->size) }}</p>
                                 @endforeach
                                 </ul>
                                 <!-- <div class="relative flex">
@@ -121,6 +131,7 @@
         
     </x-app-layout>
 <style>
+    /* Home Hero Banner */
     @keyframes rotateAnimation {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -141,7 +152,39 @@
     .active-animation.revert {
         transform: translateX(0); /* Desplazamiento de regreso a su posición original */
     }
+    /* Fin Home Hero Banner */
 
+    /* Texto Felicidad */
+    .btns-port-web-img{
+        width:100%;
+        max-width:200px;
+    }
+    .btns-port-web .text-rotate svg {
+		overflow: visible;
+		animation: circular-text-rotate 5s linear paused infinite;
+        width:100%;
+		max-width: 300px;
+        font-family: 'Mount-Hills';
+    	letter-spacing: 0.05rem;
+		font-weight:bold;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+        animation-play-state: running;
+	}
+	.btns-port-web .text-rotate svg:hover {
+	}
+	.btns-port-web .text-rotate path {
+		fill: none;
+	}
+	.btns-port-web .text-rotate text {
+		fill:#6C4852;
+	}
+	@keyframes circular-text-rotate {
+		to {
+		transform: rotate(-1turn);
+		}
+	}
+    /* Fin Texto Felicidad */
 </style>
 <script>
     const buttonsContainer = document.getElementById("categorybuttons");

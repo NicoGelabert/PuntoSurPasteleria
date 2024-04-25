@@ -2,7 +2,7 @@
     <div class="py-32 px-5 max-w-screen-xl splide mx-auto" id="categories">
         @foreach($categories as $category)
         <div class="my-8 text-center">
-            <h2>{{$category->name}}</h2>
+            <h2>{{__($category->name)}}</h2>
         </div>
         <div class="splide__track mx-8">
                 <ul class="splide__list">
@@ -29,9 +29,9 @@
                                     @endforeach
                                 </div>
                                 <div class="flex flex-col items-center justify-center">
-                                    <p class="small category_subtitle">{{$product->category?->slug}}</p>
+                                    <p class="small category_subtitle">{{__($product->category?->name)}}</p>
                                     <h3 class="w-fit">
-                                        {{$product->title}}
+                                        {{__($product->title)}}
                                     </h3>
                                 </div>
                                 <ul class="flex flex-col gap-4">

@@ -4,7 +4,7 @@
     <x-app-layout>
     <div class="flex flex-wrap justify-center gap-x-8 mt-24 md:mt-32">
         @foreach ($categories as $category)
-        <a href="{{ route('categories.view', $category->slug) }}" class="underline-hover"><p class="small">{{$category->name}}</p></a>
+        <a href="{{ route('categories.view', $category->slug) }}" class="underline-hover"><p class="small">{{__($category->name)}}</p></a>
         @endforeach
     </div>
     <hr class="my-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
@@ -103,16 +103,16 @@
             </div>
             <div class="w-full md:w-1/2 product-view" id="texto">
                 <a href="{{ route('categories.view', $product->category?->slug) }}">
-                    <p class="small category_subtitle">{{$product->category?->name}}</p>
+                    <p class="small category_subtitle">{{__($product->category?->name)}}</p>
                 </a>
                 <h1>
-                    {{$product->title}}
+                    {{__($product->title)}}
                 </h1>
                 <div class="flex w-full gap-4 mt-4">
                     @foreach ($product->alergens as $alergen)
                     <img src="{{ url($alergen?->image) }}" data-tooltip-target="tooltip-{{ $alergen?->name }}" alt="" class="h-6 w-auto">
                     <div id="tooltip-{{ $alergen?->name }}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
-                        <p class="small">Contains {{ $alergen?->name }}</p>
+                        <p class="small">{{__('Contains')}} {{ __($alergen?->name) }}</p>
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
                     @endforeach
@@ -129,7 +129,7 @@
                         <div class="price flex items-center justify-center py-1 px-2 rounded-full w-auto bg-transparent">
                             <h5>€ {{ $price?->number }}</h5>
                         </div>
-                        <p class="small price-size">{{ $price?->size }}</p>
+                        <p class="small price-size">{{ __($price?->size) }}</p>
                     </div>
                     @endforeach
 
@@ -203,16 +203,16 @@
                             x-collapse.min.120px
                             class="text-gray-500 wysiwyg-content"
                         >
-                            {{ $product->description }}
+                            {{ __($product->description) }}
                         </div>
-                        <p class="text-right">
+                        <!-- <p class="text-right">
                             <a
                                 @click="expanded = !expanded"
                                 href="javascript:void(0)"
                                 class="text-purple-500 hover:text-purple-700"
-                                x-text="expanded ? 'Read Less' : 'Read More'"
+                                x-text="expanded ? '{{__('Read Less')}}' : '{{__('Read More')}}'"
                             ></a>
-                        </p>
+                        </p> -->
                     </div>
                 </div>
             </div>
