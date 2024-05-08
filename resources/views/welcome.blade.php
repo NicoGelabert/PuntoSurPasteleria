@@ -6,11 +6,11 @@
                     @foreach ($homeHeroBanners as $homeHeroBanner)
                     <li class="splide__slide slider bg-gradient flex flex-col sm:flex-row items-center justify-evenly md:justify-center {{$homeHeroBanner -> background}} px-8">
                         <div class="text-left slide-in-left">
-                            <h1>{{$homeHeroBanner -> headline}}</h1>
-                            <p class="mt-2 text-md md:text-lg leading-8 text-gray-600 w-full">{{$homeHeroBanner -> description}}</p>
+                            <h1>{{ __($homeHeroBanner -> headline)}}</h1>
+                            <p class="mt-2 text-md md:text-lg leading-8 text-gray-600 w-full">{{ __($homeHeroBanner -> description) }}</p>
                             <div class="flex gap-3 my-6 md:justify-start">
                                 <a href="{{$homeHeroBanner -> link}}" class="btn-primary">
-                                {{__('Ver ')}}{{$homeHeroBanner -> headline}} 
+                                {{ __('Ver más') }}
                                 </a>
                             </div>
                         </div>            
@@ -34,7 +34,7 @@
                         <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle" />
                         <text>
                             <textPath xlink:href="#circle">
-                            {{__('Find the happiness in a piece of cake')}}
+                            {{__('La felicidad está en un trozo de tarta')}}
                             </textPath>
                         </text>
                     </svg>
@@ -45,7 +45,7 @@
                     @if(count($category->products) > 0)
                         <a href="{{ route('categories.view', $category->slug) }}" class="" alt="">
                             <div class="h-full flex flex-wrap flex-col justify-evenly px-2 lg:px-4">
-                                <img src="{{$category -> image}}" alt="{{$category -> name}}">
+                                <img src="{{$category -> image}}" alt="{{ __($category -> name)}}">
                                 <h5>{{__($category -> name)}}</h5>
                             </div>
                         </a>
@@ -56,7 +56,7 @@
 
         <section id="image-carousel" class="px-5 max-w-screen-xl splide my-16 mx-auto" aria-label="Latest products">
             <div class="mb-8 text-center">
-                <h2 class="text-2xl text-3xl">{{__('Latest products')}}
+                <h2 class="text-2xl text-3xl">{{__('Últimos productos')}}
             </div>
             <div class="splide__track mx-8">
                 <ul class="splide__list">
@@ -77,13 +77,13 @@
                                     @foreach ($product->alergens as $alergen)
                                     <img src="{{ url($alergen?->image) }}" data-tooltip-target="tooltip-{{ $alergen?->name }}" alt="" class="h-6 w-auto">
                                     <div id="tooltip-{{ $alergen?->name }}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
-                                        <p class="small">{{__('Contains')}} {{ __($alergen?->name) }}</p>
+                                        <p class="small">{{__('Contiene')}} {{ __($alergen?->name) }}</p>
                                         <div class="tooltip-arrow" data-popper-arrow></div>
                                     </div>
                                     @endforeach
                                 </div>
                                 <div class="flex flex-col items-center justify-center">
-                                    <p class="small category_subtitle">{{__($product->category?->name)}}</p>
+                                    <p class="small category_subtitle">{{ __($product->category?->name) }}</p>
                                     <h3 class="w-fit">
                                         {{__($product->title)}}
                                     </h3>
@@ -94,7 +94,7 @@
                                     <div class="price flex items-center justify-center py-1 px-2 rounded-full">
                                         <h5>€ {{ $price?->number }}</h5>
                                     </div>
-                                    <p class="small price-size">{{__($price?->size) }}</p>
+                                    <p class="small price-size">{{ __($price?->size) }}</p>
                                 @endforeach
                                 </ul>
                                 <!-- <div class="relative flex">

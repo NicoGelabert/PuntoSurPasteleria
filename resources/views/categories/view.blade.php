@@ -23,14 +23,14 @@
                             @foreach ($product->alergens as $alergen)
                             <img src="{{ url($alergen?->image) }}" data-tooltip-target="tooltip-{{ $alergen?->name }}" alt="" class="h-6 w-auto">
                             <div id="tooltip-{{ $alergen?->name }}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
-                                <p class="small">Contains {{ $alergen?->name }}</p>
+                                <p class="small">{{__('Contiene')}} {{ __($alergen?->name) }}</p>
                                 <div class="tooltip-arrow" data-popper-arrow></div>
                             </div>
                             @endforeach
                         </div>
                         <div class="flex flex-col items-center justify-center">
                             <h3 class="w-fit">
-                                {{$product->title}}
+                                {{__($product->title)}}
                             </h3>
                         </div>
                         <ul class="flex flex-col gap-4">
@@ -39,7 +39,7 @@
                             <div class="price flex items-center justify-center py-1 px-2 rounded-full">
                                 <h5>€ {{ $price?->number }}</h5>
                             </div>
-                            <p class="small price-size">{{ $price?->size }}</p>
+                            <p class="small price-size">{{ __($price?->size) }}</p>
                         @endforeach
                         </ul>
                         <!-- <div class="relative flex">

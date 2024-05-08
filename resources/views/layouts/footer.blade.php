@@ -20,7 +20,7 @@
     </div>
     <hr class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-white to-transparent opacity-50 dark:opacity-100" />
     <div class="post-footer max-w-[90%] lg:max-w-[80%] ">
-        <span>{{__('Site design and developed by')}}<a href="https://nicolasgelabert.com.ar" target="_blank"> Nicolás Gelabert</a></span>
+        <span>{{__('Sitio diseñado y desarrollado por')}}<a href="https://nicolasgelabert.com.ar" target="_blank"> Nicolás Gelabert</a></span>
         <ul class="flex gap-x-4">
             @foreach (Config::get('languages') as $lang => $language)
                 @if ($lang != App::getLocale())

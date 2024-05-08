@@ -5,7 +5,7 @@
 <x-app-layout>
     <?php if ($products->count() === 0): ?>
         <div class="text-center text-gray-600 py-16 text-xl h-screen">
-            There are no products published
+            {{ __('No hay productos publicados') }}
         </div>
     <?php else: ?>
         <div
@@ -32,7 +32,7 @@
                         <div class="p-4 card-listing">
                             <div>
                                 <h3 class="underline-hover w-fit">
-                                    {{$product->title}}
+                                    {{ __($product->title)}}
                                 </h3>
                             </div>
                             <!-- <div class="price-container relative flex justify-between my-4">

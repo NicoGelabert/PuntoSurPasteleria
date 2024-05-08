@@ -108,13 +108,13 @@
                     <p class="small category_subtitle">{{__($product->category?->name)}}</p>
                 </a>
                 <h1>
-                    {{__($product->title)}}
+                    {{ __($product->title) }}
                 </h1>
                 <div class="flex w-full gap-4">
                     @foreach ($product->alergens as $alergen)
                     <img src="{{ url($alergen?->image) }}" data-tooltip-target="tooltip-{{ $alergen?->name }}" alt="" class="h-6 w-auto">
                     <div id="tooltip-{{ $alergen?->name }}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
-                        <p class="small">{{__('Contains')}} {{ __($alergen?->name) }}</p>
+                        <p class="small">{{__('Contiene')}} {{ __($alergen?->name) }}</p>
                         <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
                     @endforeach
@@ -148,7 +148,7 @@
 
                     <div class="w-fit flex items-center h-10 gap-4 rounded-md bg-black/5 p-4 ring-1 ring-black/10 product-delivery">
                         <i class="fi fi-br-exclamation leading-none"></i>
-                        <p class="small-text leading-4">{{ __('Orders are placed 48 hours in advance') }}</p>
+                        <p class="small-text leading-4">{{ __('Los pedidos se realizan con 48hs de anticipación') }}</p>
                     </div>
 
                     <div class="encargo-ws">
@@ -157,7 +157,7 @@
                         onclick="openWhatsApp(this)"
                         class="flex items-center gap-4 h-10" >
                             <i class="flex text-2xl leading-none fi fi-brands-whatsapp"></i>
-                            <p class="font-bold">{{ __('Order by WhatsApp') }}</p>
+                            <p class="font-bold">{{ __('Encargar por whatsapp') }}</p>
                         </a>
                         <!-- <div class="flex items-center content-center quantity">
                             <button id="down" class="btn btn-default" onclick=" down('0')">
@@ -249,7 +249,7 @@
                                 @foreach ($product->alergens as $alergen)
                                 <img src="{{ url($alergen?->image) }}" data-tooltip-target="tooltip-{{ $alergen?->name }}" alt="" class="h-6 w-auto">
                                 <div id="tooltip-{{ $alergen?->name }}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
-                                    <p class="small">{{__('Contains')}} {{ __($alergen?->name) }}</p>
+                                    <p class="small">{{__('Contiene')}} {{ __($alergen?->name) }}</p>
                                     <div class="tooltip-arrow" data-popper-arrow></div>
                                 </div>
                                 @endforeach
