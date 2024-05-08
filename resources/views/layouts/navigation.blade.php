@@ -41,7 +41,7 @@
                         </div>
                     </a>
                 </li>
-                <li>
+                <!--<li>
                     <a
                         href="{{ route('cart.index') }}"
                         class="relative flex items-center justify-between py-2 px-3 transition-colors underline-hover"
@@ -63,7 +63,7 @@
                             </svg>
                             {{ __('Cart') }}
                         </div>
-                        <!-- Cart Items Counter -->
+                         Cart Items Counter 
                         <small
                             x-show="cartItemsCount"
                             x-transition
@@ -71,9 +71,9 @@
                             x-cloak
                             class="py-[2px] px-[8px] rounded-full bg-red-500 cart-widget"
                         ></small>
-                        <!--/ Cart Items Counter -->
+                        Cart Items Counter
                     </a>
-                </li>
+                </li> -->
                 @if (!Auth::guest())
                     <li x-data="{open: false}" class="relative">
                         <a
@@ -233,8 +233,11 @@
     </div>
     
     <!--/ Responsive Menu -->
-    <nav class="hidden md:flex w-full">
-        <ul class="grid grid-flow-col items-center w-2/5 justify-end">
+    <nav class="hidden md:flex w-full max-w-[1080px] mx-12 justify-between">    
+        <div class="logo flex justify-center">
+            <x-application-logo/>
+        </div>
+        <ul class="grid grid-flow-col items-center justify-end">
             <li x-data="{open: false}" class="relative">
                 <a
                     @click="open = !open"
@@ -289,10 +292,7 @@
                 </a>
             </li>
         </ul>
-        <div class="logo flex justify-center w-1/5">
-            <x-application-logo/>
-        </div>
-        <ul class="grid grid-flow-col items-center w-2/5 justify-start">
+        <!-- <ul class="grid grid-flow-col items-center w-2/5 justify-start">
             <li>
                 <a
                     href="{{ route('cart.index') }}"
@@ -321,8 +321,8 @@
                         class="absolute z-[100] top-4 -right-1 py-[2px] px-[8px] rounded-full bg-red-500 cart-widget mix-blend-multiply"
                     ></small>
                 </a>
-            </li>
-            @if (!Auth::guest())
+            </li> -->
+            <!-- @if (!Auth::guest())
                 <li x-data="{open: false}" class="relative">
                     <a
                         @click="open = !open"
@@ -460,16 +460,8 @@
                         {{ __('Login') }}
                     </a>
                 </li>
-                <!-- <li>
-                    <a
-                        href="{{ route('register') }}"
-                        class="btn-register py-2 px-3 shadow transition-colors mx-5"
-                    >
-                        {{ __('Register now') }}
-                    </a>
-                </li> -->
             @endif
-        </ul>
+        </ul> -->
     </nav>
     <div class="flex md:hidden">
         <div x-data="{open: false}" class="relative">

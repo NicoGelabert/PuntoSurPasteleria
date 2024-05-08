@@ -42,12 +42,14 @@
             </div>
             <div id="categorybuttons">
                 @foreach ($categories as $category)
-                    <a href="{{ route('categories.view', $category->slug) }}" class="" alt="">
-                        <div class="h-full flex flex-wrap flex-col justify-evenly px-2 lg:px-4">
-                            <img src="{{$category -> image}}" alt="{{$category -> name}}">
-                            <h5>{{__($category -> name)}}</h5>
-                        </div>
-                    </a>
+                    @if(count($category->products) > 0)
+                        <a href="{{ route('categories.view', $category->slug) }}" class="" alt="">
+                            <div class="h-full flex flex-wrap flex-col justify-evenly px-2 lg:px-4">
+                                <img src="{{$category -> image}}" alt="{{$category -> name}}">
+                                <h5>{{__($category -> name)}}</h5>
+                            </div>
+                        </a>
+                    @endif
                 @endforeach
             </div>
         </div>
@@ -100,9 +102,9 @@
                                 </div> -->
                             </div>
                         </a>
-                        <div class="flex justify-center mb-5">
+                        <!-- Add to Cart -->
+                        <!-- <div class="flex justify-center mb-5">
                             <button class="btn-cart-product" @click="addToCart()">
-                                <!-- Add to Cart -->
                                 <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 
@@ -118,7 +120,7 @@
                                     />
                                 </svg>
                             </button>
-                        </div>
+                        </div> -->
                     </li>
                     @endforeach
                 </ul>
