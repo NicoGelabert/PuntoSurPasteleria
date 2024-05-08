@@ -1,10 +1,11 @@
 <x-app-layout>
     <div class="py-32 px-5 max-w-screen-xl splide mx-auto" id="categories">
         @foreach($categories as $category)
-        <div class="my-8 text-center">
-            <h2>{{__($category->name)}}</h2>
-        </div>
-        <div class="splide__track mx-8">
+            @if(count($category->products) > 0)
+            <div class="my-8 text-center">
+                <h2>{{__($category->name)}}</h2>
+            </div>
+            <div class="splide__track mx-8">
                 <ul class="splide__list">
                     @foreach($category->products as $product)
                     <li x-data="productItem({{ json_encode([
@@ -48,9 +49,9 @@
                                 </div> -->
                             </div>
                         </a>
-                        <div class="flex justify-center mb-5">
+                        <!-- Add to Cart -->
+                        <!-- <div class="flex justify-center mb-5">
                             <button class="btn-cart-product" @click="addToCart()">
-                                <!-- Add to Cart -->
                                 <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 
@@ -66,11 +67,12 @@
                                     />
                                 </svg>
                             </button>
-                        </div>
+                        </div> -->
                     </li>
                     @endforeach
                 </ul>
             </div>
+            @endif
         @endforeach
         
     </div>

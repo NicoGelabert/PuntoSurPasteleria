@@ -1,6 +1,7 @@
 @use './globals' as *;
 @use './animations/animations' as *;
 body{
+    @apply overflow-x-hidden;
     background-color: $gray;
     h1, h2, h3, h4, h5, h6{
         font-family: $primary-font;
@@ -300,7 +301,7 @@ body{
     }
     // Global clases
     .category_subtitle{
-        @apply font-semibold pb-4 uppercase tracking-wider;
+        @apply font-semibold uppercase tracking-wider;
         color: $secondary-darker;
     }
     .price{
@@ -407,6 +408,22 @@ body{
     }
 
     .product-view{
+        @apply flex flex-col gap-4;
+        .product-delivery{
+            color: $primary;
+            .small-text{
+                @apply font-bold;
+            }
+        };
+        .encargo-ws{
+            @apply w-fit gap-4 rounded-md px-4 py-2 ring-1 ring-black/10;
+            background-color: $primary;
+            color: $secondary;
+        }
+        .encargo-ws:hover{
+            background-color: $secondary;
+            color: $primary;
+        }
         .add-to-cart-container {
             width:auto;
             .product-toast{

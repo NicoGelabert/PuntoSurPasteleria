@@ -101,19 +101,15 @@ document.addEventListener('DOMContentLoaded', function () {
     perMove: 1,
     gap    : '0.5rem',
     autoplay: false,
-    pagination: true,
+    pagination: false,
     omitEnd  : true,
     autoWidth: false,
     breakpoints: {
       1280: {
-        perPage:4,
+        perPage:3,
         gap: '1rem',
       },
       800: {
-        perPage: 3,
-        gap    : '.7rem',
-      },
-      640: {
         perPage: 2,
         gap    : '.7rem',
       },
@@ -123,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     },
   }).mount();
+
   // Tu código de inicialización de Splide aquí
   const splideImages = new Splide( '#hero_banner', {
     arrows: false,
@@ -183,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
     perMove: 1,
     gap    : '0.5rem',
     autoplay: false,
-    pagination: true,
+    pagination: false,
     omitEnd  : true,
     autoWidth: false,
     breakpoints: {
@@ -196,6 +193,33 @@ document.addEventListener('DOMContentLoaded', function () {
         gap    : '.7rem',
       },
       640: {
+        perPage: 2,
+        gap    : '.7rem',
+      },
+      480: {
+        perPage: 1,
+        gap    : '.5rem',
+      },
+    },
+  }).mount();
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+  new Splide( '#products-carousel', {
+    type   : 'loop',
+    perPage: 4,
+    perMove: 1,
+    gap    : '0.5rem',
+    autoplay: false,
+    pagination: false,
+    omitEnd  : true,
+    autoWidth: false,
+    breakpoints: {
+      1280: {
+        perPage:3,
+        gap: '1rem',
+      },
+      800: {
         perPage: 2,
         gap    : '.7rem',
       },

@@ -47,9 +47,9 @@
                         </div> -->
                     </div>
                 </a>
-                <div class="flex justify-center mb-5">
+                <!-- Add to Cart -->
+                <!-- <div class="flex justify-center mb-5">
                     <button class="btn-cart-product" @click="addToCart()">
-                        <!-- Add to Cart -->
                         <svg
                         xmlns="http://www.w3.org/2000/svg"
                         
@@ -65,7 +65,7 @@
                             />
                         </svg>
                     </button>
-                </div>
+                </div> -->
             </div>
             @endforeach
         </div>
