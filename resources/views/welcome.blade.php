@@ -29,12 +29,12 @@
                 <div class="rounded-full absolute w-full max-w-[200px] sm:max-w-[300px] md:max-w-[300px]">
                     <img src="{{ asset('storage/img/piece-of-brownie-cake-filled.jpeg') }}" class="rounded-full " alt="brownie" />
                 </div>
-                <div class="text-rotate">
+                <div class="text-rotate md:tracking-wide">
                     <svg viewBox="0 0 100 100">
                         <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle" />
                         <text>
                             <textPath xlink:href="#circle">
-                            {{__('La felicidad está en un trozo de tarta')}}
+                            {{__('La felicidad está en un trozo de tarta')}} ♥
                             </textPath>
                         </text>
                     </svg>
@@ -167,7 +167,6 @@
         width:100%;
 		max-width: 300px;
         font-family: 'Mount-Hills';
-    	letter-spacing: 0.03rem;
 		font-weight:bold;
         animation-duration: 15s;
         animation-iteration-count: infinite;
