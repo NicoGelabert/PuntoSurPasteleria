@@ -167,7 +167,7 @@
         width:100%;
 		max-width: 300px;
         font-family: 'Mount-Hills';
-    	letter-spacing: 0.05rem;
+    	letter-spacing: 0.03rem;
 		font-weight:bold;
         animation-duration: 15s;
         animation-iteration-count: infinite;
@@ -192,7 +192,7 @@
     const buttonsContainer = document.getElementById("categorybuttons");
     const childrenButtons = buttonsContainer.querySelectorAll("a");
     childrenButtons.forEach((item,index) =>{
-        ((index > 0 && index < 3) || (index > 4 && index < 7)) ? item.classList.add('btn-primary') : item.classList.add('btn-secondary');
+        (index > 0 && index < 4) ? item.classList.add('btn-primary') : item.classList.add('btn-secondary');
     })
 
 </script>

@@ -5,6 +5,12 @@
     "Tarta de Zanahoria": "Carrot Cake",
     "Tarta Banoffee": "Banoffee Cake",
     "Tarta Brownie": "Brownie Cake",
+    "Tarta de Chocolate": "Chocolate Cake",
+    "Empanadas de Ternera": "Beef Pies",
+    "Empanadas de Pollo": "Chicken Pies",
+    "Empanadas de Espinaca": "Spinach Pies",
+    "Lemon Pie" : "Lemon Pie",
+    "Tartaleta de Coco" : "Coconut tartlet",
     
     "Tartas": "Cakes",
     "Empanadas": "Pies",
@@ -13,6 +19,8 @@
 
     "Mediana | 6 porciones | 20cm": "Medium | 6 portions | 20cm",
     "Grande | 12 porciones | 28cm": "Large | 12 portions | 28cm",
+    "Mínimo 6 unidades" : "Minimum 6 units",
+    "Mínimo 3 unidades" : "Minimum 3 units",
     
     "Contiene": "Contains",
     "Gluten": "Gluten",
@@ -31,6 +39,20 @@
 
     "Un brownie tentador se fusiona con suavidad en una capa de crema, mientras el dulce de leche se desliza entre sus recovecos, creando una sinfonía de sabores que deleitan el paladar.": "A tempting brownie melts softly into a layer of cream, while the dulce de leche slides through its nooks, creating a symphony of flavors that delight the palate.",
     "Un brownie tentador se fusiona con su mejor aliado, el dulce de leche, creando una sinfonía de sabores." : "A tempting brownie merges with its best ally, dulce de leche, creating a symphony of flavors.",
+
+    "Una mezcla exquisita de chocolate se combina con suavidad en un lecho de dulce de leche, mientras una tentadora cobertura de chocolate completa esta experiencia celestial para el paladar." : "An exquisite blend of chocolate is gently combined on a bed of dulce de leche, while a tantalizing chocolate coating completes this heavenly experience for the palate.",
+
+    "Un relleno jugoso de ternera se envuelve con delicadeza en una masa dorada y crujiente, creando una experiencia gastronómica que deleita los sentidos." : "A juicy beef filling is delicately wrapped in a crispy, golden crust, creating a dining experience that delights the senses.",
+
+    "Un relleno tierno de pollo se abraza con cariño en una masa dorada y crujiente, ofreciendo una experiencia gastronómica que cautiva los sentidos." : "A tender chicken filling is lovingly embraced in a crispy, golden crust, offering a dining experience that captivates the senses.",
+
+    "Un relleno suculento de pollo se acurruca con esmero en una masa dorada y crujiente, brindando una experiencia gastronómica que enamora los sentidos." : "A succulent chicken filling is carefully nestled in a golden and crispy dough, providing a gastronomic experience that enchants the senses.",
+
+    "Una deliciosa mezcla de espinacas se envuelve con cuidado en una masa dorada y crujiente, ofreciendo una experiencia culinaria que sorprende y deleita." : "A delicious spinach blend is carefully wrapped in a crispy, golden crust, offering a culinary experience that surprises and delights.",
+
+    "Una suave y refrescante crema de limón reposa sobre una base de masa quebrada, regalando una explosión de frescura en cada bocado." : "A soft and refreshing lemon cream rests on a shortcrust pastry base, giving an explosion of freshness in every bite.",
+
+    "Una exquisita combinación de coco rallado se entrelaza con dulce de leche sobre una base de masa quebrada, creando una armonía de sabores que te transporta a un paraíso tropical en cada mordisco." : "An exquisite combination of grated coconut is intertwined with dulce de leche on a shortcrust pastry base, creating a harmony of flavors that transports you to a tropical paradise in every bite.",
 
     "Leer Menos": "Read Less",
     "Leer Más": "Read More",

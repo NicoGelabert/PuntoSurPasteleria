@@ -20,4 +20,10 @@ class CategoriesController extends Controller
         return view(
             'categories.view', ['categories' => $categories]);
     }
+
+    public function categoriasJson()
+    {
+        $categories = Categories::all();
+        return response()->json($categories);
+    }
 }

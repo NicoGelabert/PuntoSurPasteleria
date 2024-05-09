@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
     pagination: false,
     omitEnd  : true,
     autoWidth: false,
+    lazyLoad: 'nearby',
     breakpoints: {
       1280: {
         perPage:3,
@@ -134,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
     interval: 5000,
     speed: 1000,
     width: '100%',
+    lazyLoad: 'nearby',
     breakpoints: {
       // 800: {
       // },
@@ -172,36 +174,60 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   });
 });
-document.addEventListener('DOMContentLoaded', function () {
 
-  new Splide( '#categories', {
-    type   : 'loop',
-    perPage: 4,
-    perMove: 1,
-    gap    : '0.5rem',
-    autoplay: false,
-    pagination: false,
-    omitEnd  : true,
-    autoWidth: false,
-    breakpoints: {
-      1280: {
-        perPage:4,
-        gap: '1rem',
-      },
-      800: {
-        perPage: 3,
-        gap    : '.7rem',
-      },
-      640: {
-        perPage: 2,
-        gap    : '.7rem',
-      },
-      480: {
-        perPage: 1,
-        gap    : '.5rem',
-      },
-    },
-  }).mount();
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('/categorias-json')
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Error al obtener las categorías');
+          }
+          return response.json();
+        })
+        .then(data => {
+        console.log(data)
+          // La respuesta contiene las categorías
+          var categorias = data;
+  
+          // Iterar sobre las categorías y crear los sliders de Splide
+          categorias.forEach(function(categoria) {
+            var selector = '#splide_' + categoria.name.replace(/ /g, '_');
+            console.log('Selector:', selector);
+              new Splide(selector, {
+                type   : 'loop',
+                perPage: 4,
+                perMove: 1,
+                gap    : '0.5rem',
+                autoplay: false,
+                pagination: false,
+                omitEnd  : true,
+                autoWidth: false,
+                lazyLoad: 'nearby',
+                breakpoints: {
+                    1280: {
+                        perPage: 3,
+                        gap: '1rem',
+                    },
+                    800: {
+                        perPage: 2,
+                        gap    : '.7rem',
+                    },
+                    640: {
+                        perPage: 2,
+                        gap    : '.7rem',
+                    },
+                    480: {
+                        perPage: 1,
+                        gap    : '.5rem',
+                    },
+                },
+              }).mount();
+            });
+        })
+        .catch(error => {
+          console.error('Error al obtener las categorías:', error);
+          console.error('Mensaje de error:', error.message);
+          console.error('Stack trace:', error.stack);
+        });
 })
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -214,6 +240,7 @@ document.addEventListener('DOMContentLoaded', function () {
     pagination: false,
     omitEnd  : true,
     autoWidth: false,
+    lazyLoad: 'nearby',
     breakpoints: {
       1280: {
         perPage:3,

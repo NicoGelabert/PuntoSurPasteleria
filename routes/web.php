@@ -32,6 +32,7 @@ Route::middleware(['guestOrVerified'])->group(function () {
     
     // Route::get('/todo-lo-rico', [ProductController::class, 'index'])->name('product.index');
     Route::get('/menu', [CategoriesController::class, 'index'])->name('categories.index');
+    Route::get('/categorias-json', [CategoriesController::class, 'categoriasJson'])->name('categorias.json');
     Route::get('/menu/{categories:slug}', [CategoriesController::class, 'view'])->name('categories.view');
     Route::get('/menu/{categories:slug}/{product:slug}', [ProductController::class, 'view'])->name('product.view');
     

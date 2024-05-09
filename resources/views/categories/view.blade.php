@@ -4,7 +4,7 @@
             <h2>{{$categories->name}}</h2>
         </div>
         <div
-            class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:mx-12 listing mb-8"
+            class="flex flex-col md:flex-row flex-wrap gap-6 lg:mx-12 listing mb-8"
         >
             @foreach($categories->products as $product)
             <div x-data="productItem({{ json_encode([
@@ -14,7 +14,7 @@
                 'title' => $product->title,
                 'price' => $product->price,
                 'addToCartUrl' => route('cart.add', $product)
-                ]) }})" class="overflow-hidden rounded-lg underline-hover product_listing shadow-md bg-white/50">
+                ]) }})" class="overflow-hidden rounded-lg underline-hover product_listing shadow-md bg-white/50 max-w-[350px]">
                 <a href="{{ route('product.view', [$product->category?->slug, $product->slug ]) }}" class="aspect-w-3 aspect-h-2 block">
                     <img src="{{ $product->image }}" alt="{{$product->title}}" class="card-image object-cover hover:scale-105 hover:rotate-1 transition-transform" />
                     <hr class="mb-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
