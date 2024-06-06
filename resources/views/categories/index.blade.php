@@ -2,7 +2,7 @@
     <div class="py-32 flex flex-col gap-12">
         @foreach($categories as $category)
             @if(count($category->products) > 0)
-                <div class="px-5 max-w-screen-xl splide mx-auto" id="splide_{{ str_replace(' ', '_', $category->name) }}">
+                <div class="px-5 w-auto max-w-full xl:max-w-screen-xl splide mx-auto" id="splide_{{ str_replace(' ', '_', $category->name) }}">
                     <div class="my-8 text-center">
                         <h2>{{__($category->name)}}</h2>
                     </div>

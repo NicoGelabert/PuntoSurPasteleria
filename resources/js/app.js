@@ -203,22 +203,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 autoWidth: false,
                 lazyLoad: 'nearby',
                 breakpoints: {
-                    1280: {
-                        perPage: 3,
-                        gap: '1rem',
-                    },
-                    800: {
-                        perPage: 2,
-                        gap    : '.7rem',
-                    },
-                    640: {
-                        perPage: 2,
-                        gap    : '.7rem',
-                    },
-                    480: {
-                        perPage: 1,
-                        gap    : '.5rem',
-                    },
+                1280: {
+                    perPage: 3,
+                    gap: '1rem',
+                },
+                800: {
+                    perPage: 2,
+                    gap    : '.7rem',
+                },
+                640: {
+                    perPage: 1,
+                    gap    : '.7rem',
+                },
+                480: {
+                  perPage: 1,
+                  gap    : '.5rem',
+                },
                 },
               }).mount();
             });
