@@ -74,7 +74,7 @@
                         Cart Items Counter
                     </a>
                 </li> -->
-                @if (!Auth::guest())
+                <!-- @if (!Auth::guest())
                     <li x-data="{open: false}" class="relative">
                         <a
                             @click="open = !open"
@@ -157,7 +157,7 @@
                                 </a>
                             </li>
                             <li class="underline-hover">
-                                <!-- Authentication -->
+                                 Authentication 
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
     
@@ -216,7 +216,7 @@
                             {{ __('Register now') }}
                         </a>
                     </li>
-                @endif
+                @endif -->
             </ul>
             <div class="flex justify-center gap-4 social-icons">
                 <a href="https://wa.me/34622406965" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">
