@@ -73,7 +73,7 @@
                             <img src="{{ $product->image }}" alt="{{$product->title}}" class="card-image object-cover hover:scale-105 hover:rotate-1 transition-transform" />
                             <hr class="mb-4 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
                             <div class="p-4 card-listing">
-                                <div class="flex justify-center w-full gap-4">
+                                <!-- <div class="flex justify-center w-full gap-4">
                                     @foreach ($product->alergens as $alergen)
                                     <img src="{{ url($alergen?->image) }}" data-tooltip-target="tooltip-{{ $alergen?->name }}" alt="" class="h-6 w-auto">
                                     <div id="tooltip-{{ $alergen?->name }}" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip tooltip_alergens">
@@ -81,7 +81,7 @@
                                         <div class="tooltip-arrow" data-popper-arrow></div>
                                     </div>
                                     @endforeach
-                                </div>
+                                </div> -->
                                 <div class="flex flex-col items-center justify-center">
                                     <p class="small category_subtitle">{{ __($product->category?->name) }}</p>
                                     <h3 class="w-fit">
