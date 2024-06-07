@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="px-5 max-w-screen-xl flex flex-col justify-evenly items-center py-32 mx-auto" id="categories">
         <div class="mb-8">
-            <h2>{{$categories->name}}</h2>
+            <h2>{{ __($categories->name)}}</h2>
         </div>
         <div
             class="flex flex-col md:flex-row flex-wrap gap-6 lg:mx-12 listing mb-8"

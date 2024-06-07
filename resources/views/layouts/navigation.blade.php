@@ -50,11 +50,13 @@
                         class="flex flex-col gap-4 py-4"
                     >
                         @foreach ($categories as $category)
-                            <li class="w-full">
-                                <a href="{{ route('categories.view', $category->slug) }}">
-                                    <span>{{ $category->name }}</span>
-                                </a>
-                            </li>
+                            @if(count($category->products) > 0)
+                                <li class="w-full">
+                                    <a href="{{ route('categories.view', $category->slug) }}">
+                                        <span>{{ __($category->name) }}</span>
+                                    </a>
+                                </li>
+                            @endif
                         @endforeach
                     </ul>
                 </li>
