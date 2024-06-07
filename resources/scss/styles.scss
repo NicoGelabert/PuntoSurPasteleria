@@ -100,7 +100,15 @@ body{
             width: 1rem;
         }
         ul li{
-            @apply w-fit;
+            @apply w-full flex flex-col items-center;
+            h4{
+                @apply text-2xl font-bold;
+                color: $primary;
+                font-family: $secondary-font;
+            }
+            span{
+                @apply text-xl;
+            }
         }
     }
     // Function to show header according to scroll view
