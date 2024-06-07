@@ -201,18 +201,29 @@ body{
     #categorybuttons{
         @apply w-full md:w-1/2 flex flex-wrap p-2 justify-evenly gap-5;
         a{
-            div{
-                @apply rounded-lg;
+            .button-container{
+                @apply rounded-lg border-2 border-[#6C4852] relative;
+            }
+            .button-container:before{
+                background-color: $secondary;
+                border-radius: 0.5rem;
+                content: '';
+                height: 100%;
+                left: 0.5rem;
+                position: relative;
+                top: 0.5rem;
+                width: 100%;
+                z-index: -1;
             }
             @apply w-2/5 rounded-lg p-0 lg:gap-5 aspect-square;
             img{
                 @apply w-auto max-h-[40%] lg:max-h-[60%];
             }
             h5{
-                @apply text-xl normal-case leading-6;
+                @apply text-xl normal-case leading-6 text-[#6C4852] text-center;
             }
             .svgcolor{
-                fill: aquamarine;
+                fill: $primary;
             }
         }
     }

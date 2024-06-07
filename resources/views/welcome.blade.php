@@ -44,9 +44,11 @@
                 @foreach ($categories as $category)
                     @if(count($category->products) > 0)
                         <a href="{{ route('categories.view', $category->slug) }}" class="" alt="">
-                            <div class="h-full flex flex-wrap flex-col justify-evenly px-2 lg:px-4">
-                                <img src="{{$category -> image}}" alt="{{ __($category -> name)}}">
-                                <h5>{{__($category -> name)}}</h5>
+                            <div class="h-full flex flex-wrap flex-col justify-evenly button-container">
+                                <div class="absolute flex flex-col gap-4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                    <img src="{{$category -> image}}" alt="{{ __($category -> name)}}" class="max-w-20 mx-auto">
+                                    <h5>{{__($category -> name)}}</h5>
+                                </div>
                             </div>
                         </a>
                     @endif
@@ -188,10 +190,10 @@
     /* Fin Texto Felicidad */
 </style>
 <script>
-    const buttonsContainer = document.getElementById("categorybuttons");
-    const childrenButtons = buttonsContainer.querySelectorAll("a");
-    childrenButtons.forEach((item,index) =>{
-        (index > 0 && index < 4) ? item.classList.add('btn-primary') : item.classList.add('btn-secondary');
-    })
+    // const buttonsContainer = document.getElementById("categorybuttons");
+    // const childrenButtons = buttonsContainer.querySelectorAll("a");
+    // childrenButtons.forEach((item,index) =>{
+    //     (index > 0 && index < 4) ? item.classList.add('btn-primary') : item.classList.add('btn-secondary');
+    // })
 
 </script>
