@@ -1,23 +1,55 @@
 {
     "Sitio diseñado y desarrollado por": "Site design and developed by",
 
-    "Tarta de Queso": "Cheese Cake",
-    "Tarta de Zanahoria": "Carrot Cake",
-    "Tarta Banoffee": "Banoffee Cake",
-    "Tarta Brownie": "Brownie Cake",
-    "Tarta de Chocolate": "Chocolate Cake",
-    "Empanadas de Ternera": "Beef Pies",
-    "Empanadas de Pollo": "Chicken Pies",
-    "Empanadas de Espinaca": "Spinach Pies",
-    "Empanadas de Atún": "Tuna Pies",
-    "Empanadas de Cuatro Quesos y Aceitunas": "Four Cheese and Olives Pies",
-    "Empanadas de Jamón York y Queso": "York Ham and Cheese Pies",
-    "Lemon Pie" : "Lemon Pie",
-    "Tartaleta de Coco" : "Coconut tartlet",
-    
     "Tartas": "Cakes",
-    "Empanadas": "Pies",
+
+    "Tarta de Queso": "Cheese Cake",
+    "Una irresistible combinación de queso crema y nata reposa sobre una base de galleta crujiente, prometiendo un festín de sabores y texturas en cada bocado.": "An irresistible combination of cream cheese and cream rests on a crunchy cookie base, promising a feast of flavors and textures in every bite.",
+    "Una irresistible combinación de queso crema y nata sobre una base de galleta crujiente." : "An irresistible combination of cream cheese and cream on a crunchy cookie base.",
+
+    "Tarta de Zanahoria": "Carrot Cake",
+    "Una mezcla tentadora de zanahoria rallada se une con suavidad al queso hecho crema, sobre una base de nueces trituradas, creando una experiencia única que deleita los sentidos en cada mordisco.": "A tantalizing blend of grated carrot gently blends with cream cheese on a base of crushed walnuts, creating a unique experience that delights the senses with every bite.",
+    "Una mezcla tentadora de zanahoria con la suavidad del queso hecho crema y nueces trituradas." : "A tempting mix of carrot with the softness of cream cheese and crushed walnuts.",
+
+    "Tarta Banoffee": "Banoffee Cake",
+    "Una combinación exquisita de banana fresca se une con suavidad a una capa de crema, mientras el dulce de leche se desliza entre cada capa, creando una armonía de sabores que despiertan los sentidos.": "An exquisite combination of fresh banana gently joins a layer of cream, while the dulce de leche slides between each layer, creating a harmony of flavors that awaken the senses.",
+    "Una suave combinación de crema, con la dulzura del dulce de leche sobre una base de galletas" : "A soft combination of cream, with the sweetness of dulce de leche on a cookie base",
+
+    "Tarta Brownie": "Brownie Cake",
+    "Un brownie tentador se fusiona con suavidad en una capa de crema, mientras el dulce de leche se desliza entre sus recovecos, creando una sinfonía de sabores que deleitan el paladar.": "A tempting brownie melts softly into a layer of cream, while the dulce de leche slides through its nooks, creating a symphony of flavors that delight the palate.",
+    "Un brownie tentador se fusiona con su mejor aliado, el dulce de leche, creando una sinfonía de sabores." : "A tempting brownie merges with its best ally, dulce de leche, creating a symphony of flavors.",
+
+    "Tarta de Chocolate": "Chocolate Cake",
+    "Una mezcla exquisita de chocolate se combina con suavidad en un lecho de dulce de leche, mientras una tentadora cobertura de chocolate completa esta experiencia celestial para el paladar." : "An exquisite blend of chocolate is gently combined on a bed of dulce de leche, while a tantalizing chocolate coating completes this heavenly experience for the palate.",
+
+    "Empanadas": "Empanadas",
+
+    "Empanadas de Ternera": "Beef Empanadas",
+    "Un relleno jugoso de ternera se envuelve con delicadeza en una masa dorada y crujiente, creando una experiencia gastronómica que deleita los sentidos." : "A juicy beef filling is delicately wrapped in a crispy, golden crust, creating a dining experience that delights the senses.",
+
+    "Empanadas de Pollo": "Chicken Empanadas",
+    "Un relleno suculento de pollo se acurruca con esmero en una masa dorada y crujiente, brindando una experiencia gastronómica que enamora los sentidos." : "A succulent chicken filling is carefully nestled in a golden and crispy dough, providing a gastronomic experience that enchants the senses.",
+
+    "Empanadas de Espinaca": "Spinach Empanadas",
+    "Una deliciosa mezcla de espinacas se envuelve con cuidado en una masa dorada y crujiente, ofreciendo una experiencia culinaria que sorprende y deleita." : "A delicious spinach blend is carefully wrapped in a crispy, golden crust, offering a culinary experience that surprises and delights.",
+
+    "Empanadas de Atún": "Tuna Empanadas",
+    "Un relleno jugoso de atún se envuelve con delicadeza en una masa dorada y crujiente, creando una experiencia gastronómica que deleita los sentidos." : "A juicy tuna filling is delicately wrapped in a crispy, golden crust, creating a dining experience that delights the senses.",
+
+    "Empanadas de Cuatro Quesos y Aceitunas": "Four Cheese and Olives Empanadas",
+    "Un relleno suculento de cuatro quesos y aceitunas se acurruca con esmero en una masa dorada y crujiente, brindando una experiencia gastronómica que enamora los sentidos." : "A succulent filling of four cheeses and olives is carefully nestled in a golden and crispy dough, providing a gastronomic experience that enchants the senses.",
+
+    "Empanadas de Jamón York y Queso": "York Ham and Cheese Empanadas",
+    "Una deliciosa mezcla de quesos y jamón york se envuelve con cuidado en una masa dorada y crujiente, ofreciendo una experiencia culinaria que sorprende y deleita." : "A delicious blend of cheeses and ham is carefully wrapped in a crispy, golden crust, offering a culinary experience that surprises and delights.",
+
     "Otras Delicias": "Other Delicacies",
+
+    "Lemon Pie" : "Lemon Pie",
+    "Una suave y refrescante crema de limón reposa sobre una base de masa quebrada, regalando una explosión de frescura en cada bocado." : "A soft and refreshing lemon cream rests on a shortcrust pastry base, giving an explosion of freshness in every bite.",
+
+    "Tartaleta de Coco" : "Coconut tartlet",
+    "Una exquisita combinación de coco rallado se entrelaza con dulce de leche sobre una base de masa quebrada, creando una armonía de sabores que te transporta a un paraíso tropical en cada mordisco." : "An exquisite combination of grated coconut is intertwined with dulce de leche on a shortcrust pastry base, creating a harmony of flavors that transports you to a tropical paradise in every bite.",
+    
     "Desayunos": "Breakfasts",
 
     "Mediana | 6 porciones | 20cm": "Medium | 6 portions | 20cm",
@@ -39,32 +71,6 @@
     "Frutos de Cáscara" : "Nuts",
     "Sésamo" : "Sesame",
     "Cacahuetes" : "Peanuts",
-
-    "Una irresistible combinación de queso crema y nata reposa sobre una base de galleta crujiente, prometiendo un festín de sabores y texturas en cada bocado.": "An irresistible combination of cream cheese and cream rests on a crunchy cookie base, promising a feast of flavors and textures in every bite.",
-    "Una irresistible combinación de queso crema y nata sobre una base de galleta crujiente." : "An irresistible combination of cream cheese and cream on a crunchy cookie base.",
-
-    "Una mezcla tentadora de zanahoria rallada se une con suavidad al queso hecho crema, sobre una base de nueces trituradas, creando una experiencia única que deleita los sentidos en cada mordisco.": "A tantalizing blend of grated carrot gently blends with cream cheese on a base of crushed walnuts, creating a unique experience that delights the senses with every bite.",
-    "Una mezcla tentadora de zanahoria con la suavidad del queso hecho crema y nueces trituradas." : "A tempting mix of carrot with the softness of cream cheese and crushed walnuts.",
-
-    "Una combinación exquisita de banana fresca se une con suavidad a una capa de crema, mientras el dulce de leche se desliza entre cada capa, creando una armonía de sabores que despiertan los sentidos.": "An exquisite combination of fresh banana gently joins a layer of cream, while the dulce de leche slides between each layer, creating a harmony of flavors that awaken the senses.",
-    "Una suave combinación de crema, con la dulzura del dulce de leche sobre una base de galletas" : "A soft combination of cream, with the sweetness of dulce de leche on a cookie base",
-
-    "Un brownie tentador se fusiona con suavidad en una capa de crema, mientras el dulce de leche se desliza entre sus recovecos, creando una sinfonía de sabores que deleitan el paladar.": "A tempting brownie melts softly into a layer of cream, while the dulce de leche slides through its nooks, creating a symphony of flavors that delight the palate.",
-    "Un brownie tentador se fusiona con su mejor aliado, el dulce de leche, creando una sinfonía de sabores." : "A tempting brownie merges with its best ally, dulce de leche, creating a symphony of flavors.",
-
-    "Una mezcla exquisita de chocolate se combina con suavidad en un lecho de dulce de leche, mientras una tentadora cobertura de chocolate completa esta experiencia celestial para el paladar." : "An exquisite blend of chocolate is gently combined on a bed of dulce de leche, while a tantalizing chocolate coating completes this heavenly experience for the palate.",
-
-    "Un relleno jugoso de ternera se envuelve con delicadeza en una masa dorada y crujiente, creando una experiencia gastronómica que deleita los sentidos." : "A juicy beef filling is delicately wrapped in a crispy, golden crust, creating a dining experience that delights the senses.",
-
-    "Un relleno tierno de pollo se abraza con cariño en una masa dorada y crujiente, ofreciendo una experiencia gastronómica que cautiva los sentidos." : "A tender chicken filling is lovingly embraced in a crispy, golden crust, offering a dining experience that captivates the senses.",
-
-    "Un relleno suculento de pollo se acurruca con esmero en una masa dorada y crujiente, brindando una experiencia gastronómica que enamora los sentidos." : "A succulent chicken filling is carefully nestled in a golden and crispy dough, providing a gastronomic experience that enchants the senses.",
-
-    "Una deliciosa mezcla de espinacas se envuelve con cuidado en una masa dorada y crujiente, ofreciendo una experiencia culinaria que sorprende y deleita." : "A delicious spinach blend is carefully wrapped in a crispy, golden crust, offering a culinary experience that surprises and delights.",
-
-    "Una suave y refrescante crema de limón reposa sobre una base de masa quebrada, regalando una explosión de frescura en cada bocado." : "A soft and refreshing lemon cream rests on a shortcrust pastry base, giving an explosion of freshness in every bite.",
-
-    "Una exquisita combinación de coco rallado se entrelaza con dulce de leche sobre una base de masa quebrada, creando una armonía de sabores que te transporta a un paraíso tropical en cada mordisco." : "An exquisite combination of grated coconut is intertwined with dulce de leche on a shortcrust pastry base, creating a harmony of flavors that transports you to a tropical paradise in every bite.",
 
     "Leer Menos": "Read Less",
     "Leer Más": "Read More",

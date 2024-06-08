@@ -76,6 +76,9 @@ body{
         color: $primary;
     }
     header, .mobile-menu{
+        a{
+            @apply w-full;
+        }
         a:hover{
             color:$secondary-darker;
         }
@@ -100,7 +103,7 @@ body{
             width: 1rem;
         }
         ul li{
-            @apply w-full flex flex-col items-center;
+            @apply w-full text-center;
             h4{
                 @apply text-2xl font-bold;
                 color: $primary;

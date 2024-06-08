@@ -24,7 +24,7 @@
                 <li>
                     <a
                         href="{{ route('categories.index') }}"
-                        class="relative flex items-center justify-between py-2 px-3 transition-colors underline-hover"
+                        class="relative flex flex-col items-center justify-between py-2 px-3 transition-colors underline-hover"
                     >
                         <div class="flex flex-col items-center gap-2">
                             <svg
@@ -42,16 +42,10 @@
                             </h4>
                         </div>
                     </a>
-                    <ul
-                        @click.outside="open = false"
-                        x-show="open"
-                        x-transition
-                        x-cloak
-                        class="flex flex-col gap-4 py-4"
-                    >
+                    <ul class="flex flex-col gap-4 py-4">
                         @foreach ($categories as $category)
                             @if(count($category->products) > 0)
-                                <li class="w-full">
+                                <li>
                                     <a href="{{ route('categories.view', $category->slug) }}">
                                         <span>{{ __($category->name) }}</span>
                                     </a>

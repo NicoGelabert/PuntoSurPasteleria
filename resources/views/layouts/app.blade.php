@@ -17,21 +17,64 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <style>
-    #loader-wrapper{
-        width:100%;
-        height: 100vh;
-        display:flex;
+    #loader-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f3f3f3;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        z-index: 1000;
+        gap: 2rem;
     }
-    
+    #loader-wrapper svg{
+        fill:#6C4852;
+    }
+
+    #loader {
+        width: 50%;
+        height: 5px;
+        background-color: #e0e0e0;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    #progress-bar {
+        height: 100%;
+        width: 0;
+        background-color: #24e3a4;
+        border-radius: 15px;
+        transition: width 0.3s;
+    }
+
+    #loader-percentage {
+        font-size: 24px;
+        color: #6C4852;
+    }
+
     #body-content{
         display:none;
+        opacity: 0;
+        transition: opacity 1s;
+    }
+    #body-content.fade-in {
+        opacity: 1;
     }
 </style>
     <body>
         <div id="loader-wrapper">
-            <x-spinner />
+            <div class="w-40">
+                <x-application-logo/>
+            </div>
+            <div id="loader">
+                <div id="progress-bar"></div>
+            </div>
+            <div id="loader-percentage">0%</div>
         </div>
         <div id="body-content">
             <!-- Toast -->
@@ -85,14 +128,33 @@
     </body>
 </html>
 <script>
-    window.onload = function () {
-    //Find the element with id "loader-wrapper" and hide it
-        var loaderWrapper = document.getElementById('loader-wrapper');
-        var bodyContent = document.getElementById('body-content');
+    // window.onload = function () {
+    // //Find the element with id "loader-wrapper" and hide it
+    //     var loaderWrapper = document.getElementById('loader-wrapper');
+    //     var bodyContent = document.getElementById('body-content');
         
-        if (loaderWrapper) {
-            loaderWrapper.style.display = 'none';
-            bodyContent.style.display = 'block';
-        }
-    };
+    //     if (loaderWrapper) {
+    //         loaderWrapper.style.display = 'none';
+    //         bodyContent.style.display = 'block';
+    //     }
+    // };
+    document.addEventListener("DOMContentLoaded", function() {
+        let percentage = 0;
+        const progressBar = document.getElementById('progress-bar');
+        const interval = setInterval(function() {
+            if (percentage < 100) {
+                percentage += 1;
+                document.getElementById('loader-percentage').innerText = percentage + '%';
+                progressBar.style.width = percentage + '%';
+            } else {
+                clearInterval(interval);
+                document.getElementById('loader-wrapper').style.display = 'none';
+                const content = document.getElementById('body-content');
+                content.style.display = 'block';
+                setTimeout(function() {
+                    content.classList.add('fade-in');
+                }, 10);
+            }
+        });
+    });
 </script>

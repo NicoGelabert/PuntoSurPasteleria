@@ -1,3 +1,3 @@
-<a href="/welcome" class="block fill-current text-gray-800">
+<a href="/" class="block fill-current">
     <x-logo />
 </a>
