@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-DH07MX72G7"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-DH07MX72G7');
+            </script>
+        <!-- Google tag (gtag.js) -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -128,16 +138,6 @@
     </body>
 </html>
 <script>
-    // window.onload = function () {
-    // //Find the element with id "loader-wrapper" and hide it
-    //     var loaderWrapper = document.getElementById('loader-wrapper');
-    //     var bodyContent = document.getElementById('body-content');
-        
-    //     if (loaderWrapper) {
-    //         loaderWrapper.style.display = 'none';
-    //         bodyContent.style.display = 'block';
-    //     }
-    // };
     document.addEventListener("DOMContentLoaded", function() {
         let percentage = 0;
         const progressBar = document.getElementById('progress-bar');
