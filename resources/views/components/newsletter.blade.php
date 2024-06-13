@@ -11,7 +11,7 @@
             </div>
             <div class="w-full md:w-1/2 grid grid-cols-1 gap-x-8 gap-y-6 lg:pt-2">
                 <h2 class="text-3xl sm:text-4xl">{{__('Dónde nos encuentras')}}</h2>
-                <p class="text-lg leading-8 text-gray-600">{{__('Desde el año 2009 estamos en el corazón de Fuengirola, en la Costa del Sol.')}}</p>
+                <p class="text-lg leading-8 text-gray-600">{{__('Desde el año 2019 estamos en el corazón de Fuengirola, en la Costa del Sol.')}}</p>
                 <p class="text-md leading-8 text-gray-600">Av. Ramón y Cajal 10, Fuengirola, Málaga.</p>
                 <p class="text-sm font-bold leading-8">{{__('Horario de atención')}}<br>{{__('Lu - Vi')}} 10 a 20hs | {{__('Sa')}} 10 a 15hs.</p>
                 <div class="flex gap-6 social-icons">
