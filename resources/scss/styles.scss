@@ -47,7 +47,7 @@ body{
     }
     .logo{
         svg{
-            @apply w-12 md:w-24 h-auto;
+            @apply w-24 h-auto;
             fill:$primary;
         }
     }
