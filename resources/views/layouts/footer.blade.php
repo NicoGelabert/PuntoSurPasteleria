@@ -2,7 +2,7 @@
     <div class="footer-container flex flex-col max-w-[90%] lg:max-w-[80%] mx-auto gap-y-8">
         <div class="logo flex flex-col align-center gap-y-6 justify-between">
             <a href="{{ route('welcome') }}" class="flex gap-2">
-                <x-application-logo class="block fill-current" />
+                <img src="{{ asset('storage/img/logo-footer.png') }}" alt="" class="max-w-32">
             </a>
             <div class="flex justify-center gap-4 social-icons">
                 <a href="https://wa.me/34622406965" class="h-10 w-10 aspect-square rounded-md bg-black/5 p-2 ring-1 ring-black/10" target="_blank">

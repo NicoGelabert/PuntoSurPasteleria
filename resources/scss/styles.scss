@@ -241,9 +241,6 @@ body{
     //buttons
     // Hero Banner
     #hero_banner{
-        background: url('/storage/app/public/img/white-paper-texture.webp');
-        background-position: center;
-        background-size: contain;
         .splide__pagination li span{
             @apply hidden sm:block;
         //     @apply justify-evenly;
@@ -287,39 +284,6 @@ body{
             background-color: #333;
         }
 /* Estilos para los puntos de paginación */
-/* Continua #hero_banner */
-        ul{
-            .cake-1{
-                background: url('/storage/app/public/img/chessecake_ingredients_small.webp');
-                background-position: bottom;
-                background-repeat: no-repeat;
-                background-size: contain !important;
-                @media (min-width: 640px){
-                    background: url('/storage/app/public/img/chessecake_ingredients_large.webp');
-                    background-position: right;
-                    background-repeat: no-repeat;
-                    background-size: contain !important;
-                }
-            }
-            .cake-2{
-                background: url('/storage/app/public/img/carrotcake_ingredients_small.webp');
-                background-position: bottom;
-                background-repeat: no-repeat;
-                background-size: contain !important;
-                @media (min-width: 640px){
-                    background: url('/storage/app/public/img/carrotcake_ingredients_large.webp');
-                    background-position: right;
-                    background-repeat: no-repeat;
-                    background-size: contain !important;
-                }
-            }
-            .cake-3{
-                background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-            }
-            .cake-4{
-                background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-            }
-        }
     }
     // Global clases
     .category_subtitle{

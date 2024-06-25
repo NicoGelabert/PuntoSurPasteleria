@@ -16,6 +16,11 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title inertia>{{ config('app.name', 'Punto Sur Pastelería') }}</title>
+        <meta name="description" content="{{__('Descubre Punto Sur Pastelería en Fuengirola, Málaga. Deléitate con nuestras tartas y dulces elaborados con ingredientes de alta calidad y llenos de sabor. ¡Visítanos en la Costa del Sol!')}}" lang="es">
+
+        <meta name="keywords" content="{{__('pastelería Fuengirola, tartas Málaga, tarta de queso, tarta de zanahoria, tarta banoffee, tarta brownie, pastelería Costa del Sol, tartas de chocolate, empanadas Fuengirola, tartaleta de coco Málaga, Punto Sur Pastelería')}}">
+
+
 
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/img/puntosur.ico') }}">
 
